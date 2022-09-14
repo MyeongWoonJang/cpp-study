@@ -24,6 +24,7 @@ int main(int argc, char* argv[]) {
 	app.run();
 	
 	std::cout << "hi" << std::endl;
-
+	std::cout << "hi2" << std::endl;	
+	
 	return 0;
 }
