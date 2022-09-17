@@ -41,13 +41,11 @@ private:
 
 };
 
-int Dog::numid = 0;
-
-const bool operator<(const Dog& lhs, const Dog& rhs) { return lhs.getid() < rhs.getid(); }
-const bool operator>(const Dog& lhs, const Dog& rhs) { return rhs < lhs; }
-const bool operator<=(const Dog& lhs, const Dog& rhs) { return !(rhs < lhs); }
-const bool operator>=(const Dog& lhs, const Dog& rhs) { return !(lhs < rhs); }
-const bool operator==(const Dog& lhs, const Dog& rhs) { return lhs.getid() == rhs.getid(); }
-const bool operator!=(const Dog& lhs, const Dog& rhs) { return !(lhs == rhs); }
+const bool operator<(const Dog& lhs, const Dog& rhs) noexcept;
+const bool operator>(const Dog& lhs, const Dog& rhs) noexcept;
+const bool operator<=(const Dog& lhs, const Dog& rhs) noexcept;
+const bool operator>=(const Dog& lhs, const Dog& rhs) noexcept;
+const bool operator==(const Dog& lhs, const Dog& rhs) noexcept;
+const bool operator!=(const Dog& lhs, const Dog& rhs) noexcept;
 
 #endif
