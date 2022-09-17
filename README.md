@@ -18,9 +18,12 @@ Repository for learning how to communicate via github, c++ review and advanced l
 [sound]("")   
 
 ## How to communicate on github
-[마크다운 언어 - Jinkyu Kim](https://github.com/jinkyukim-me/markdown_ko)   
-- Issue, Discussion 등을 통해 깃허브에서 소통할 때는 마크다운 언어를 활용해야 합니다.
-- 별 문법이랄 게 없이 간단한 언어이니 다음을 할 수 있도록 공부합시다.   
+[마크다운 문법 - Jinkyu Kim](https://github.com/jinkyukim-me/markdown_ko)   
+- Issue, Discussion 등을 통해 깃허브에서 소통할 때는 마크다운 문법을 활용해야 합니다.
+- .md 확장자의 md가 Mark Down의 약자입니다.
+- 마크다운은 읽기도 쓰기도 쉬운 문서 양식을 지향합니다. </br>겁먹지 마세요. 매우 간단하고 쉽습니다.
+
+- 다음을 할 수 있도록 공부합시다.   
 
   - 글자 크기 조절하기
   - 볼드, 이탤릭, 취소선 설정하기
