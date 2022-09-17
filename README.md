@@ -35,13 +35,22 @@ Repository for learning how to communicate via github, c++ review and advanced l
   - 코드 삽입하기
   - 인용 삽입하기
 
+[Rabel 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/rabel_guide.md)
+- 어떠한 종류의 글인지 한 눈에 식별할 수 있도록, 모든 글(`Issue`, `Discussion`)에는 라벨을 부착합니다.
+- 게시글 제목은 라벨별로 번호를 정리해서 작성합니다.
+
 [Issue 사용법](https://github.com/MyeongWoonJang/cpp-study/issues/1)  
 - Issue는 `보고/확인`을 위한 용도입니다.
-- 버그
+- 버그나 코드 중복, 오탈자, 문서화 오류 등을 보고합니다.
+- 예상과 다른 효과나 성능을 보일 때에도 Issue를 통해 보고합니다.
 
 [Discussion 사용법](https://github.com/MyeongWoonJang/cpp-study/discussions/2)   
+- Discussion은 `질문/답변`, `기안`, `논의`를 위해 사용합니다.
+- 프로젝트 내/외적으로 잘 모르겠는 내용에 대한 질문이나 도움이 필요한 부분이 있을 때 사용합니다.
+- 협업 규칙, 프로젝트 설계 등 중요한 논의를 할 때 사용합니다.
+- 코드나 설계에 대해서 개선 사항이 있을 때 사용합니다.
+
 [Pull Request 사용법]()   
-- Discussion은 `질문/답변`, `논의`를 위해 사용합니다.
 
 [Github Desktop 사용법]()   
 
