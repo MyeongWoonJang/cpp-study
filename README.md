@@ -41,7 +41,7 @@ Repository for learning how to communicate via github, c++ review and advanced l
 - 예상과 다른 효과나 성능을 보일 때에도 Issue를 통해 보고합니다.
 
 [Discussion 사용법](https://github.com/MyeongWoonJang/cpp-study/discussions/2)   
-- Discussion은 `질문/답변`, `기안`, `논의`를 위해 사용합니다.
+- Discussion은 `질문/답변`, `기안`, `논의`를 위한 용도입니다.
 - 프로젝트 내/외적으로 잘 모르겠는 내용에 대한 질문이나 도움이 필요한 부분이 있을 때 사용합니다.
 - 협업 규칙, 프로젝트 설계 등 중요한 논의를 할 때 사용합니다.
 - 코드나 설계에 대해서 개선 사항이 있을 때 사용합니다.
