@@ -35,10 +35,6 @@ Repository for learning how to communicate via github, c++ review and advanced l
   - 코드 삽입하기
   - 인용 삽입하기
 
-[Rabel 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/rabel_guide.md)
-- 어떠한 종류의 글인지 한 눈에 식별할 수 있도록, 모든 글(`Issue`, `Discussion`)에는 라벨을 부착합니다.
-- 게시글 제목은 라벨별로 번호를 정리해서 작성합니다.
-
 [Issue 사용법](https://github.com/MyeongWoonJang/cpp-study/issues/1)  
 - Issue는 `보고/확인`을 위한 용도입니다.
 - 버그나 코드 중복, 오탈자, 문서화 오류 등을 보고합니다.
