@@ -1,7 +1,7 @@
 # cpp-study🎈
 <a href="https://isocpp.org/"><img src="https://img.shields.io/badge/Launguage-C%2B%2B17%2C%20C%2B%2B20-blue?logo=cplusplus"/></a>
 <a href="https://github.com/MyeongWoonJang/cpp-study"><img src="https://img.shields.io/github/languages/code-size/MyeongWoonJang/cpp-study"/></a>
-<a href="https://github.com/MyeongWoonJang/cpp-study"<img src="https://img.shields.io/github/repo-size/MyeongWoonJang/cpp-study"/></a>
+<a href="https://github.com/MyeongWoonJang/cpp-study"><img src="https://img.shields.io/github/repo-size/MyeongWoonJang/cpp-study"/></a>
 <a href="https://github.com/MyeongWoonJang/cpp-study/issues?q=is%3Aopen+is%3Aissue"><img src="https://img.shields.io/github/issues/MyeongWoonJang/cpp-study"/></a>
 <a href="https://github.com/MyeongWoonJang/cpp-study/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/MyeongWoonJang/cpp-study"/></a>
 
