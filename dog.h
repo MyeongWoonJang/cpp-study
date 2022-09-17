@@ -36,16 +36,18 @@ public:
     const int getid() const noexcept { return id; }
 
 private:
-    static int numid = 0;
+    static int numid;
     int id;
 
 };
 
-const bool operator<(const Dog& lhs, const Dog& rhs) noexcept { return lhs.getid() < rhs.getid(); }
-const bool operator>(const Dog& lhs, const Dog& rhs) noexcept { return rhs < lhs; }
-const bool operator<=(const Dog& lhs, const Dog& rhs) noexcept { return !(rhs < lhs); }
-const bool operator>=(const Dog& lhs, const Dog& rhs) noexcept { return !(lhs < rhs); }
-const bool operator==(const Dog& lhs, const Dog& rhs) noexcept { return lhs.getid() == rhs.getid(); }
-const bool operator!=(const Dog& lhs, const Dog& rhs) noexcept { return !(lhs == rhs);
+int Dog::numid = 0;
+
+const bool operator<(const Dog& lhs, const Dog& rhs) { return lhs.getid() < rhs.getid(); }
+const bool operator>(const Dog& lhs, const Dog& rhs) { return rhs < lhs; }
+const bool operator<=(const Dog& lhs, const Dog& rhs) { return !(rhs < lhs); }
+const bool operator>=(const Dog& lhs, const Dog& rhs) { return !(lhs < rhs); }
+const bool operator==(const Dog& lhs, const Dog& rhs) { return lhs.getid() == rhs.getid(); }
+const bool operator!=(const Dog& lhs, const Dog& rhs) { return !(lhs == rhs); }
 
 #endif
