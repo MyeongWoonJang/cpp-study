@@ -5,8 +5,8 @@
 <a href="https://github.com/MyeongWoonJang/cpp-study/issues?q=is%3Aopen+is%3Aissue"><img src="https://img.shields.io/github/issues/MyeongWoonJang/cpp-study"/></a>
 <a href="https://github.com/MyeongWoonJang/cpp-study/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/MyeongWoonJang/cpp-study"/></a>
 
-깃허브로 소통하는 법 익히기, c++ 복습 및 심화 학습을 위해 만들어진 레포지터리   
-Repository for learning how to communicate via github, c++ review and advanced learning.
+c++ 복습 및 심화 학습을 위해 만들어진 레포지터리   
+Repository for c++ review and advanced learning
 
 ## Table of contents
 [unique_ptr]("")   
