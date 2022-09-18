@@ -17,6 +17,13 @@ Repository for c++ review and advanced learning
 [image]("")   
 [sound]("")   
 
+## Project managing
+프로젝트 관리 툴 `Jira`를 통해 프로젝트를 관리합니다.   
+`애자일 방법론(Agile Methodology)` 중 `스크럼(Scrum)` 방식을 채택하였습니다.   
+
+Collaborator 분들은 [Jira 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/jira_guide.md)을 익혀주세요.
+
+
 ## How to communicate on github
 [마크다운 문법 - Jinkyu Kim](https://github.com/jinkyukim-me/markdown_ko)   
 - `Issue`, `Discussion` 등을 통해 깃허브에서 소통할 때는 마크다운 문법을 활용해야 합니다.
@@ -47,9 +54,9 @@ Repository for c++ review and advanced learning
 - 협업 규칙, 프로젝트 설계 등 중요한 논의를 할 때 사용합니다.
 - 코드나 설계에 대해서 개선 사항이 있을 때 사용합니다.
 
-[Pull Request 사용법]()   
+[Pull Request 사용법]()(추후 추가 예정)
 
-[Github Desktop 사용법]()   
+[Github Desktop 사용법]()(추후 추가 예정)
 
 ## Credit
 [@Woon2](https://github.com/MyeongWoonJang)   
