@@ -15,6 +15,16 @@
 
 </br>
 
+## 바로가기
+[1. good first issue](#1-good-first-issue)   
+[2. bug](#2-bug)   
+[3. documentation](#3-documentation)   
+[4. duplicate](#4-duplicate)   
+[5. enhancement](#5-enhancement)   
+[6. help wanted](#6-help-wanted)   
+[7. invalid](#7-invalid)   
+[8. question](#8-question)   
+
 # 라벨의 종류
 
 ## 1. good first issue
