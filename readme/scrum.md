@@ -1,6 +1,7 @@
 # 스크럼 Scrum
 
-[애자일 개발 프로세스](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/agile_methodology.md) 중의 하나로, `스프린트(sprint)`라 불리우는 작은 주기로 해야할 일들을 정리하는 방법이다.
+[애자일 개발 프로세스](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/agile_methodology.md) 중의 하나로, `스프린트(sprint)`라 불리우는 작은 주기로 해야할 일들을 정리하는 방법이다.   
+보통 한 스프린트는 1~4 주 정도의 기간을 갖는다.
 
 ## 스크럼에서의 업무 진행 과정
 
