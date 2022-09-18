@@ -15,7 +15,7 @@
 
 </br>
 
-## 바로가기
+## 라벨 설명 바로가기
 [1. good first issue](#1-good-first-issue)   
 [2. bug](#2-bug)   
 [3. documentation](#3-documentation)   
@@ -23,7 +23,9 @@
 [5. enhancement](#5-enhancement)   
 [6. help wanted](#6-help-wanted)   
 [7. invalid](#7-invalid)   
-[8. question](#8-question)   
+[8. question](#8-question)  
+
+</br>
 
 # 라벨의 종류
 
