@@ -18,6 +18,23 @@
 ## 자신의 브랜치에서 작업하기
 
 `Git`의 진정한 힘은 협업에서 발휘되지만, 혼자서 작업할 때에도 유용합니다.
+이 항목에서는 혼자서 작업할 때 `Github Desktop`을 통해 `Git`을 이용하는 법을 소개합니다.
+
+### Fetch
+
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/191002635-df06619b-45ae-409f-ba0f-1be5b4c3fd21.PNG"></div>
+
+### Pull
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/191002749-58ad053d-6191-4cb7-8b38-e047ceb14ad5.PNG"></div>
+
+### Commit
+  
+### Push
+  
+### Amend Commit
+  
+### Revert Commit
 
 
 ## 타인과 협업하기
