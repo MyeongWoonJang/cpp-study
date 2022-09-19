@@ -14,7 +14,7 @@ Test::result base_app::tgrowl() noexcept
 {
     Dog dog;
     dog.growl();
-
+    
     return Test::result::PASS;
 }
 
@@ -22,6 +22,6 @@ Test::result base_app::tbark() noexcept
 {
     Dog dog;
     dog.bark();
-
+    
     return Test::result::PASS;
 }
