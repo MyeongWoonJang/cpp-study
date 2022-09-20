@@ -56,7 +56,7 @@ Collaborator 분들은 [Jira 사용법](https://github.com/MyeongWoonJang/cpp-st
 
 [Pull Request 사용법]()(추후 추가 예정)
 
-[Github Desktop 사용법]()(추후 추가 예정)
+[Github Desktop 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/github_desktop_guide.md)
 
 ## Credit
 [@Woon2](https://github.com/MyeongWoonJang)   
