@@ -4,10 +4,12 @@
 `CLI(Command Line Interface)`를 통해 `Git` 명령어를 직접 입력하는 것보다 훨씬 간편하게 `Git`을 이용할 수 있습니다.
 
 - `Git`의 주요 기능들을 전부 마우스 클릭 한 번으로 실행할 수 있습니다.
-  - `Fetch`
-  - `Pull`
-  - `Commit`
-  - `Push`
+  - [`Fetch`](#fetch)
+  - [`Pull`](#pull)
+  - [`Commit`](#commit)
+  - [`Push`](#push)
+  - [`Amend Commit`](#amend-commit)
+  - [`Revert Commit`](#revert-commit)
   - `Create Branch`
   - `Checkout Branch`
   - `Merge Branch`
@@ -89,6 +91,7 @@ ___
 <div align="center"><image src="https://user-images.githubusercontent.com/73771162/191241490-b0fccb2c-855a-4b32-ae81-09e40e31b5ab.PNG"></div>
 
 - 이 커밋과 같이, 간단한 커밋들은 메시지(제목)만 작성하고 세부 내용은 작성하지 않아도 괜찮습니다.
+___
   
 ### Push
 
@@ -101,8 +104,14 @@ ___
 - **`Commit`은 `Local Repository`에 `Snapshot`을 기록하는 명령어지, `Remote Repository`에 업로드하는 명령어가 아닙니다.**   
   **따라서 `Commit`만으로는 `Remote Repository`에 변화를 줄 수 없습니다.**   
   **`Push`를 해야 합니다.**
+___
   
 ### Amend Commit
+  
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191248246-f6096307-bb12-4ee8-840b-b5228dd02b8e.png"></div>
+  
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191248251-545911b7-3f1b-4ada-a854-706aa7d3a338.png"></div>
+
   
 - `Amend Commit`은 가장 최근의 `Commit`을 수정하는 기능입니다.
 - `Amend Commit` 이후 추가 작업한 내용은, 새로운 `Commit`으로 기록되지 않고 기존 `Commit`에 합쳐집니다.
@@ -110,13 +119,16 @@ ___
 - `Local Repository`가 가장 최근 `Commit` 이전 상태로 돌아가는 것이 아닙니다.   
   그것은 밑에서 살펴볼 `Revert Commit`입니다.   
   `Amend Commit`은 쉽게 말하면, 지금 새로 작업하는 내용을 가장 최근의 `Commit`에 합치겠다는 겁니다.
+___
   
 ### Revert Commit
 
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191248660-c3388f7b-2118-41fa-bf94-21a04d24b222.png"></div>
+  
 - `Revert Commit`은 특정 `Commit`을 취소하는 기능입니다.
 - 해당 `Commit`의 변경 사항들이 취소되어, 변경 이전으로 되돌아갑니다.
 - 어느 시점의 Commit이든 상관 없이 `Revert`할 수 있습니다.
-- `Revert Commit` 또한 하나의 `Commit`이므로, 반드시 `Commit` 한 이후에 새로운 작업을 하시기 바랍니다.
+- **`Revert Commit` 또한 하나의 `Commit`이므로, 반드시 `Push` 한 이후에 새로운 작업을 하시기 바랍니다.**
   - 안 그러면 후회할 일이 많을 겁니다...
   - `Revert Commit`을 `Revert`하면, 아무 일도 없던 것처럼 원상복구됩니다, 마치 ~~A = A인 것처럼.   
   그 커밋의 이름은 `Revert Revert Commit`이 됩니다.
