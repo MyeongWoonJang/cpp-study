@@ -4,16 +4,16 @@
 `CLI(Command Line Interface)`를 통해 `Git` 명령어를 직접 입력하는 것보다 훨씬 간편하게 `Git`을 이용할 수 있습니다.
 
 - `Git`의 주요 기능들을 전부 마우스 클릭 한 번으로 실행할 수 있습니다.
-  - [`Fetch`](#fetch) ★
-  - [`Pull`](#pull) ★
-  - [`Commit`](#commit) ★
-  - [`Push`](#push) ★
+  - ★ [`Fetch`](#fetch)
+  - ★ [`Pull`](#pull)
+  - ★ [`Commit`](#commit)
+  - ★ [`Push`](#push)
   - [`Amend Commit`](#amend-commit)
   - [`Revert Commit`](#revert-commit)
-  - `Create Branch` ★
-  - `Checkout Branch` ★
-  - `Merge Branch` ★
-  - `Create Pull Request` ★
+  - ★ `Create Branch`
+  - ★ `Checkout Branch`
+  - ★ `Merge Branch`
+  - ★ `Create Pull Request`
 - `Changes` 목록에서 작업 내용을 한 눈에 볼 수 있습니다.
 - `History` 목록에서 과거 작업 내용을 한 눈에 볼 수 있습니다.
 
