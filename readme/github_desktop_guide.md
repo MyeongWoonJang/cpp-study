@@ -10,8 +10,8 @@
   - ★ [`Push`](#push)
   - [`Amend Commit`](#amend-commit)
   - [`Revert Commit`](#revert-commit)
-  - ★ `Create Branch`
-  - ★ `Checkout Branch`
+  - ★ [`Create Branch`](#create-branch)
+  - ★ [`Checkout Branch`](#checkout-branch)
   - ★ `Merge Branch`
   - ★ `Create Pull Request`
 - `Changes` 목록에서 작업 내용을 한 눈에 볼 수 있습니다.
@@ -134,3 +134,57 @@ ___
   그 커밋의 이름은 `Revert Revert Commit`이 됩니다.
   
 ## 타인과 협업하기
+
+`Git`의 진정한 힘은 협업에서 발휘됩니다.  
+  
+`Branch`는 분기라는 뜻입니다.   
+분기점을 만들어서 독립적인 작업 흐름을 보장하죠.   
+  
+팀 작업을 할 때에는 여러 사람이 있으니, 개인별로 작업 공간이 필요합니다.   
+개별 기능들을 따로 구현했다가 나중에 조립해야 하는 경우를 생각하면, 기능별로도 작업 공간이 필요합니다.   
+  
+>가령, `로봇`을 만드는데 `팔`, `다리`, `머리`, `몸통` 부품을 따로 개발하는 경우가 있겠습니다.   
+>그러면 `로봇` 프로젝트로부터 4개의 `Branch`를 만들어야 할 겁니다.   
+>  
+>`팔`을 자세히 살펴보니 또 `손가락`, `손목`, `아랫팔`, `팔꿈치`, `윗팔` 부품의 개발이 필요합니다.   
+>따라서 `팔`은 또 5개의 `Branch`를 가져야겠죠.   
+>  
+>`Tree`를 생각하시면 편하겠습니다.   
+>가지를 뻗어, 독립적인 작업 흐름을 만듭니다.   
+>  
+>나중에는, 하나의 `로봇`으로 합쳐야겠죠?
+
+`Merge`는 합병이라는 뜻입니다.   
+서로 다른 두 `Branch`를 하나의 `Branch`로 합칩니다.
+  
+한 `Branch`에 `A`, `B`, `C`라는 파일이 있고 다른 `Branch`에 `D`, `E`라는 파일이 있다면   
+`Merge`된 `Branch`에는 `A`, `B`, `C`, `D`, `E`라는 파일이 있습니다.
+ 
+중요한 경우는 한 `Branch`에도 `A`라는 파일이 있고, 다른 `Branch`에도 `A`라는 파일이 있는 경우입니다.   
+이 상황을 `Conflict`가 발생했다고 합니다.   
+`Git`은 훌륭하게도, `Merge`된 `Branch`의 `A` 파일에 차이점을 분석해서 요약합니다, 무엇의 차이점을요?   
+`Merge` 되기 전 서로 달랐던 두 `A` 파일의 차이점을요.
+여러분은 그 요약을 보고 차이점들을 수동으로 합친 다음 `Git`이 생성한 요약을 지워주시면 됩니다.
+그러면 `Conflict`가 해결됩니다.
+  
+___
+  
+### Create Branch
+
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191769143-9cb6f4ee-913b-49e3-92fb-83c2e5f82ee3.png"></div>
+
+- `메뉴 바`의 `Branch` - `New Branch`를 클릭하면
+이름만 지어서 바로 새 `Branch`를 만들 수 있습니다.
+- **만들어진 `Branch`는 `Current Branch`의 파일들이 복사됩니다.**   
+  (실제 복사는 아니고, `Current Branch`의 `Snapshot`을 갖는 것입니다.)
+  
+___
+  
+### Checkout Branch
+
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191770974-a3ebf508-d989-4f6a-a3bc-d64d0fe9cb25.png"></div>
+  
+- `Branch`들은 독립적인 작업 공간이니, 서로 다른 `Branch`로 전환해서 작업해야 할 필요도 있을 겁니다.   
+  (`Git`의 `Head`를 다른 `Branch`로 `Checkout` 하는 일입니다.)
+- `Current Branch`를 클릭하면 `Branch` 목록이 나옵니다.
+- 전환하고 싶은 `Branch`를 한 번 클릭하는 것으로, 바로 전환할 수 있습니다.
