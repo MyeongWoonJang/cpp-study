@@ -4,6 +4,7 @@
 `CLI(Command Line Interface)`를 통해 `Git` 명령어를 직접 입력하는 것보다 훨씬 간편하게 `Git`을 이용할 수 있습니다.
 
 - `Git`의 주요 기능들을 전부 마우스 클릭 한 번으로 실행할 수 있습니다.
+  - [`Clone Repository`](#clone-repository)
   - ★ [`Fetch`](#fetch)
   - ★ [`Pull`](#pull)
   - ★ [`Commit`](#commit)
@@ -59,12 +60,21 @@
 <div align="center"><image width="800" height="555" src="https://user-images.githubusercontent.com/73771162/192854917-3f2ff7e6-4192-4799-8f4a-186c82ae0fc8.PNG"></div>
 
 - `Remote Repository`의 `URL`을 지정하고, `Local Repository`의 `Path`를 지정합니다.
+  
   - `GitHub.com`이나 `URL` 둘 중 아무 곳에서나 입력해도 됩니다.
-  - `Remote Repository`의 `URL`은 
+  - `Remote Repository`의 `URL`은 `Github`에서 여러분의 `Repository` 페이지를 들어가서 `Code` 항목이 보이는 그 상태의 `URL`입니다.
+
+<div align="center"><image width="1000" height="520" src="https://user-images.githubusercontent.com/73771162/192855774-59479145-a588-4b92-acef-4f6f8e8449c7.PNG"></div>
+  
+    - 항목의 `Code` 말고, 오른쪽의 초록색 `Code` 버튼을 클릭하면 `Remote Repository`의 `URL`과 `복사 버튼`이 나옵니다.
+    - 웹 창 상단의 `URL`을 복사해도 좋습니다.
+    - 보시면 아시겠지만, `Github`에서 바로 `Open with GitHub Desktop` 버튼을 눌러 `Clone`을 할 수도 있습니다.   
+      이 경우, `Github Desktop`에서 자동으로 `Clone Repository` 창이 열리고 `URL`까지 자동 작성됩니다.   
+      `Local Path`만 작성하면 되니, 훨씬 간편해질 것입니다.
 
 ## 자신의 브랜치에서 작업하기
 
-`Git`의 진정한 힘은 협업에서 발휘되지만, 혼자서 작업할 때에도 유용합니다.
+`Git`의 진정한 힘은 협업에서 발휘되지만, 혼자서 작업할 때에도 유용합니다.   
 이 항목에서는 혼자서 작업할 때 `Github Desktop`을 통해 `Git`을 이용하는 법을 소개합니다.
 
 ### Fetch
@@ -174,6 +184,7 @@ ___
 - 해당 `Commit`의 변경 사항들이 취소되어, 변경 이전으로 되돌아갑니다.
 - 어느 시점의 Commit이든 상관 없이 `Revert`할 수 있습니다.
 - **`Revert Commit` 또한 하나의 `Commit`이므로, 반드시 `Push` 한 이후에 새로운 작업을 하시기 바랍니다.**
+  
   - 안 그러면 후회할 일이 많을 겁니다...
   - `Revert Commit`을 `Revert`하면, 아무 일도 없던 것처럼 원상복구됩니다, 마치 ~~A = A인 것처럼.   
   그 커밋의 이름은 `Revert Revert Commit`이 됩니다.
