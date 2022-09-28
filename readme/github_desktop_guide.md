@@ -17,6 +17,51 @@
 - `Changes` 목록에서 작업 내용을 한 눈에 볼 수 있습니다.
 - `History` 목록에서 과거 작업 내용을 한 눈에 볼 수 있습니다.
 
+## Github Desktop 설치하기
+
+- [desktop.github.com](https://desktop.github.com/)에서 `Github Desktop`을 다운로드하세요.
+
+<div align="center"><img width="800" height="478" src="https://user-images.githubusercontent.com/73771162/192845534-8b7f41ff-f8b8-4e34-b7d8-5ab1e23ea409.PNG"></div>
+
+- `Download for Windows` 버튼을 클릭하여 다운로드 후, `Github Desktop`을 설치합니다.
+                                                                                                                           
+<div align="center"><image width="200" height="203" src="https://user-images.githubusercontent.com/73771162/192853114-976bf45a-89c9-4f19-bd5a-d734af1af64b.png"></div>
+
+<div align="center"><image width="600" height="324" src="https://user-images.githubusercontent.com/73771162/192853336-a9404530-79f7-4c4e-a01f-09ac2aa735ed.png"></div>
+
+- 메뉴 바의 `File`-`Options...`를 클릭하여 옵션 창을 엽니다.
+- `Accounts` 항목의 `Github`-`Sign in` 버튼을 클릭해 로그인 창을 엽니다.
+  
+  - `Github` 아이디로 로그인하시면 됩니다.
+
+## Clone Repository
+
+- `Remote Repository`를 복제해 `Local Repository`를 만드는 일입니다.
+
+  - `Remote Repository(원격 저장소)`는 여러분이 `Github` 상에서 보실 수 있는, 프로젝트의 원본이 저장되어 있는 곳입니다.
+  - `Local Repository(지역 저장소)`는 여러분의 컴퓨터 상에 여러분이 설정하는, 여러분만의 작업 공간입니다.
+  - 하나의 `Remote Repository`에 대해 여러 `Local Repository`를 둘 수 있습니다.
+  - 여러 명이서 협업하는데, 다들 프로젝트 원본을 고치면서 작업하게 되면   
+
+    - 충돌이 발생하기 쉽습니다.
+    - 문제의 원인이 동시에 진행된 다른 사람의 작업에 있을 때, 그것을 파악하기 쉽지 않습니다. 
+  
+    따라서 여러분들은 `Remote Repository`를 여러분의 개인적인 `Local Repository`로 복제해 와서,   
+    `Local Repository`에서의 작업을 문제 없이 완료한 뒤 `Remote Repository`에 그 작업 내용을 업로드해야 합니다.   
+    (결국 `Remote Repository`를 `Local Repository`로 복사해서 작업한 뒤, `Local Repository`를 `Remote Repository`로 복사하는 겁니다.)
+
+<div align="center"><image width="800" height="555" src="https://user-images.githubusercontent.com/73771162/192854319-4ecb07e0-ce1a-40c5-91a5-154baf82ca32.PNG"></div>
+
+<div align="center"><image width="200" height="203" src="https://user-images.githubusercontent.com/73771162/192854338-83686689-1e51-4781-a21d-3f99adfd0471.png"></div>
+
+- 화면의 `Clone a repository from the Internet...` 또는 메뉴 바의 `File`-`Clone repository`를 클릭합니다.
+
+<div align="center"><image width="800" height="555" src="https://user-images.githubusercontent.com/73771162/192854917-3f2ff7e6-4192-4799-8f4a-186c82ae0fc8.PNG"></div>
+
+- `Remote Repository`의 `URL`을 지정하고, `Local Repository`의 `Path`를 지정합니다.
+  - `GitHub.com`이나 `URL` 둘 중 아무 곳에서나 입력해도 됩니다.
+  - `Remote Repository`의 `URL`은 
+
 ## 자신의 브랜치에서 작업하기
 
 `Git`의 진정한 힘은 협업에서 발휘되지만, 혼자서 작업할 때에도 유용합니다.
