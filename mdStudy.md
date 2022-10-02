@@ -14,9 +14,7 @@
 ##### This is an H5
 ###### This is an H6 
 ## 인라인 코드
-``
-hello world
-``
+`hello world`
 ## 블럭 코드
 ``` cpp
 int main(){
