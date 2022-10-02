@@ -140,6 +140,9 @@
     <Filter Include="Engine\04. Object\Background">
       <UniqueIdentifier>{3c588a1d-dff2-441a-9b6c-57e2c72db562}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Scene_Enter">
+      <UniqueIdentifier>{6cd78ff2-eeab-4f7a-91bb-dec860a723bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CCore.h">
@@ -275,6 +278,9 @@
     <ClInclude Include="CBackGround.h">
       <Filter>Engine\04. Object\Background</Filter>
     </ClInclude>
+    <ClInclude Include="CScene_Enter.h">
+      <Filter>Engine\05. Scene\Scene_Enter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -394,6 +400,9 @@
     </ClCompile>
     <ClCompile Include="CBackGround.cpp">
       <Filter>Engine\04. Object\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Enter.cpp">
+      <Filter>Engine\05. Scene\Scene_Enter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

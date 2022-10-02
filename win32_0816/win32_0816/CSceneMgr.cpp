@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CSceneMgr.h"
 
+#include "CScene_Enter.h"
 #include "Scene_Start.h"
 #include "CScene_Tool.h"
 #include "CEventMgr.h"
@@ -32,11 +33,15 @@ void CSceneMgr::init()
 	m_arrScene[(UINT)SCENE_TYPE::TOOL] = new CScene_Tool;
 	m_arrScene[(UINT)SCENE_TYPE::TOOL]->SetName(L"Tool Scene");
 
+	m_arrScene[(UINT)SCENE_TYPE::ENTER] = new CScene_Enter;
+	m_arrScene[(UINT)SCENE_TYPE::ENTER]->SetName(L"Enter Scene");
+
+
 	//m_arrScene[(UINT)SCENE_TYPE::STAGE01] = new Scene_Stage01;
 	//m_arrScene[(UINT)SCENE_TYPE::STAGE02] = new Scene_Stage02;
 
 	// ÇöÀç ¾À ÁöÁ¤
-	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::START];
+	m_pCurScene = m_arrScene[(UINT)SCENE_TYPE::ENTER];
 	m_pCurScene->Enter();
 }
 

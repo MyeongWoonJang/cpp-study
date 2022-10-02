@@ -7,7 +7,7 @@
 CBackGround::CBackGround()
 	: m_pBackgroundTex(nullptr)
 {
-	m_pBackgroundTex = CResMgr::GetInst()->LoadTexture(L"BackGround", L"texture\\background.bmp");
+	//m_pBackgroundTex = CResMgr::GetInst()->LoadTexture(L"BackGround", L"texture\\background.bmp");
 }
 
 CBackGround::~CBackGround()

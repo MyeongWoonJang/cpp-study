@@ -183,9 +183,10 @@ void Scene_Start::CreateForce()
 
 void Scene_Start::CreateBackGround()
 {
-	CObject* pBackGround = new CBackGround;
-	CTexture* pTileTex = CResMgr::GetInst()->LoadTexture(L"Tile", L"texture\\background.bmp");
-
+	CBackGround* pBackGround = new CBackGround;
+	CTexture* pTex = CResMgr::GetInst()->LoadTexture(L"Background", L"texture\\background.bmp");
+	pBackGround->SetTexture(pTex);
+	
 
 	AddObject(pBackGround, GROUP_TYPE::BACK_GROUND);
 }

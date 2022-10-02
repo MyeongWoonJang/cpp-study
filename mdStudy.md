@@ -1,4 +1,4 @@
-마크다운 문법을 사용한 문서 작성 첫번째!
+마크다운 문법을 사용한 문서 작성 (10/02 추가)
 ===
 볼드, 이탤릭, 취소선
 ---
@@ -12,4 +12,18 @@
 ### This is an H3
 #### This is an H4
 ##### This is an H5
-###### This is an H6   
+###### This is an H6 
+## 인라인 코드
+``
+hello world
+``
+## 블럭 코드
+``` cpp
+int main(){
+
+    return 0;
+}
+```
+참조한 링크
+[갓대희의 작은 공간][gdh]
+[gdh] : https://goddaehee.tistory.com/307

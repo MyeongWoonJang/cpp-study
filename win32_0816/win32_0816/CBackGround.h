@@ -15,6 +15,7 @@ private:
 
 public:
     void SetTexture(CTexture* _pTex) { m_pBackgroundTex = _pTex; }
+    CTexture* GetTexture() { return m_pBackgroundTex; }
 
     CLONE(CBackGround);
 public:
