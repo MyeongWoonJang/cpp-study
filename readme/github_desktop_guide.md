@@ -212,3 +212,13 @@ ___
   (`Git`의 `HEAD`를 다른 `Branch`로 `Checkout` 하는 일입니다.)
 - `Current Branch`를 클릭하면 `Branch` 목록이 나옵니다.
 - 전환하고 싶은 `Branch`를 한 번 클릭하는 것으로, 바로 전환할 수 있습니다.
+
+___
+
+### Merge Branch
+  
+![conflict1](https://user-images.githubusercontent.com/73771162/193528157-4d9fce20-9fd1-4839-b4d5-ecd92b1c333d.PNG)
+
+![conflict2](https://user-images.githubusercontent.com/73771162/193528174-d97ae228-d109-4a79-b82d-4163249b4421.png)
+
+![conflict3](https://user-images.githubusercontent.com/73771162/193528197-4a8070ec-33d6-4400-bc33-647333ce6288.PNG)
