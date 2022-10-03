@@ -207,6 +207,6 @@ ___
 <div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191770974-a3ebf508-d989-4f6a-a3bc-d64d0fe9cb25.png"></div>
   
 - `Branch`들은 독립적인 작업 공간이니, 서로 다른 `Branch`로 전환해서 작업해야 할 필요도 있을 겁니다.   
-  (`Git`의 `H`를 다른 `Branch`로 `Checkout` 하는 일입니다.)
+  (`Git`의 `HEAD`를 다른 `Branch`로 `Checkout` 하는 일입니다.)
 - `Current Branch`를 클릭하면 `Branch` 목록이 나옵니다.
 - 전환하고 싶은 `Branch`를 한 번 클릭하는 것으로, 바로 전환할 수 있습니다.
