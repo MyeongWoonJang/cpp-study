@@ -172,12 +172,68 @@ ___
 
 ### Pull Request
 
-Pull Request도 따로 게시글로 만들기
+`PR`이라고 줄여서 부르기도 하는 `Pull Request`는 `Github`를 이용하는 여러 오픈소스 프로젝트에 기여하기 위해서 몰라서는 안 될 중요한 기능입니다.   
+
+`Collaborator`분들은 직접 `Branch`에서 작업하고 `Merge`까지도 가능하지만,   
+`Contributor`분들은 프로젝트 내의 그 어떤 `Branch`에도 `Write` 권한이 없습니다.   
+
+익명의 사용자들에게 프로젝트를 마음껏 수정할 수 있도록 하면, 악의적인 행위를 하는 사용자도 있을 수 있으니까요.   
+  
+<br>
+  
+**`Pull Request`는 여러분의 `Branch`를 특정 `Branch`에 `Merge`해달라고 요청하는 것입니다.**
+  - 담당자는 해당 `Pull Request`를 검토하여, `Merge`할 것인지 말 것인지 결정합니다.
+  - `Github`에서 해당 `Repository` 페이지의 `Pull requests` 항목에서 `Pull Request`들을 확인할 수 있습니다.
+  
+    - `Issue`와 비슷하게, 처리되지 않은 `Pull Request`들은 `Open` 상태이고, 처리된 `Pull Request`들은 `Closed` 상태입니다.
+  
+  - 자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 `Pull Request` 하기를 권장합니다.
+  
+    - A `Branch`에 추가하고 싶은 내용이 있다면, B `Branch`를 만들어 작업한 후,   
+    `Merge B into A`를 `Pull Request`하는 겁니다.
+
+<br>
+
+`Contributor` 분들은 다음의 과정을 따라야 합니다.
+- 기여하고 싶은 `Remote Repository`를 `Fork`해 자신만의 `Remote Repository`를 만듭니다.
+  
+  - `Fork`된 `Remote Repository`는 여러분의 것이기 때문에 `Write`가 가능합니다!
+  
+- `Fork`된 `Remote Repository`를 여러분의 `Local Repository`로 `Clone`합니다.
+- 새로운 `Branch`를 만들어 여러분들이 하고 싶은 작업을 합니다.
+- 작업을 `Commit`하고 `Push`하면 `Fork`된 `Remote Repository`가 업데이트 되었겠죠?
+- `Fork`된 `Remote Repository`에서 여러분이 만든 `Branch`를 원본 `Remote Repository`에 `Pull Request` 할 수 있습니다!
+  
+[잘 설명이 된 링크가 있으니, 한번 보시기 바랍니다.](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)
 
 ___
 
 ### 프로젝트에 여러 작업 흐름을 두기
 
-gitflow 소개
+[\[우아한형제들 기술블로그\] 우린 Git-flow를 사용하고 있어요](https://techblog.woowahan.com/2553/)   
+[\[유튜브 코딩애플\] (알아두면 개발팀장가능) GitFlow vs Trunk-based 협업방식](https://www.youtube.com/watch?v=EV3FZ3cWBp8)   
+[\[화해 블로그\] 브랜치 전략 수립을 위한 전문가의 조언들](http://blog.hwahae.co.kr/all/tech/tech-tech/9507/)   
 
+여러 개의 `Branch`를 두어
+- 실제 프로젝트를 운영중인 `Branch`
+- 출시 및 테스트용 `Branch`
+- 개발용 `Branch`
+- 핫픽스용 `Branch`
+등으로 활용할 수 있습니다.
+  
+보다 체계적인 관리를 통해 `Issue`들에 효과적으로 대응할 수 있게 됩니다.
+  
 ## Reference
+
+[Git Notes for Professionals](https://books.goalkicker.com/GitBook/)   
+[\[git-scm\] 3.1 Git 브랜치 - 브랜치란 무엇인가](https://git-scm.com/book/ko/v2/Git-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80)   
+[\[화해 블로그\] 브랜치 전략 수립을 위한 전문가의 조언들](http://blog.hwahae.co.kr/all/tech/tech-tech/9507/)   
+[\[Github Blog\] Commits are snapshots, not diffs](https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/)   
+[\[티스토리 lks의 코딩일기\] \[git\] git snapshot](https://coding-lks.tistory.com/162)   
+[\[sae1013.log\] git HEAD 란?](https://velog.io/@sae1013/git-HEAD-%EB%9E%80)   
+[\[온라인 코딩스쿨 코드잇\] Git에서 conflict(충돌) 해결하기](https://blog.naver.com/PostView.naver?blogId=codeitofficial&logNo=221938658754&redirect=Dlog&widgetTypeCall=true&directAccess=false)   
+[\[누구나 쉽게 이해할 수 있는 Git 입문\] 6. 병합할 때 발생하는 충돌 해결하기](https://backlog.com/git-tutorial/kr/stepup/stepup2_7.html)   
+[\[초보몽키의 개발공부로그\] git 초보를 위한 풀리퀘스트(pull request) 방법](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)   
+[\[티스토리 DevScroll\] \[GIT\] ⚡️ 깃헙 Pull Request 보내는 방법 - 알기 쉽게 정리](https://inpa.tistory.com/entry/GIT-%E2%9A%A1%EF%B8%8F-%EA%B9%83%ED%97%99-PRPull-Request-%EB%B3%B4%EB%82%B4%EB%8A%94-%EB%B0%A9%EB%B2%95-folk-issue)   
+[\[우아한형제들 기술블로그\] 우린 Git-flow를 사용하고 있어요](https://techblog.woowahan.com/2553/)   
+[\[유튜브 코딩애플\] (알아두면 개발팀장가능) GitFlow vs Trunk-based 협업방식](https://www.youtube.com/watch?v=EV3FZ3cWBp8)   
