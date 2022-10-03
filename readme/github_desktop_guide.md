@@ -200,6 +200,8 @@ ___
 - **만들어진 `Branch`는 `Current Branch`의 파일들이 복사됩니다.**   
   (실제 복사는 아니고, `Current Branch`의 `Snapshot`을 갖는 것입니다.)
   
+  - 새로운 `Branch`에서의 작업은 기존 `Branch`에 아무런 영향을 주지 않고 독립적입니다.
+  
 ___
   
 ### Checkout Branch
