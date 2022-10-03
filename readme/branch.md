@@ -105,18 +105,16 @@ ___
 
 - 우리는 어느 한 `Branch`를 선택해서 작업합니다.
   
-  - `Git`에는 현재 작업하는 `Branch`를 가리키는 `HEAD` 포인터가 있습니다.
+  - `main`, `master`는 `Git` 프로젝트 생성 시 기본으로 만들어지는 최초의 `Branch`입니다.
   
-    - 처음에는 `HEAD`가 `master`, 혹은 `main`을 가리키고 있습니다.
+- `Git`에는 각 `Branch`들의 마지막 `Commit`을 가리키는 `HEAD`라는 포인터가 있습니다.
   
-      - `main`, `master`는 `Git` 프로젝트 생성 시 기본으로 만들어지는 최초의 `Branch`입니다.
+  - `Branch`를 전환한다 함은, `Git`이 보고 있는 `HEAD`를 다른 `HEAD`로 전환하겠다는 뜻입니다.
   
-    - `Branch`를 전환한다 함은, `HEAD`가 가리키는 `Branch`를 변경한다는 것입니다.
-  
-- 여러분의 `Local Repository`는, `Branch`를 바꿀 때마다 해당 `Branch`의 내용으로 바뀔 것입니다.
-  - 파일이 매우 많은 `Branch`에서 비어있는 `Branch`로 바꾼다면, 바꾸자 마자 휑해진 폴더를 볼 수 있겠죠.
-  - `Branch`를 전환하기 전, 반드시 현재 `Branch`의 작업들을 `Commit`해야 합니다.   
-    열심히 작업한 내용을 날려버리기 싫다면요.
+    - 다른 `HEAD`의 `Commit`은 다른 `History`를 갖고 있습니다.   
+    따라서 여러분의 `Local Repository`는 다른 `History`의 내용물들로 바뀔 것입니다.
+    - `HEAD`를 갱신하지 않고서(=작업 내용을 `Commit`하지 않고서) `Branch`를 전환하면, `Commit`들이 날아가겠죠?   
+    따라서 `Branch`를 전환하기 전, 반드시 현재 `Branch`의 작업들을 `Commit`해야 합니다.
 
 
 ___
