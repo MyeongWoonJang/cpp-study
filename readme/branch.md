@@ -165,6 +165,17 @@ ___
 >이제 `Merge` 시 `Conflict`와 그 해결 방법에 대해 감이 오시나요?
   
 ___
+  
+### 분기 삭제 (Delete Branch)
+  
+- `Branch`를 생성하기만 하면 프로젝트가 갈수록 혼잡해지겠죠.
+- 제 역할을 다 한 `Branch`는 삭제해야 합니다.
+  
+  - `Merge`는 두 `Branch`를 한 `Branch`로 합치는 게 아닙니다.   
+  `Merge` 후에도 여전히 두 `Branch`가 남아있죠.
+  - `Merge`에 쓰인 `Source Branch`가 삭제할 `Branch`의 유력 후보입니다.
+  
+___
 
 ## Branch의 추가적인 활용
 
