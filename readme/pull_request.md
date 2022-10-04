@@ -81,6 +81,23 @@
 ## Pull Request Review
 
 ## Pull Request Merge
+  
+  ![conflict 발생 메시지](https://user-images.githubusercontent.com/73771162/193803494-39829359-5f8c-4dcb-8fd9-2a97456f5eba.PNG)
 
+  ![Resolve conflict](https://user-images.githubusercontent.com/73771162/193803518-334de234-0fbe-4695-a6f2-ebc04ba63be8.PNG)
 
+  ![conflict 해결 화면](https://user-images.githubusercontent.com/73771162/193803531-4c4f5d3b-211e-45a5-bfcb-6164a5859dc5.PNG)
+
+  ![conflict 해결 화면2](https://user-images.githubusercontent.com/73771162/193803540-0807e26c-0704-4283-b6df-ba170e5917dc.PNG)
+
+  ![conflict 해결 화면3](https://user-images.githubusercontent.com/73771162/193803553-2367e626-84d8-455d-8e32-72fe874707df.PNG)
+
+  ![merge 가능해진 PR](https://user-images.githubusercontent.com/73771162/193803569-d25b6931-3e78-4873-a0e4-27ae1a884907.PNG)
+
+  ![merge 커밋 메시지](https://user-images.githubusercontent.com/73771162/193803573-1fbe080c-ffad-4519-93b5-a6392a11fb07.PNG)
+
+  ![PR 후 딜리트](https://user-images.githubusercontent.com/73771162/193803585-0c6e9a5b-a71a-4937-b46e-b14cad725c9f.PNG)
+
+  
+  
 
