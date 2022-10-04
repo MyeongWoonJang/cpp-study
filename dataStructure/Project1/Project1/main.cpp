@@ -3,16 +3,9 @@
 #include <string>
 #include <random>
 
-using namespace std;
+#include "MyLinkedList.h"
 
-struct Champion
-{
-	string		name;
-	int			hp;
-	int			mp;
-	int			attack;
-	int			defense;
-};
+using namespace std;
 
 random_device rd;
 mt19937 gen(rd());
@@ -22,7 +15,11 @@ void createData(int amount);
 
 int main()
 {
-	createData(1000);
+	MyLinkedList mll;
+	Champion p{ "Leona", 120, 100, 50, 20 };
+	mll.push_front(p);
+
+	mll.printAll();
 }
 
 int random(int min, int max)
