@@ -3,7 +3,7 @@
 #include <string>
 #include <random>
 
-#include "MyLinkedList.h"
+#include "LinkedList.h"
 
 using namespace std;
 
@@ -15,11 +15,16 @@ void createData(int amount);
 
 int main()
 {
-	MyLinkedList mll;
-	Champion p{ "Leona", 120, 100, 50, 20 };
-	mll.push_front(p);
+	CLinkedList<int>	listInt;
 
-	mll.printAll();
+	for (int i = 0; i < 100; ++i)
+	{
+		listInt.push_back(i);
+	}
+
+	cout << "Size : " << listInt.size() << endl;
+
+	return 0;
 }
 
 int random(int min, int max)
