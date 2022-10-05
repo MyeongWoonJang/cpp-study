@@ -103,8 +103,7 @@ public:
 
 	void pop_back()
 	{
-		if (empty())
-			assert(false);
+		assert(!empty());
 
 		// 가장 마지막 노드를 지워야 하므로 End노드의 이전 노드를
 		// 얻어온다.
@@ -127,8 +126,7 @@ public:
 
 	void pop_front()
 	{
-		if (empty())
-			assert(false);
+		assert(!empty());
 
 		// 지울 노드를 얻어온다.
 		PNODE pDeleteNode = m_pBegin->m_pNext;
@@ -149,16 +147,14 @@ public:
 
 	T front()const
 	{
-		if (empty())
-			assert(false);
+		assert(!empty());
 
 		return m_pBegin->m_pNext->m_Data;
 	}
 
 	T back()const
 	{
-		if (empty())
-			assert(false);
+		assert(!empty());
 
 		return m_pEnd->m_pPrev->m_Data;
 	}
