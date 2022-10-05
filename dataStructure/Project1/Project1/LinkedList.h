@@ -7,6 +7,10 @@ class CListNode
 {
 	template <typename T>
 	friend class CLinkedList;
+	template <typename T>
+	friend class CListIterator;
+	template <typename T>
+	friend class CListReverseIterator;
 
 private:
 	CListNode()
@@ -24,6 +28,108 @@ private:
 	T				m_Data;			// 실제 데이터를 저장할 변수
 	CListNode<T>*	m_pNext;		// 다음 노드의 주소를 저장할 변수
 	CListNode<T>*	m_pPrev;		// 이전 노드의 주소를 저장할 변수
+};
+
+// 이터레이터가 노드 하나를 가지고 있고 이터레이터를 이용해서 노드에서 필요한 정보를 빼간다.
+// 혹은 연산을 한다.
+template <typename T>
+class CListIterator
+{
+	template <typename T>
+	friend class CLinkedList;
+
+public:
+	CListIterator()
+	{
+		m_pNode = nullptr;
+	}
+
+	~CListIterator()
+	{
+
+	}
+
+private:
+	typedef CListNode<T>* PNODE;
+
+private:
+	PNODE	m_pNode;
+
+public:
+	bool operator == (const CListIterator<T>& iter)
+	{
+		return m_pNode == iter.m_pNode;
+	}
+
+	bool operator != (const CListIterator<T>& iter)
+	{
+		return m_pNode != iter.m_pNode;
+	}
+
+	void operator ++ ()
+	{
+		m_pNode = m_pNode->m_pNext;
+	}
+
+	void operator -- ()
+	{
+		m_pNode = m_pNode->m_pPrev;
+	}
+
+	T& operator * ()
+	{
+		return m_pNode->m_Data;
+	}
+};
+
+template <typename T>
+class CListReverseIterator
+{
+	template <typename T>
+	friend class CLinkedList;
+
+public:
+	CListReverseIterator()
+	{
+		m_pNode = nullptr;
+	}
+
+	~CListReverseIterator()
+	{
+
+	}
+
+private:
+	typedef CListNode<T>* PNODE;
+
+private:
+	PNODE	m_pNode;
+
+public:
+	bool operator == (const CListReverseIterator<T>& iter)
+	{
+		return m_pNode == iter.m_pNode;
+	}
+
+	bool operator != (const CListReverseIterator<T>& iter)
+	{
+		return m_pNode != iter.m_pNode;
+	}
+
+	void operator ++ ()
+	{
+		m_pNode = m_pNode->m_pPrev;
+	}
+
+	void operator -- ()
+	{
+		m_pNode = m_pNode->m_pNext;
+	}
+
+	T& operator * ()
+	{
+		return m_pNode->m_Data;
+	}
 };
 
 template <typename T>
@@ -49,8 +155,14 @@ public:
 	}
 
 private:
+	// 외부에서 접근 불가능
 	typedef CListNode<T>	NODE;
 	typedef CListNode<T>*	PNODE;
+
+public:
+	// public으로 정의하면 이너 클래스처럼 사용가능
+	typedef CListIterator<T>		iterator;
+	typedef CListReverseIterator<T> reverse_iterator;
 
 private:
 	PNODE	m_pBegin;
@@ -195,5 +307,57 @@ public:
 		return m_iSize == 0;
 	}
 
+public:
+	// begin() 함수는 추가된 가장 첫번째 노드의 주소를 가지고 있는
+	// iterator를 반환한다.
+	iterator begin() const
+	{
+		iterator iter;
+		iter.m_pNode = m_pBegin->m_pNext;
+		return iter;
+	}
+	
+	// end() 함수는 End 노드를 가지고 있는 iterator 를 반환한다.
+	iterator end() const
+	{
+		iterator iter;
+		iter.m_pNode = m_pEnd;
+		return iter;
+	}
 
+	// rbegin() 함수는 가장 마지막에 추가된 노드를 가지고 있는
+	// reverse_iterator 를 반환한다.
+	reverse_iterator rbegin() const
+	{
+		reverse_iterator iter;
+		iter.m_pNode = m_pEnd->m_pPrev;
+		return iter;
+	}
+
+	// rend() 함수는 Begin노드를 가지고 있는 reverse_iterator를
+	// 반환한다.
+	reverse_iterator rend() const
+	{
+		reverse_iterator iter;
+		iter.m_pNode = m_pBegin;
+		return iter;
+	}
+
+	void sort(bool (*pFunc)(const T&, const T&))
+	{
+		for (PNODE pFirst = m_pBegin->m_pNext;
+			pFirst != m_pEnd->m_pPrev; pFirst = pFirst->m_pNext)
+		{
+			for (PNODE pSecond = pFirst->m_pNext; 
+				pSecond != m_pEnd; pSecond = pSecond->m_pNext)
+			{
+				if (pFunc(pFirst->m_Data, pSecond->m_Data))
+				{
+					T temp = pFirst->m_Data;
+					pFirst->m_Data = pSecond->m_Data;
+					pSecond->m_Data = temp;
+				}
+			}
+		}
+	}
 };
