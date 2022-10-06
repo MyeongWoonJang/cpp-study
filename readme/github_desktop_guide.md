@@ -195,8 +195,6 @@ ___
 그것엔 [`Branch`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md)의 공이 아주 큽니다.   
 프로젝트를 복사해서 여러 독립된 작업 공간을 만들고, 각 공간에서의 작업이 끝난 뒤 작업 내용을 쉽게 합칠 수 있도록 해주죠.
   
-**자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)하기를 권장합니다.**
-  
 이 항목에선 타인과 협업할 때 `Github Desktop`을 통해 `Git`을 이용하는 법을 소개합니다.
   
 ### Create Branch
@@ -220,7 +218,8 @@ ___
   (`Git`의 `HEAD`를 다른 `Branch`로 `Checkout` 하는 일입니다.)
 - `Current Branch`를 클릭하면 `Branch` 목록이 나옵니다.
 - 전환하고 싶은 `Branch`를 한 번 클릭하는 것으로, 바로 전환할 수 있습니다.
-
+- **자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)하기를 권장합니다.**
+  
 ___
 
 ### Merge Branch
