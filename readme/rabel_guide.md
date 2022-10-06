@@ -15,7 +15,7 @@
 
 </br>
 
-## 라벨 설명 바로가기
+## Table of contents
 [1. good first issue](#1-good-first-issue)   
 [2. bug](#2-bug)   
 [3. documentation](#3-documentation)   
@@ -26,8 +26,6 @@
 [8. question](#8-question)  
 
 </br>
-
-# 라벨의 종류
 
 ## 1. good first issue
 ![good first issue](https://user-images.githubusercontent.com/73771162/190851817-2e23caa6-edec-487c-ba77-4c364e14681b.png)
