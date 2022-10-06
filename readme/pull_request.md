@@ -1,12 +1,13 @@
 # Pull Request
 
 ## Table of contents
-- [Pull Request의 목적](#pull-request의-목적)
-- [Pull Request 방법](#pull-request-방법)
-- [Contributor의 Pull Request 방법](#contributor의-pull-request-방법)
-- [Pull Request 시 발생하는 Conflict 해결법](#pull-request-시-발생하는-conflict-해결법)
-- [Pull Request Review](#pull-request-review)
-- [Pull Request Merge](#pull-request-merge)
+- [`Pull Request`의 목적](#pull-request의-목적)
+- [`Pull Request` 방법](#pull-request-방법)
+- [`Contributor`의 `Pull Request` 방법](#contributor의-pull-request-방법)
+- [`Pull Request` 시 발생하는 `Conflict` 해결법](#pull-request-시-발생하는-conflict-해결법)
+- [`Pull Request` `Review`](#pull-request-review)
+- [`Pull Request`에 추가로 `Commit`하기](#pull-request에-추가로-commit하기)
+- [`Pull Request Merge`](#pull-request-merge)
 
 ## Pull Request의 목적
 
@@ -78,21 +79,52 @@
 
 ## Pull Request 시 발생하는 Conflict 해결법
 
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803494-39829359-5f8c-4dcb-8fd9-2a97456f5eba.PNG"></div>
+  
+- `Conflict`가 발생할 경우 위와 같은 메시지가 나타납니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803518-334de234-0fbe-4695-a6f2-ebc04ba63be8.PNG"></div>
+ 
+- `Conflict`가 해결되기 전까지 해당 `Pull Request`를 `Merge`할 수 없습니다.
+- `Resolve Conflict` 버튼을 클릭합니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803531-4c4f5d3b-211e-45a5-bfcb-6164a5859dc5.PNG"></div>
+  
+- 위와 같은 화면이 나타납니다.
+- [`Merge Branch`에서의 `Conflict`를 해결하는 요령](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md#%EC%B6%A9%EB%8F%8C-conflict)으로 `Conflict`를 해결합니다.
+- `Conflict`를 해결하기 전까진, `Mark as resolved` 버튼이 활성화되지 않습니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803540-0807e26c-0704-4283-b6df-ba170e5917dc.PNG"></div>
+  
+- `Conflict`를 해결했다면 `Mark as resolved` 버튼을 클릭합니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803553-2367e626-84d8-455d-8e32-72fe874707df.PNG"></div>
+  
+- `Commit Merge` 버튼을 클릭합니다.
+  
+  - 해당 해결 내용을 `Pull Request`에 `Commit`으로서 추가합니다.
+  
+- `Pull Request`에 `Merge Commit`을 추가하는 것이지 `Pull Request`를 `Merge`하는 것이 아니므로,   
+  이후 [`Pull Request`에 추가적인 `Commit`](#pull-request에-추가로-commit하기)을 할 수 있습니다.
+  
+  - 말이 참 헷갈리죠?   
+  `Pull Request`가 `Conflict` 해결 `Commit` 추가로 인해 살짝 두꺼워진다고 생각하시면 됩니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803569-d25b6931-3e78-4873-a0e4-27ae1a884907.PNG></div>
+  
+- `Merge`가 가능해졌습니다!
+  
 ## Pull Request Review
+  
+## Pull Request에 추가로 Commit하기
 
 ## Pull Request Merge
-  
-  ![conflict 발생 메시지](https://user-images.githubusercontent.com/73771162/193803494-39829359-5f8c-4dcb-8fd9-2a97456f5eba.PNG)
 
-  ![Resolve conflict](https://user-images.githubusercontent.com/73771162/193803518-334de234-0fbe-4695-a6f2-ebc04ba63be8.PNG)
 
-  ![conflict 해결 화면](https://user-images.githubusercontent.com/73771162/193803531-4c4f5d3b-211e-45a5-bfcb-6164a5859dc5.PNG)
 
-  ![conflict 해결 화면2](https://user-images.githubusercontent.com/73771162/193803540-0807e26c-0704-4283-b6df-ba170e5917dc.PNG)
 
-  ![conflict 해결 화면3](https://user-images.githubusercontent.com/73771162/193803553-2367e626-84d8-455d-8e32-72fe874707df.PNG)
 
-  ![merge 가능해진 PR](https://user-images.githubusercontent.com/73771162/193803569-d25b6931-3e78-4873-a0e4-27ae1a884907.PNG)
+
 
   ![merge 커밋 메시지](https://user-images.githubusercontent.com/73771162/193803573-1fbe080c-ffad-4519-93b5-a6392a11fb07.PNG)
 
