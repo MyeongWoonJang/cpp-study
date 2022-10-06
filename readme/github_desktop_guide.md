@@ -4,19 +4,28 @@
 `CLI(Command Line Interface)`를 통해 `Git` 명령어를 직접 입력하는 것보다 훨씬 간편하게 `Git`을 이용할 수 있습니다.
 
 - `Git`의 주요 기능들을 전부 마우스 클릭 한 번으로 실행할 수 있습니다.
-  - [`Clone Repository`](#clone-repository)
+- `Changes` 목록에서 작업 내용을 한 눈에 볼 수 있습니다.
+- `History` 목록에서 과거 작업 내용을 한 눈에 볼 수 있습니다.
+
+## Table of contents
+
+- [`Github Desktop` 설치하기](#github-desktop-설치하기)
+- [`Clone Repository`](#clone-repository)
+- [`Local Repository`에서 작업하기](#local-repository에서-작업하기) 
+
   - ★ [`Fetch`](#fetch)
   - ★ [`Pull`](#pull)
   - ★ [`Commit`](#commit)
   - ★ [`Push`](#push)
   - [`Amend Commit`](#amend-commit)
   - [`Revert Commit`](#revert-commit)
+
+- [타인과 협업하기](#타인과-협업하기)
+- 
   - ★ [`Create Branch`](#create-branch)
   - ★ [`Checkout Branch`](#checkout-branch)
-  - ★ `Merge Branch`
+  - ★ `Merge Branch`(#merge-branch)
   - ★ `Create Pull Request`
-- `Changes` 목록에서 작업 내용을 한 눈에 볼 수 있습니다.
-- `History` 목록에서 과거 작업 내용을 한 눈에 볼 수 있습니다.
 
 ## Github Desktop 설치하기
 
@@ -41,15 +50,21 @@
 
   - `Remote Repository(원격 저장소)`는 여러분이 `Github` 상에서 보실 수 있는, 프로젝트의 원본이 저장되어 있는 곳입니다.
   - `Local Repository(지역 저장소)`는 여러분의 컴퓨터 상에 여러분이 설정하는, 여러분만의 작업 공간입니다.
-  - 하나의 `Remote Repository`에 대해 여러 `Local Repository`를 둘 수 있습니다.
-  - 여러 명이서 협업하는데, 다들 프로젝트 원본을 고치면서 작업하게 되면   
-
-    - 충돌이 발생하기 쉽습니다.
-    - 문제의 원인이 동시에 진행된 다른 사람의 작업에 있을 때, 그것을 파악하기 쉽지 않습니다. 
+  - 실시간으로 프로젝트 원본을 수정하면서 작업하지 않고,    
+  여러분만의 작업 공간에서 일정량의 작업을 마친 후에 원본에 반영할 수 있도록 해줍니다.
   
-    따라서 여러분들은 `Remote Repository`를 여러분의 개인적인 `Local Repository`로 복제해 와서,   
-    `Local Repository`에서의 작업을 문제 없이 완료한 뒤 `Remote Repository`에 그 작업 내용을 업로드해야 합니다.   
-    (결국 `Remote Repository`를 `Local Repository`로 복사해서 작업한 뒤, `Local Repository`를 `Remote Repository`로 복사하는 겁니다.)
+    - 그것은 `Commit`이라는 작업 기록의 단위가 됩니다.
+    - 작업들이 요약된 `Commit`으로 쉽게 프로젝트의 흐름을 파악하고, 버전을 관리할 수 있습니다.
+  
+- 여러분들은 `Remote Repository`를 여러분의 개인적인 `Local Repository`로 복제해 와서,   
+`Local Repository`에서의 작업을 완료한 뒤 `Remote Repository`에 그 작업 내용을 업로드해야 합니다.   
+(결국 `Remote Repository`를 `Local Repository`로 복사해서 작업한 뒤, `Local Repository`를 `Remote Repository`로 복사하는 겁니다.)
+  
+- 하나의 `Remote Repository`에 대해 여러 `Local Repository`를 만들 수 있습니다.
+  
+  - 협업 시 서로 다른 운영체제 계정, 서로 다른 컴퓨터마다 `Local Repository`를 만들어 개인이 관리할 수 있습니다.
+  
+<br>
 
 <div align="center"><image width="800" height="555" src="https://user-images.githubusercontent.com/73771162/192854319-4ecb07e0-ce1a-40c5-91a5-154baf82ca32.PNG"></div>
 
@@ -72,9 +87,9 @@
       이 경우, `Github Desktop`에서 자동으로 `Clone Repository` 창이 열리고 `URL`까지 자동 작성됩니다.   
       `Local Path`만 작성하면 되니, 훨씬 간편해질 것입니다.
 
-## 자신의 브랜치에서 작업하기
+## Local Repository에서 작업하기
 
-`Git`의 진정한 힘은 협업에서 발휘되지만, 혼자서 작업할 때에도 유용합니다.   
+[`Clone Repository`](#clone-repository)를 수행했다면 `Local Repository`가 마련되었을 겁니다.   
 이 항목에서는 혼자서 작업할 때 `Github Desktop`을 통해 `Git`을 이용하는 법을 소개합니다.
 
 ### Fetch
@@ -82,7 +97,7 @@
 <div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191002635-df06619b-45ae-409f-ba0f-1be5b4c3fd21.PNG"></div>
 
 - `Fetch`는 `Remote Repository`로부터 변동 사항을 가져옵니다.
-- 업데이트가 필요한 내용이 있는지 확인하는 과정입니다.
+- `Remote Repository`와 `Local Repository`를 비교하여 업데이트가 필요한 내용이 있는지 확인하는 과정입니다.
 - 게임을 실행하려니 업데이트를 해야 할 때, 그 **업데이트 알림**까지가 `Fetch`에 해당됩니다.
   
 ___
@@ -114,10 +129,12 @@ ___
 <div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191234291-55fa663d-9b17-4915-b839-b3d49ad50cc9.PNG"></div>
 
 - 여러분들의 단위 작업이 끝나면, `Changes`에 변경된 항목들이 나타날 것입니다.
-- `Commit`은 변경된 항목들을 `Local Repository`에 하나의 단위 작업으로서 기록합니다.
-- 변경 사항이 발생할 때마다(예를 들면, 작업 중 `Ctrl+S`를 누를 때마다) 매번 기록하기는 번거로우니,   
-  몇 개의 작업을 묶어서 일괄적으로 기록하는 겁니다.
-- **`Commit Message`를 작성하고, `Commit`을 실행합니다.**   
+- **`Commit`은 변경된 항목들을 `Local Repository`에 하나의 단위 작업으로서 요약, 기록하는 행위입니다.**
+  
+  - 변경 사항이 발생할 때마다(예를 들면, 작업 중 `Ctrl+S`를 누를 때마다) 매번 기록하면 버전 관리가 불편하니,   
+    몇 개의 작업을 묶어서 일괄적으로 기록하는 겁니다.
+  
+- **`Commit`을 요약하는 `Commit Message`를 작성하고, `Commit`을 실행합니다.**   
   
 - 이전의 `Commit`들은 `History`를 통해 추적할 수 있습니다.
 - 다른 사람들은 여러분들의 `Commit History`를 보고 작업 흐름을 파악합니다.   
@@ -141,11 +158,11 @@ ___
   
 ![커히](https://user-images.githubusercontent.com/73771162/191241330-da211914-d506-4a15-919b-fa61cd5d1876.PNG)
 
-- 보고 싶은 커밋을 클릭하면 그 `Commit`의 내용을 볼 수 있습니다.  
+- 보고 싶은 `Commit`을 클릭하면 그 `Commit`의 내용을 볼 수 있습니다.  
 
 <div align="center"><image src="https://user-images.githubusercontent.com/73771162/191241490-b0fccb2c-855a-4b32-ae81-09e40e31b5ab.PNG"></div>
 
-- 이 커밋과 같이, 간단한 커밋들은 메시지(제목)만 작성하고 세부 내용은 작성하지 않아도 괜찮습니다.
+- 이 `Commit`과 같이, 간단한 `Commit`들은 `Commit Message(제목)`만 작성하고 세부 설명은 작성하지 않아도 괜찮습니다.
 ___
   
 ### Push
