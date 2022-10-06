@@ -193,9 +193,24 @@ ___
   
 `Git`은 타인과의 협업을 아주 효율적으로 도와주죠.   
 그것엔 [`Branch`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md)의 공이 아주 큽니다.   
-프로젝트를 복사해서 여러 독립된 작업 공간을 만들고, 각 공간에서의 작업이 끝난 뒤 작업 내용을 쉽게 합칠 수 있도록 해주죠.
   
-이 항목에선 타인과 협업할 때 `Github Desktop`을 통해 `Git`을 이용하는 법을 소개합니다.
+`Branch`는 독립적인 작업 공간입니다.   
+여러 사람이 작업을 분배해 각자의 `Branch`에서 타인에게 방해받지 않고 작업하게 됩니다.   
+  
+온라인 작업 공간이기 때문에   
+만드는 것도 0 코스트, 삭제하는 것도 0 코스트라는 강력한 장점이 있습니다.
+  
+무한정으로 만들었다가, 순식간에 모두 없애버릴 수도 있죠.
+  
+<br>
+  
+작업을 하면서 여러 `Branch`를 넘나들 일이 있을 것입니다.
+  
+**자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)하기를 권장합니다.**
+  
+<br>
+  
+이 항목에선 타인과 협업할 때 `Github Desktop`, `Branch`를 통해 `Git`을 이용하는 법을 소개합니다.
   
 ### Create Branch
 
@@ -218,7 +233,6 @@ ___
   (`Git`의 `HEAD`를 다른 `Branch`로 `Checkout` 하는 일입니다.)
 - `Current Branch`를 클릭하면 `Branch` 목록이 나옵니다.
 - 전환하고 싶은 `Branch`를 한 번 클릭하는 것으로, 바로 전환할 수 있습니다.
-- **자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)하기를 권장합니다.**
   
 ___
 
