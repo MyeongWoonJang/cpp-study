@@ -13,9 +13,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;와 같은 경우가 있을 수 있습니다.   
 
-</br>
-
-## Table of contents
+## 라벨의 종류
 [1. good first issue](#1-good-first-issue)   
 [2. bug](#2-bug)   
 [3. documentation](#3-documentation)   
@@ -24,8 +22,6 @@
 [6. help wanted](#6-help-wanted)   
 [7. invalid](#7-invalid)   
 [8. question](#8-question)  
-
-</br>
 
 ## 1. good first issue
 ![good first issue](https://user-images.githubusercontent.com/73771162/190851817-2e23caa6-edec-487c-ba77-4c364e14681b.png)
