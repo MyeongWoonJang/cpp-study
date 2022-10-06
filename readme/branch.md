@@ -9,11 +9,44 @@ source: [Git Notes for Professionals](https://books.goalkicker.com/GitBook/)
 </div>
   
 <br>
+
 `Branch(분기)`는 `Git`의 강력한 기능 중 하나입니다.   
 협업 과정에서 없어서는 안 될 요소이며, `Branch`가 없다면 굉장히 비효율적인 작업 과정을 거쳐야 할 것입니다.   
 
-`Branch`가 왜 필요한지, 어떤 기능을 하는지 이 글을 통해 소개하도록 하겠습니다.
+`Branch`가 무엇인지, 왜 필요한지, 어떤 기능을 하는지 이 글을 통해 소개하도록 하겠습니다.
 
+## Table of contents
+- [Branch란](#branch란)
+- Branch의 필요성
+  
+  - [작업들의 독립성](#작업들의-독립성)
+  - [독립적인 작업들을 동시에 진행하기](#독립적인-작업들을-동시에-진행하기)
+  
+- Branch 기능
+  
+  - [분기 생성 (Create Branch)](#분기-생성-create-branch)
+  - [분기 전환 (Checkout Branch)](#분기-전환-checkout-branch)
+  - [분기 합병 (Merge Branch)](#분기-합병-merge-branch)
+  
+    - [충돌 (Conflict)](#충돌-conflict)
+
+  - [분기 삭제 (Delete Branch)](#분기-삭제-delete-branch)
+  
+- Branch의 추가적인 활용
+  
+  - [Pull Request](#pull-request)
+  - [프로젝트에 여러 작업 흐름을 두기](#프로젝트에-여러-작업-흐름을-두기)
+  
+## Branch란
+
+`Branch`는 독립적인 작업 공간입니다.   
+여러 사람이 작업을 분배해 각자의 `Branch`에서 타인에게 방해받지 않고 작업하게 됩니다.   
+  
+온라인 작업 공간이기 때문에   
+만드는 것도 0 코스트, 삭제하는 것도 0 코스트라는 강력한 장점이 있습니다.
+  
+무한정으로 만들었다가, 순식간에 모두 없애버릴 수도 있죠.
+  
 ## Branch의 필요성
 
 ### 작업들의 독립성
@@ -73,6 +106,7 @@ ___
 ## Branch 기능
 
 ### 분기 생성 (Create Branch)
+  
 <div align="center"><image src="https://user-images.githubusercontent.com/73771162/193435981-a7c0d3f6-443c-44cb-b2d5-02ad27054451.PNG"></div>
 
 - 특정 `Branch`에서 새로운 `Branch`를 파생시킬 수 있습니다.
