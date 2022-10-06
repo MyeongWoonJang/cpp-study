@@ -24,8 +24,8 @@
 - 
   - ★ [`Create Branch`](#create-branch)
   - ★ [`Checkout Branch`](#checkout-branch)
-  - ★ `Merge Branch`(#merge-branch)
-  - ★ `Create Pull Request`
+  - ★ [`Merge Branch`](#merge-branch)
+  - ★ [`Create Pull Request`](#create-pull-request)
 
 ## Github Desktop 설치하기
 
@@ -274,6 +274,45 @@ ___
   
   - [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)를 활용하면 좋을 것입니다.
   
-![conflict2](https://user-images.githubusercontent.com/73771162/193528174-d97ae228-d109-4a79-b82d-4163249b4421.png)
+- `Merge`로 인한 `Conflict` 발생이 예상될 시 몇 개의 파일에서 `Conflict`가 발생하는지 경고 메시지를 보여줍니다.
+  
+  - `Conflict`를 해결하려면 일단 `Create a merge commit` 버튼을 누릅니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193528174-d97ae228-d109-4a79-b82d-4163249b4421.png"></div>
 
-![conflict3](https://user-images.githubusercontent.com/73771162/193528197-4a8070ec-33d6-4400-bc33-647333ce6288.PNG)
+- 어느 한 `Branch`의 파일로 다른 `Branch`의 파일을 덮어씌우려면 `Use the added file from ...(브랜치명)`을 클릭합니다.
+  
+  - 간단하게 `Conflict`를 해결할 수 있습니다.
+  
+- 직접 수정할 경우, `Open in editor` 버튼이 활성화되어 있다면 해당 버튼을 누릅니다.   
+  그렇지 않다면, `...`에서 `Open with default program`을 누릅니다.
+  
+  <div align="center"><image src="https://user-images.githubusercontent.com/73771162/193528197-4a8070ec-33d6-4400-bc33-647333ce6288.PNG"></div>
+  
+  - [`Merge Branch`에서의 `Conflict`를 해결하는 요령](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md#%EC%B6%A9%EB%8F%8C-conflict)으로 `Conflict`를 해결합니다.
+    
+___
+    
+### Create Pull Request
+
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194335593-8a731ae6-e0cd-4d67-a953-e4996c67e50b.PNG"></div>
+  
+- `main`/`master` `Branch`를 제외한 `Branch`에서 작업할 때에는,   
+  실행해야 할 `Git` 명령어가 남아있지 않을 때 `Create Pull Request` 버튼이 활성화됩니다.
+  
+  - 해당 버튼을 클릭하면, `Github`에 있는 여러분의 `Repository` 페이지의 `Pull requests` 항목에서 `New pull request` 버튼을 누른 효과입니다.
+  
+  <div align="center"><image src="https://user-images.githubusercontent.com/73771162/194337496-c1c17348-2fc6-4a15-94d3-eb0fabea71bc.PNG"></div>
+
+  
+  - 무조건 `Current Branch`가 `Source Branch`, `main`/`master`가 `Target Branch`로 설정됩니다.
+  
+    - `Source Branch`와 `Target Branch` 설정까지 영리하게는 되지 않습니다.
+    - `New pull request`의 바로가기 버튼이라고 생각하시면 좋습니다.
+
+
+
+    
+    
+    
+    
