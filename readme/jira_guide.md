@@ -8,6 +8,20 @@
 - [애자일 방법론](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/agile_methodology.md)   
 - [스크럼](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/scrum.md)   
 
+## Table of contents
+- 스프린트 단계
+
+  - [Issue](#issue)
+  - [Issue와 Github Branch 연동](#issue와-github-branch-연동)
+
+- 스프린트 계획 단계
+
+  - [스프린트 계획 절차](#스프린트-계획-절차)
+  - [이슈 생성 방법](#이슈-생성-방법)
+  - [스프린트 생성 방법](#스프린트-생성-방법)
+
+- [Reference](#reference)
+
 # 스프린트 단계
 
 ## Issue
@@ -42,6 +56,8 @@
 - 추후 작성 예정
   
 # 스프린트 계획 단계
+  
+## 스프린트 계획 절차
 
 <div align="center"><image width="1000" height="452" src="https://user-images.githubusercontent.com/73771162/192577548-0f47344e-3ad1-4914-9889-d571e62f9649.png"></div>
   
