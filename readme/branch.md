@@ -250,7 +250,7 @@ ___
 [\[Github Blog\] Commits are snapshots, not diffs](https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/)   
 [\[티스토리 lks의 코딩일기\] \[git\] git snapshot](https://coding-lks.tistory.com/162)   
 [\[sae1013.log\] git HEAD 란?](https://velog.io/@sae1013/git-HEAD-%EB%9E%80)   
-[\[티스토리 zel0rd\] git conflict(충돌) 해결하기](https://zel0rd.tistory.com/126)
+[\[티스토리 zel0rd\] git conflict(충돌) 해결하기](https://zel0rd.tistory.com/126)   
 [\[온라인 코딩스쿨 코드잇\] Git에서 conflict(충돌) 해결하기](https://blog.naver.com/PostView.naver?blogId=codeitofficial&logNo=221938658754&redirect=Dlog&widgetTypeCall=true&directAccess=false)   
 [\[누구나 쉽게 이해할 수 있는 Git 입문\] 6. 병합할 때 발생하는 충돌 해결하기](https://backlog.com/git-tutorial/kr/stepup/stepup2_7.html)   
 [\[초보몽키의 개발공부로그\] git 초보를 위한 풀리퀘스트(pull request) 방법](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)   
