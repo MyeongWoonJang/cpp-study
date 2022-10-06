@@ -110,7 +110,7 @@
   - 말이 참 헷갈리죠?   
   `Pull Request`가 `Conflict` 해결 `Commit` 추가로 인해 살짝 두꺼워진다고 생각하시면 됩니다.
   
-<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803569-d25b6931-3e78-4873-a0e4-27ae1a884907.PNG></div>
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803569-d25b6931-3e78-4873-a0e4-27ae1a884907.PNG"></div>
   
 - `Merge`가 가능해졌습니다!
   
