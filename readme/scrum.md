@@ -3,6 +3,12 @@
 [애자일 개발 프로세스](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/agile_methodology.md) 중의 하나로, `스프린트(sprint)`라 불리우는 작은 주기로 해야할 일들을 정리하는 방법이다.   
 보통 한 `스프린트`는 1~4 주 정도의 기간을 갖는다.
 
+## Table of contents
+- [스크럼에서의 업무 진행 과정](#스크럼에서의-업무-진행-과정)
+- [스크럼에서의 업무 분담](#스크럼에서의-업무-분담)
+- [스크럼 팀의 마음가짐](#스크럼-팀의-마음가짐)
+- [Reference](#reference)
+
 ## 스크럼에서의 업무 진행 과정
 
 <div align="center"><image src="https://user-images.githubusercontent.com/73771162/190889522-3a508f18-4deb-4087-8aaa-57cb2a70a69b.PNG"></div>
