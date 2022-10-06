@@ -8,7 +8,7 @@
 - [`Pull Request` `Review`](#pull-request-review)
 - [`Pull Request` `Review` 작성법](#pull-request-review-작성법)
 - [`Pull Request`에 추가로 `Commit`하기](#pull-request에-추가로-commit하기)
-- [`Pull Request Merge`](#pull-request-merge)
+- [`Pull Request` `Merge`](#pull-request-merge)
 
 ## Pull Request의 목적
 
@@ -190,17 +190,27 @@
   
 ## Pull Request에 추가로 Commit하기
 
+- `Github Desktop`을 이용하여 `Pull Request`에 `Commit`을 추가할 수 있습니다.
+  
+  - `Pull Request`를 수정할 일이 있다면, 번거롭게 삭제했다가 다시 만들지 말고, `Commit`을 추가합시다.
+  - `Reviewer`가 `Request Changes` 판정을 내렸다면, 해당 요청 사항을 반영한 `Commit` 후에 다시 `Review`를 요청합시다.
+  
 ## Pull Request Merge
-
-
-
-
-
-
-
-  ![merge 커밋 메시지](https://user-images.githubusercontent.com/73771162/193803573-1fbe080c-ffad-4519-93b5-a6392a11fb07.PNG)
-
-  ![PR 후 딜리트](https://user-images.githubusercontent.com/73771162/193803585-0c6e9a5b-a71a-4937-b46e-b14cad725c9f.PNG)
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803569-d25b6931-3e78-4873-a0e4-27ae1a884907.PNG"></div>
+  
+- 개별 `Pull Request` 화면에서 `Merge pull request` 버튼을 클릭해 최종적으로 `Pull Request`를 `Merge`합니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803573-1fbe080c-ffad-4519-93b5-a6392a11fb07.PNG"></div>
+  
+- `Target Branch` 입장에서는, 해당 `Pull Request`의 `Merge`로 인해 `Commit`들이 추가되는 것이므로,   
+  `Merge Commit Message`를 남겨주어야 합니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803585-0c6e9a5b-a71a-4937-b46e-b14cad725c9f.PNG"></div>
+  
+- `Source Branch`가 `main`/`master` `Branch`가 아니라면, 화면 아래에 `Delete Branch` 버튼이 활성화됩니다.
+  
+  - `Merge`로 인해 재역할을 다한 `Branch`를 간편하게 삭제할 수 있는 기능입니다.
 
   
   
