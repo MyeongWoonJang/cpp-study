@@ -191,6 +191,14 @@ ___
   
 ## 타인과 협업하기
   
+`Git`은 타인과의 협업을 아주 효율적으로 도와주죠.   
+그것엔 [`Branch`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md)의 공이 아주 큽니다.
+프로젝트를 복사해서 여러 독립된 작업 공간을 만들고, 각 공간에서의 작업이 끝난 뒤 작업 내용을 쉽게 합칠 수 있도록 해주죠.
+  
+**자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)하기를 권장합니다.**
+  
+이 항목에선 타인과 협업할 때 `Github Desktop`을 통해 `Git`을 이용하는 법을 소개합니다.
+  
 ### Create Branch
 
 <div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/191769143-9cb6f4ee-913b-49e3-92fb-83c2e5f82ee3.png"></div>
@@ -216,9 +224,23 @@ ___
 ___
 
 ### Merge Branch
+ 
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/194208077-42c94e51-1f89-4918-b4fd-c5179b09271a.png"></div>
   
-![conflict1](https://user-images.githubusercontent.com/73771162/193528157-4d9fce20-9fd1-4839-b4d5-ecd92b1c333d.PNG)
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/193528157-4d9fce20-9fd1-4839-b4d5-ecd92b1c333d.PNG"></div>
 
+- `메뉴 바`의 `Branch` - `Merge into current branch`를 클릭하면 `Merge`를 실행할 수 있습니다.
+  
+  - `Source Branch`를 설정하는 창이 뜹니다.
+  
+    - [`Checkout Branch`](#checkout-branch)에서 처럼 `Branch` 목록에서 하나를 클릭하면 됩니다.
+  
+  - `Current Branch`가 `Target Branch`가 됩니다.
+  
+- **자신만이 이용하는 `Branch`가 아닌 경우에는, 함부로 `Merge`를 실행하면 안 됩니다.**
+  
+  - [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)를 활용하면 좋을 것입니다.
+  
 ![conflict2](https://user-images.githubusercontent.com/73771162/193528174-d97ae228-d109-4a79-b82d-4163249b4421.png)
 
 ![conflict3](https://user-images.githubusercontent.com/73771162/193528197-4a8070ec-33d6-4400-bc33-647333ce6288.PNG)
