@@ -6,6 +6,7 @@
 - [`Contributor`의 `Pull Request` 방법](#contributor의-pull-request-방법)
 - [`Pull Request` 시 발생하는 `Conflict` 해결법](#pull-request-시-발생하는-conflict-해결법)
 - [`Pull Request` `Review`](#pull-request-review)
+- [`Pull Request` `Review` 작성법](#pull-request-review-작성법)
 - [`Pull Request`에 추가로 `Commit`하기](#pull-request에-추가로-commit하기)
 - [`Pull Request Merge`](#pull-request-merge)
 
@@ -115,6 +116,77 @@
 - `Merge`가 가능해졌습니다!
   
 ## Pull Request Review
+
+- `Pull Request`는 `Review`를 거쳐 `Merge`됩니다.
+
+  - `Reviewer`로 설정된 사람들이 해당 `Pull Request`를 `Review`해 다음 세 가지 결정 중 하나를 내립니다.
+  
+    - `Comment`
+  
+      - 별다른 효력은 없는, 그냥 댓글입니다.
+      - 질문이나 간단한 소통을 하려 했을 것입니다.
+      - 어쩌면 해당 `Pull Request`가 별로라서 그냥 `Close` 하겠다는 통보를 남길 수도 있습니다.
+  
+    - `Approve`
+  
+      - `Pull Request`를 승인합니다.
+      - 해당 `Pull Request`가 만족스러웠을 것입니다.
+  
+    - `Request Changes`
+  
+      - `Pull Request`에 수정 사항을 요청합니다.
+      - 해당 `Pull Request`의 어딘가에 아쉬운 부분이 있었나 봅니다.
+  
+  - 현재 프로젝트에서 `Reviewer`로 설정된 사람의 `Review` 없이도 `Merge`는 가능합니다.   
+    그러나, 자제하는게 좋습니다.
+  
+## Pull Request Review 작성법
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194303453-84f5b975-95f3-4f9f-967c-9b59df6f565f.PNG"></div>
+  
+- 개별 `Pull Request` 화면에서 위의 `Add your review` 버튼이나, `Files changed` 항목을 클릭해 `Review`를 작성할 수 있습니다.
+  
+  - `Files changed` 항목 클릭을 이용한 `Review` 작성은 `Pull Request`가 `Closed`인 상태에서도 작성할 수 있고,   
+  `Reviewer`가 아니어도 작성할 수 있습니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194306607-6a84494a-493f-4ed5-9c47-335bbffa8aee.png"></div>
+  
+ - `Add your review` 버튼, 혹은 `Files changed` 항목을 클릭했을 때 나오는 화면입니다.
+ - 왼쪽에 `추가`/`변경`/`삭제`된 파일 목록이 있고, 오른쪽에서 파일별 내역을 확인할 수 있습니다.
+ - 다음의 과정을 통해 Review를 작성합니다.
+  
+   - 내역의 `Line number` 오른쪽에 마우스를 가져다대면 `+` 버튼이 활성화됩니다.
+  
+     - 어떠한 내용을 콕 집어서 `Review Comment`를 남기고 싶을 때가 있을 것입니다.
+     - `+` 버튼을 클릭하고 아래로 드래그해, `Review Comment`를 남길 부분을 설정할 수 있습니다.
+  
+   - `Add single comment` 혹은, `Start a review` 버튼을 클릭해 `Review Comment`를 남길 수 있습니다.
+  
+     - `Add single comment`는 `Comment`를 빠르고 간편하게 남기기 위한 버튼입니다.
+  
+       - `Review`와는 독립적으로, 해당 `Comment`가 바로 `Conversation` 항목에 등록됩니다.
+  
+    - `Start a review` 버튼은 여러 `Review Comment`들을 묶어 최종적으로 `Comment`/`Approve`/`Request Changes` 하기 위한 버튼입니다.
+  
+       - `Start a review` 버튼으로 `Review Comment`를 하나 남기면, 다음 `Review Comment`를 작성할 때에는   
+       `Add review comment` 버튼이 나타납니다.
+       - 여러 `Review Comment`들을 `Add`합시다.
+  
+   - 내역을 `Review`한 파일들은 `Viewed` 항목을 체크합니다.
+
+   <div align="center"><image src="https://user-images.githubusercontent.com/73771162/194310204-b1cc6ac8-70d8-4c42-aa43-9dfd64b80eb0.PNG"></div>
+
+    - `Review`를 마치기 위해 `Review changes` 버튼을 클릭합니다.
+      
+      - 모든 파일들에 `Viewed` 체크했는지 확인합니다.
+      - 간단한 요약과 함께, `Comment`/`Approve`/`Request Changes` 중 하나의 유형을 선택합니다.
+      - `Submit review` 버튼을 클릭합니다.
+
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194311635-4646ad5d-19b0-4335-b8e9-842c9cbb3722.PNG"></div>
+  
+- `Conversation` 항목을 보면 `Review`가 등록되어 있습니다.
+- `Resolve Conversation`을 통해 `Pull Request` 요청자가 `Review`를 확인하고 문제를 해결했음을 나타낼 수 있습니다.
+
   
 ## Pull Request에 추가로 Commit하기
 
