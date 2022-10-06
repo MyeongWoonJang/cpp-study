@@ -9,6 +9,7 @@
 - [`Pull Request` `Review` 작성법](#pull-request-review-작성법)
 - [`Pull Request`에 추가로 `Commit`하기](#pull-request에-추가로-commit하기)
 - [`Pull Request` `Merge`](#pull-request-merge)
+- [Reference](#reference)
 
 ## Pull Request의 목적
 
@@ -212,6 +213,10 @@
   
   - `Merge`로 인해 재역할을 다한 `Branch`를 간편하게 삭제할 수 있는 기능입니다.
 
+## Reference
   
-  
+[\[티스토리 zel0rd\] git conflict(충돌) 해결하기](https://zel0rd.tistory.com/126)   
+[\[초보몽키의 개발공부로그\] git 초보를 위한 풀리퀘스트(pull request) 방법](https://wayhome25.github.io/git/2017/07/08/git-first-pull-request-story/)   
+[\[티스토리 DevScroll\] \[GIT\] ⚡️ 깃헙 Pull Request 보내는 방법 - 알기 쉽게 정리](https://inpa.tistory.com/entry/GIT-%E2%9A%A1%EF%B8%8F-%EA%B9%83%ED%97%99-PRPull-Request-%EB%B3%B4%EB%82%B4%EB%8A%94-%EB%B0%A9%EB%B2%95-folk-issue)   
+[\[티스토리 PlanB의 백엔드 엔지니어링\] \[Git\] Pull request에서 발생하는 충돌 해결하기](https://planbs.tistory.com/190)
 
