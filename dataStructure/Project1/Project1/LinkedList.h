@@ -5,11 +5,11 @@
 template <typename T>
 class CListNode
 {
-	template <typename T>
+	template <typename Tx>
 	friend class CLinkedList;
-	template <typename T>
+	template <typename Ty>
 	friend class CListIterator;
-	template <typename T>
+	template <typename Tz>
 	friend class CListReverseIterator;
 
 private:
@@ -32,10 +32,10 @@ private:
 
 // 이터레이터가 노드 하나를 가지고 있고 이터레이터를 이용해서 노드에서 필요한 정보를 빼간다.
 // 혹은 연산을 한다.
-template <typename T>
+template <typename Ty>
 class CListIterator
 {
-	template <typename T>
+	template <typename Tx>
 	friend class CLinkedList;
 
 public:
@@ -50,18 +50,18 @@ public:
 	}
 
 private:
-	typedef CListNode<T>* PNODE;
+	typedef CListNode<Ty>* PNODE;
 
 private:
 	PNODE	m_pNode;
 
 public:
-	bool operator == (const CListIterator<T>& iter)
+	bool operator == (const CListIterator<Ty>& iter)
 	{
 		return m_pNode == iter.m_pNode;
 	}
 
-	bool operator != (const CListIterator<T>& iter)
+	bool operator != (const CListIterator<Ty>& iter)
 	{
 		return m_pNode != iter.m_pNode;
 	}
@@ -76,16 +76,16 @@ public:
 		m_pNode = m_pNode->m_pPrev;
 	}
 
-	T& operator * ()
+	Ty& operator * ()
 	{
 		return m_pNode->m_Data;
 	}
 };
 
-template <typename T>
+template <typename Tz>
 class CListReverseIterator
 {
-	template <typename T>
+	template <typename Tx>
 	friend class CLinkedList;
 
 public:
@@ -100,18 +100,18 @@ public:
 	}
 
 private:
-	typedef CListNode<T>* PNODE;
+	typedef CListNode<Tz>* PNODE;
 
 private:
 	PNODE	m_pNode;
 
 public:
-	bool operator == (const CListReverseIterator<T>& iter)
+	bool operator == (const CListReverseIterator<Tz>& iter)
 	{
 		return m_pNode == iter.m_pNode;
 	}
 
-	bool operator != (const CListReverseIterator<T>& iter)
+	bool operator != (const CListReverseIterator<Tz>& iter)
 	{
 		return m_pNode != iter.m_pNode;
 	}
@@ -126,13 +126,13 @@ public:
 		m_pNode = m_pNode->m_pNext;
 	}
 
-	T& operator * ()
+	Tz& operator * ()
 	{
 		return m_pNode->m_Data;
 	}
 };
 
-template <typename T>
+template <typename Tx>
 class CLinkedList
 {
 public:
@@ -156,13 +156,13 @@ public:
 
 private:
 	// 외부에서 접근 불가능
-	typedef CListNode<T>	NODE;
-	typedef CListNode<T>*	PNODE;
+	typedef CListNode<Tx>	NODE;
+	typedef CListNode<Tx>*	PNODE;
 
 public:
 	// public으로 정의하면 이너 클래스처럼 사용가능
-	typedef CListIterator<T>		iterator;
-	typedef CListReverseIterator<T> reverse_iterator;
+	typedef CListIterator<Tx>		iterator;
+	typedef CListReverseIterator<Tx> reverse_iterator;
 
 private:
 	PNODE	m_pBegin;
@@ -170,7 +170,7 @@ private:
 	int		m_iSize;
 
 public:
-	void push_back(const T& data)
+	void push_back(const Tx& data)
 	{
 		PNODE pNode = new NODE;
 		pNode->m_Data = data;
@@ -190,7 +190,7 @@ public:
 		++m_iSize;
 	}
 
-	void push_front(const T& data)
+	void push_front(const Tx& data)
 	{
 		PNODE pNode = new NODE;
 		pNode->m_Data = data;
@@ -257,14 +257,14 @@ public:
 		--m_iSize;
 	}
 
-	T front()const
+	Tx front()const
 	{
 		assert(!empty());
 
 		return m_pBegin->m_pNext->m_Data;
 	}
 
-	T back()const
+	Tx back()const
 	{
 		assert(!empty());
 
@@ -343,7 +343,7 @@ public:
 		return iter;
 	}
 
-	void sort(bool (*pFunc)(const T&, const T&))
+	void sort(bool (*pFunc)(const Tx&, const Tx&))
 	{
 		for (PNODE pFirst = m_pBegin->m_pNext;
 			pFirst != m_pEnd->m_pPrev; pFirst = pFirst->m_pNext)
@@ -353,7 +353,7 @@ public:
 			{
 				if (pFunc(pFirst->m_Data, pSecond->m_Data))
 				{
-					T temp = pFirst->m_Data;
+					Tx temp = pFirst->m_Data;
 					pFirst->m_Data = pSecond->m_Data;
 					pSecond->m_Data = temp;
 				}
