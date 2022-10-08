@@ -19,16 +19,16 @@
 
 - `Jira`의 `Issue`들은 모두 독립적인 `Issue Key`라는 것을 갖고 있습니다.
 
-  <div align="center"><image src="https://user-images.githubusercontent.com/73771162/194705954-e522d207-88ed-475e-be92-1446ad053c52.PNG"></image></div>
+  <div align="center"><image width="900" height="410" src="https://user-images.githubusercontent.com/73771162/194705954-e522d207-88ed-475e-be92-1446ad053c52.PNG"></image></div>
 
   - `Board`의 `Issue` `Card` 왼쪽 아래에 `Issue Key`가 표시되어 있습니다.
 
-  <div align="center"><image src="https://user-images.githubusercontent.com/73771162/194706052-201b132e-3d44-4d60-9740-3094d616b061.PNG"></image></div>  
+  <div align="center"><image width="580" height="497" src="https://user-images.githubusercontent.com/73771162/194706052-201b132e-3d44-4d60-9740-3094d616b061.PNG"></image></div>  
 
   - `Issue`를 클릭하면 나오는 세부 정보 창의 위쪽에 `Issue Key`가 표시되어 있습니다.
 
-<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194706247-bd6f4e85-3cb6-4ad7-93d0-44d840ba83c7.png"></div>
-<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194706248-3024f668-5b32-4d87-99f1-2ce0bf750261.png"></image></div>
+<div align="center"><image width="700" height="485" src="https://user-images.githubusercontent.com/73771162/194706247-bd6f4e85-3cb6-4ad7-93d0-44d840ba83c7.png"></div>
+<div align="center"><image width="800" height="651" src="https://user-images.githubusercontent.com/73771162/194706248-3024f668-5b32-4d87-99f1-2ce0bf750261.png"></image></div>
 <div align="center">source: Atlassian JIRA</div>
 
 ## Jira Issue에 연관된 Git Branch 표시하기
@@ -52,8 +52,8 @@
 
 ## Jira Issue에 연관된 Git Commit 표시하기
 
-<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194706752-f71ef5b8-630e-47ee-aa39-fa41ae56df7b.png"></image></div>
-<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194706752-f71ef5b8-630e-47ee-aa39-fa41ae56df7b.png"></image></div>
+<div align="center"><image width="700" height="554" src="https://user-images.githubusercontent.com/73771162/194706752-f71ef5b8-630e-47ee-aa39-fa41ae56df7b.png"></image></div>
+<div align="center"><image width="700" height="453" src="https://user-images.githubusercontent.com/73771162/194706746-12809fa2-a7b4-4fff-9d5c-09151ccff40c.png"></image></div>
 <div align="center">source: Atlassian JIRA</div>
 
 - `Git` `Commit Message`에 `Jira` `Issue Key`가 포함되면, 해당 `Git` `Commit`과 해당 `Jira` `Issue`가 연동됩니다.
