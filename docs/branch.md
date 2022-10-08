@@ -217,7 +217,7 @@ ___
 
 ### Pull Request
 
-[Pull Request](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md) (제가 작성한, Pull Request를 설명하는 글입니다.)
+[Pull Request](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/pull_request.md) (제가 작성한, Pull Request를 설명하는 글입니다.)
   
 - 다른 사람의 허락을 얻고 `Merge`하는 것이 `Pull Request`입니다.
 - 프로젝트의 내용물을 직접 수정할 수 없는 `Contributor`분들이 기여하는 방법이기도 합니다.

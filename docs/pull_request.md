@@ -93,7 +93,7 @@
 <div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803531-4c4f5d3b-211e-45a5-bfcb-6164a5859dc5.PNG"></div>
   
 - 위와 같은 화면이 나타납니다.
-- [`Merge Branch`에서의 `Conflict`를 해결하는 요령](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md#%EC%B6%A9%EB%8F%8C-conflict)으로 `Conflict`를 해결합니다.
+- [`Merge Branch`에서의 `Conflict`를 해결하는 요령](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/branch.md#%EC%B6%A9%EB%8F%8C-conflict)으로 `Conflict`를 해결합니다.
 - `Conflict`를 해결하기 전까진, `Mark as resolved` 버튼이 활성화되지 않습니다.
   
 <div align="center"><image src="https://user-images.githubusercontent.com/73771162/193803540-0807e26c-0704-4283-b6df-ba170e5917dc.PNG"></div>

@@ -5,8 +5,8 @@
 우리는 `Jira`에서 제공하는 방식 중 `scrum` 방식을 이용해 개발합니다.
 
 ## 먼저 읽기
-- [애자일 방법론](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/agile_methodology.md)   
-- [스크럼](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/scrum.md)   
+- [애자일 방법론](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/agile_methodology.md)   
+- [스크럼](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/scrum.md)   
 
 ## Table of contents
 - 스프린트 단계

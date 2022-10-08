@@ -21,7 +21,7 @@ Repository for c++ review and advanced learning
 프로젝트 관리 툴 `Jira`를 통해 프로젝트를 관리합니다.   
 `애자일 방법론(Agile Methodology)` 중 `스크럼(Scrum)` 방식을 채택하였습니다.   
 
-Collaborator 분들은 [Jira 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/jira_guide.md)을 익혀주세요.
+Collaborator 분들은 [Jira 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/jira_guide.md)을 익혀주세요.
 
 
 ## How to communicate on github
@@ -56,7 +56,7 @@ Collaborator 분들은 [Jira 사용법](https://github.com/MyeongWoonJang/cpp-st
 
 [Pull Request 사용법]()(추후 추가 예정)
 
-[Github Desktop 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/github_desktop_guide.md)
+[Github Desktop 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/github_desktop_guide.md)
 
 ## Credit
 [@Woon2](https://github.com/MyeongWoonJang)   

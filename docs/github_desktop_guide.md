@@ -213,7 +213,7 @@ ___
 ## 타인과 협업하기
   
 `Git`은 타인과의 협업을 아주 효율적으로 도와주죠.   
-그것엔 [`Branch`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md)의 공이 아주 큽니다.   
+그것엔 [`Branch`](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/branch.md)의 공이 아주 큽니다.   
   
 `Branch`는 독립적인 작업 공간입니다.   
 여러 사람이 작업을 분배해 각자의 `Branch`에서 타인에게 방해받지 않고 작업하게 됩니다.   
@@ -227,7 +227,7 @@ ___
   
 작업을 하면서 여러 `Branch`를 넘나들 일이 있을 것입니다.
   
-**자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)하기를 권장합니다.**
+**자신만이 이용하는 `Branch`가 아닌 경우에는, 직접 `Commit`하지 않고 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/pull_request.md)하기를 권장합니다.**
   
 <br>
   
@@ -273,7 +273,7 @@ ___
   
 - **자신만이 이용하는 `Branch`가 아닌 경우에는, 함부로 `Merge`를 실행하면 안 됩니다.**
   
-  - [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/pull_request.md)를 활용하면 좋을 것입니다.
+  - [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/pull_request.md)를 활용하면 좋을 것입니다.
   
 - `Merge`로 인한 `Conflict` 발생이 예상될 시 몇 개의 파일에서 `Conflict`가 발생하는지 경고 메시지를 보여줍니다.
   
@@ -290,7 +290,7 @@ ___
   
   <div align="center"><image src="https://user-images.githubusercontent.com/73771162/193528197-4a8070ec-33d6-4400-bc33-647333ce6288.PNG"></div>
   
-  - [`Merge Branch`에서의 `Conflict`를 해결하는 요령](https://github.com/MyeongWoonJang/cpp-study/blob/main/readme/branch.md#%EC%B6%A9%EB%8F%8C-conflict)으로 `Conflict`를 해결합니다.
+  - [`Merge Branch`에서의 `Conflict`를 해결하는 요령](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/branch.md#%EC%B6%A9%EB%8F%8C-conflict)으로 `Conflict`를 해결합니다.
     
 ___
     
