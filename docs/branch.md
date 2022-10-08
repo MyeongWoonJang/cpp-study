@@ -36,6 +36,7 @@ source: [Git Notes for Professionals](https://books.goalkicker.com/GitBook/)
   
   - [Pull Request](#pull-request)
   - [프로젝트에 여러 작업 흐름을 두기](#프로젝트에-여러-작업-흐름을-두기)
+  - [프로젝트 관리 툴과 연계하기](#프로젝트-관리-툴과-연계하기)
   
 - [Reference](#reference)
   
