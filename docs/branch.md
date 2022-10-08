@@ -21,7 +21,6 @@ source: [Git Notes for Professionals](https://books.goalkicker.com/GitBook/)
   
   - [작업들의 독립성](#작업들의-독립성)
   - [독립적인 작업들을 동시에 진행하기](#독립적인-작업들을-동시에-진행하기)
-  - [프로젝트 관리 툴과 연계하기](#프로젝트-관리-툴과-연계하기)
   
 - Branch 기능
   
