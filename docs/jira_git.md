@@ -10,9 +10,9 @@
 
 ## Table of contents
 
-- [Issue Key](#issue-key)
-- [Jira Issue에 연관된 Git Branch 표시하기](#jira-issue에-연관된-git-branch-표시하기)
-- [Jira Issue에 연관된 Git Commit 표시하기](#jira-issue에-연관된-git-commit-표시하기)
+- [`Issue Key`](#issue-key)
+- [`Jira` `Issue`에 연관된 `Git` `Branch` 표시하기](#jira-issue에-연관된-git-branch-표시하기)
+- [`Jira` `Issue`에 연관된 `Git` `Commit` 표시하기](#jira-issue에-연관된-git-commit-표시하기)
 - [Reference](#reference)
 
 ## Issue Key
