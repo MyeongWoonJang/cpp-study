@@ -21,12 +21,15 @@
   - [`Revert Commit`](#revert-commit)
 
 - [타인과 협업하기](#타인과-협업하기)
-- 
+
   - ★ [`Create Branch`](#create-branch)
   - ★ [`Checkout Branch`](#checkout-branch)
   - ★ [`Merge Branch`](#merge-branch)
   - ★ [`Create Pull Request`](#create-pull-request)
   - ★ [`Pull Request`에 `Commit`하기](#pull-request에-commit하기)
+  - [`Jira`와 `Git` 연동하기](#jira와-git-연동하기)
+
+- [Reference](#reference)
 
 ## Github Desktop 설치하기
 
@@ -336,3 +339,16 @@ ___
 <div align="center"><image src="https://user-images.githubusercontent.com/73771162/194702800-d36a194b-b15f-4395-afac-330c38ee8b22.PNG"></div>
 
 - 새로이 `Commit`한 내용이 `Github` 상의 `Pull Request`에 반영되어 있습니다.
+
+___
+
+### Jira와 Git 연동하기
+
+- [`Jira` `Issue`를 `Git`과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/assign_jira_issue_to_branch.md)를 참고하세요.
+  
+___
+
+### Reference
+
+[\[티스토리 안까먹을라고 쓰는 블로그\] \[Github Desktop\] 설치 및 사용](https://overit.tistory.com/entry/GitHub-Desltop-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9)
+

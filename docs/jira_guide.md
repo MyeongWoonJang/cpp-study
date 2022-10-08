@@ -53,7 +53,7 @@
   
 ## Issue와 Github Branch 연동
 
-- 추후 작성 예정
+- [Jira Issue를 Git과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/assign_jira_issue_to_branch.md)를 참고하세요.
   
 # 스프린트 계획 단계
   
@@ -116,5 +116,4 @@
 
 ## Reference
 [\[티스토리 코딩수련장\] Jira 지라 사용법](https://11001.tistory.com/120) \(snowman95\)   
-[\[앵그리 비버's IT를 부탁해\] JIRA 처음 사용하기](https://hanminwoo.com/60)   
-[\[Atlassian JIRA\] 지라 클라우드(JIRA Cloud) 와 깃허브(github) 연동하기](https://www.lesstif.com/jira/jira-cloud-github-125305615.html)
+[\[앵그리 비버's IT를 부탁해\] JIRA 처음 사용하기](https://hanminwoo.com/60)

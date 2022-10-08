@@ -34,6 +34,8 @@ Repository for c++ review and advanced learning
 
   - `Git` 사용에 있어 어렵고 중요한 부분인 [`Branch`](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/branch.md)와 [`Pull Request`](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/pull_request.md)는 따로 게시글을 작성해두었습니다.
 
+- [`Jira` `Issue`를 `Git`과 연동](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/assign_jira_issue_to_branch.md)하여 보다 효율적으로 프로젝트를 관리합니다.
+
 ## How to communicate on github
 [마크다운 문법 - Jinkyu Kim](https://github.com/jinkyukim-me/markdown_ko)   
 - `Issue`, `Discussion` 등을 통해 깃허브에서 소통할 때는 마크다운 문법을 활용해야 합니다.
