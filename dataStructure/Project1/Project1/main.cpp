@@ -13,6 +13,15 @@ struct _tagData
 	//char	cName[20];
 };
 
+struct Champion
+{
+	std::string		name;
+	int				hp;
+	int				mp;
+	int				attack;
+	int				defense;
+};	
+
 random_device rd;
 mt19937 gen(rd());
 
@@ -23,10 +32,15 @@ bool DataSort(const _tagData& tSrc, const _tagData& tDest)
 
 int random(int min, int max);
 void createData(int amount);
+template <typename _T>
+void readData(const CLinkedList<_T>& _Linkedlist);
 
 int main()
 {
-	CLinkedList<int>	listInt;
+	CLinkedList<Champion> listChampion;
+	readData(listChampion);
+
+	/*CLinkedList<int>	listInt;
 
 	for (int i = 0; i < 100; ++i)
 	{
@@ -75,7 +89,9 @@ int main()
 	for (iterD = dataList.begin(); iterD != iterDEnd; ++iterD)
 	{
 		cout << (*iterD).iData << endl;
-	}
+	}*/
+
+	listChampion.size();
 
 	return 0;
 }
@@ -119,4 +135,12 @@ void createData(int amount)
 		out << randomName << ' ' << randomHp << ' ' << randomMp
 			<< ' ' << randomAttack << ' ' << randomDefense << '\n';
 	}
+}
+
+template<typename _T>
+void readData(CLinkedList<_T>& _Linkedlist)
+{
+	Champion c = { "Lenoa" ,120, 100, 20, 3 };
+
+	_Linkedlist.push_back(c);
 }
