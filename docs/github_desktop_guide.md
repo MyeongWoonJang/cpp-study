@@ -26,6 +26,7 @@
   - ★ [`Checkout Branch`](#checkout-branch)
   - ★ [`Merge Branch`](#merge-branch)
   - ★ [`Create Pull Request`](#create-pull-request)
+  - ★ [`Pull Request`에 `Commit`하기](#pull-request에-commit하기)
 
 ## Github Desktop 설치하기
 
@@ -310,9 +311,28 @@ ___
     - `Source Branch`와 `Target Branch` 설정까지 영리하게는 되지 않습니다.
     - `New pull request`의 바로가기 버튼이라고 생각하시면 좋습니다.
 
+___
+    
+### Pull Request에 Commit하기
+    
+- `Pull Request`를 수정할 일이 있을 때에는, 그냥 추가로 `Commit` 하면 됩니다.
+    
+    - `Github Desktop`을 이용할 때, `Source Branch`를 수정하면 자동으로 `Pull Request`도 수정됩니다.
+    - `Current Branch`를 클릭하면 `Branch` 목록이 나왔었죠, 오른쪽을 보면 `Pull Request`의 목록도 있습니다.
+    
+      - 원하는 `Pull Request`를 골라 추가로 `Commit`하면 됩니다.
+      - `Source Branch`를 수정하는 것과 같은 효과입니다.   
+      원하는 방법을 선택하세요.
+  
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/194702042-df9521c1-b44f-4ecf-bf6c-dff442591b3e.PNG"></div>
+  
+<div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/194702799-e7a43c08-61ab-4dee-9299-812457b203d4.PNG"></div>
 
+- 위의 `Current Branch`에 `#37`이 보일 겁니다.
+  
+  - `#37`은 `Issue`, `Discussion`, `Pull Request` 등의 게시글의 태그번호를 나타냅니다.
+  - 해당 `Pull Request`의 `Source Branch`라는 뜻입니다.
+  
+<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194702800-d36a194b-b15f-4395-afac-330c38ee8b22.PNG"></div>
 
-    
-    
-    
-    
+- 새로이 `Commit`한 내용이 `Github` 상의 `Pull Request`에 반영되어 있습니다.
