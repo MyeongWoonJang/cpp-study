@@ -344,7 +344,7 @@ ___
 
 ### Jira와 Git 연동하기
 
-- [`Jira` `Issue`를 `Git`과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/assign_jira_issue_to_branch.md)를 참고하세요.
+- [`Jira` `Issue`를 `Git`과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/jira_git.md)를 참고하세요.
   
 ___
 

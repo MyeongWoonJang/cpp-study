@@ -249,7 +249,7 @@ ___
 `Trello`, `Jira` 등 프로젝트 관리 툴에 `Branch`를 연동시킬 수 있습니다.   
 `Github` 상에서 `Branch`들의 `Commit`을 살피는 것보다 훨씬 유용하게 작업 진척을 파악할 수 있죠.
 
-[`Jira` `Issue`를 `Git`과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/assign_jira_issue_to_branch.md)를 참고하세요.
+[`Jira` `Issue`를 `Git`과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/jira_git.md)를 참고하세요.
   
 ## Reference
 

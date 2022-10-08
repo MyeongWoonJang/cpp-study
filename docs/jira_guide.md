@@ -53,7 +53,7 @@
   
 ## Issue와 Github Branch 연동
 
-- [Jira Issue를 Git과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/assign_jira_issue_to_branch.md)를 참고하세요.
+- [Jira Issue를 Git과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/jira_git.md)를 참고하세요.
   
 # 스프린트 계획 단계
   
