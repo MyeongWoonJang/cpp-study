@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <random>
+#include <iomanip>
 
 #include "LinkedList.h"
 
@@ -38,7 +39,44 @@ void readData(const CLinkedList<_T>& _Linkedlist);
 int main()
 {
 	CLinkedList<Champion> listChampion;
-	readData(listChampion);
+	// readData(listChampion);
+	
+	Champion c[10] = { 
+		{"Wikzae", 162, 83, 91, 16},
+		{"Vhmlucb", 124, 108, 54, 3},
+		{"Dtufrkax", 127, 94, 98, 8},
+		{"Qrbqrt", 144, 73, 53, 12},
+		{"Ylckbqbwhg", 113, 65, 52, 1},
+		{"Ydmivi", 184, 60, 83, 12},
+		{"Fxaghnrx", 157, 110, 86, 7},
+		{"Felqmyixn", 145, 93, 55, 19},
+		{"Qhribos", 158, 69, 74, 14},
+		{"Acrvstwqyg", 123, 113, 79, 0},
+	};
+
+	for (int i = 0; i < 10; ++i)
+	{
+		listChampion.push_back(c[i]);
+	}
+	
+	cout << listChampion.size() << endl;
+
+	CLinkedList<Champion>::iterator iter;
+	CLinkedList<Champion>::iterator iterEnd = listChampion.end();
+	
+	for (iter = listChampion.begin(); iter != iterEnd; ++iter)
+	{
+		Champion temp;
+		temp = *iter;
+
+		cout.setf(ios::left);
+		cout << setw(4) << "Name : "	 << setw(20) << temp.name
+			 << setw(4) << "HP : "		 << setw(10) << temp.hp
+			 << setw(4) << "MP : "		 << setw(10) << temp.mp
+			 << setw(4) << "Attack : "  << setw(10) << temp.attack
+			 << setw(4) << "Defense : " << setw(10) << temp.defense << "\n";
+	}
+
 
 	/*CLinkedList<int>	listInt;
 
@@ -91,8 +129,9 @@ int main()
 		cout << (*iterD).iData << endl;
 	}*/
 
-	listChampion.size();
 
+
+	
 	return 0;
 }
 
@@ -142,5 +181,5 @@ void readData(CLinkedList<_T>& _Linkedlist)
 {
 	Champion c = { "Lenoa" ,120, 100, 20, 3 };
 
-	_Linkedlist.push_back(c);
+	_Linkedlist->push_back();
 }
