@@ -7,6 +7,7 @@
 #include <chrono>
 
 #include "LinkedList.h"
+#include "Stack.h"
 
 using namespace std;
 using namespace chrono;
@@ -43,7 +44,51 @@ void readData(CLinkedList<Champion>& _Linkedlist);
 
 int main()
 {
-	createData(10000);
+	// Stack
+	CStackList<int> intStack;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		intStack.push(i);
+	}
+
+	for (int i = 0; i < 10; ++i)
+	{
+		cout << intStack.pop() << endl;
+	}
+
+	CStackList<char> charStack;
+
+	char strText[10] = "TextStr";
+
+	for (int i = 0; i < strlen(strText); ++i)
+	{
+		charStack.push(strText[i]);
+	}
+
+	for (int i = 0; i < strlen(strText); ++i)
+	{
+		cout << charStack.pop();
+	}
+
+	cout << endl;
+
+	// StackArr
+	CStackArray<int> intStackArr;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		intStackArr.push(i);
+	}
+
+	for (int i = 0; i < 10; ++i)
+	{
+		cout << intStackArr.pop() << endl;
+	}
+
+	return 0;
+
+	// createData(10000);
 
 	// 코드 실행시간을 확인하기 위한 변수들
 	//============================================
@@ -98,7 +143,6 @@ int main()
 			 << setw(4) << "Attack : "   << setw(10) << temp.attack
 			 << setw(4) << "Defense : "  << setw(10) << temp.defense << "\n";
 	}*/
-
 
 	/*CLinkedList<int>	listInt;
 
