@@ -1,12 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include <random>
 #include <iomanip>
+#include <chrono>
 
 #include "LinkedList.h"
 
 using namespace std;
+using namespace chrono;
 
 struct _tagData
 {
@@ -34,14 +37,33 @@ bool DataSort(const _tagData& tSrc, const _tagData& tDest)
 int random(int min, int max);
 void createData(int amount);
 template <typename _T>
-void readData(const CLinkedList<_T>& _Linkedlist);
+void readData(CLinkedList<_T>& _Linkedlist);
+template <>
+void readData(CLinkedList<Champion>& _Linkedlist);
 
 int main()
 {
+	createData(10000);
+
+	// 코드 실행시간을 확인하기 위한 변수들
+	//============================================
+	system_clock::time_point begin_time, end_time;
+	milliseconds diff_time;
+	//============================================
+
 	CLinkedList<Champion> listChampion;
-	// readData(listChampion);
+
+	cout << "파일에서 데이터를 읽어 옵니다..." << endl;
+	begin_time = system_clock::now();
+
+	readData(listChampion);
+
+	end_time = system_clock::now();
 	
-	Champion c[10] = { 
+	diff_time = duration_cast<milliseconds>(end_time - begin_time);
+	cout << "완료(지연시간 " << (int)diff_time.count() << "ms)" << endl;
+
+	/*Champion c[10] = { 
 		{"Wikzae", 162, 83, 91, 16},
 		{"Vhmlucb", 124, 108, 54, 3},
 		{"Dtufrkax", 127, 94, 98, 8},
@@ -73,9 +95,9 @@ int main()
 		cout << setw(4) << "Name : "	 << setw(20) << temp.name
 			 << setw(4) << "HP : "		 << setw(10) << temp.hp
 			 << setw(4) << "MP : "		 << setw(10) << temp.mp
-			 << setw(4) << "Attack : "  << setw(10) << temp.attack
-			 << setw(4) << "Defense : " << setw(10) << temp.defense << "\n";
-	}
+			 << setw(4) << "Attack : "   << setw(10) << temp.attack
+			 << setw(4) << "Defense : "  << setw(10) << temp.defense << "\n";
+	}*/
 
 
 	/*CLinkedList<int>	listInt;
@@ -129,8 +151,12 @@ int main()
 		cout << (*iterD).iData << endl;
 	}*/
 
+	cout << "리스트의 크기 : " << listChampion.size() << endl;
 
+	/*while (true)
+	{
 
+	}*/
 	
 	return 0;
 }
@@ -176,10 +202,21 @@ void createData(int amount)
 	}
 }
 
-template<typename _T>
-void readData(CLinkedList<_T>& _Linkedlist)
+template<>
+void readData(CLinkedList<Champion>& _Linkedlist)
 {
-	Champion c = { "Lenoa" ,120, 100, 20, 3 };
+	ifstream fin("data.txt");
+	
+	char line[100];
 
-	_Linkedlist->push_back();
+	while (fin.getline(line, sizeof(line)))
+	{
+		Champion c;
+		istringstream iss(line);
+
+		iss >> c.name >> c.hp >> c.mp >> c.attack >> c.defense;
+		_Linkedlist.push_back(c);
+	}
+	
+	fin.close();
 }
