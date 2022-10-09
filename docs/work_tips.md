@@ -29,7 +29,7 @@
 
 ## 마크다운 문서 작성 팁
 
-<div align="center"><image src="https://user-images.githubusercontent.com/73771162/194733630-7cec9394-7a76-48b3-8ffc-244a83a95c8c.PNG"></image></div>
+<div align="center"><image width="700" height="609" src="https://user-images.githubusercontent.com/73771162/194733630-7cec9394-7a76-48b3-8ffc-244a83a95c8c.PNG"></image></div>
 
 - 줄넘김
 
@@ -102,7 +102,7 @@
 
   int main()
   {
-  std::cout << "Hello, World!\n";
+      std::cout << "Hello, World!\n";
   }
   ```
 
@@ -156,7 +156,7 @@
     - `Github`의 `Commit History`에서 `복사` 버튼을 클릭합니다.
     - 원하는 곳에 `붙여넣기` 합니다.
 
-    <div align="center"><image src="https://user-images.githubusercontent.com/73771162/194735109-0eca7fe9-db13-4ab7-9106-a60e3e90a0f5.png"></div>
+    <div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/194735109-0eca7fe9-db13-4ab7-9106-a60e3e90a0f5.png"></div>
   
     - `Github Desktop`의 `Commit History`에서 `Copy SHA` 버튼을 클릭해도 복사가 가능합니다.
     - 원하는 곳에 `붙여넣기` 합니다.
@@ -179,7 +179,7 @@
 
 - `Commit Message`에 `종료 키워드`와 `Issue` `number`를 넣으면 `Issue`를 닫을 수 있습니다.
 
-  <div align="center"><image src="https://user-images.githubusercontent.com/73771162/194735635-f41cebb7-b75f-4769-96aa-c920880a01b5.png"></div>
+  <div align="center"><image width="800" height="540" src="https://user-images.githubusercontent.com/73771162/194735635-f41cebb7-b75f-4769-96aa-c920880a01b5.png"></div>
 
   - `Github Desktop`의 `Commit Message`에 `#`을 입력하면, `Open` `Issue` 목록이 나타납니다.
 
