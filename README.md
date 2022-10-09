@@ -10,6 +10,9 @@
 c++ 복습 및 심화 학습을 위해 만들어진 레포지터리   
 Repository for c++ review and advanced learning
 
+보여지지 않는 부분까지 공부하고, 타당하게 도구를 사용할 수 있도록   
+스스로 과제를 생성하고 해결하며 날마다 견고해지는 프로젝트입니다.
+
 ## Table of contents
 [unique_ptr]("")   
 [shared_ptr]("")   
