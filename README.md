@@ -55,6 +55,9 @@ Repository for c++ review and advanced learning
 - 협업 규칙, 프로젝트 설계 등 중요한 논의를 할 때 사용합니다.
 - 코드나 설계에 대해서 개선 사항이 있을 때 사용합니다.
 
+## Work Tips
+[Project Owner인 Wonn2가 개인적으로 작성한 업무 팁들을 소개합니다.](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/work_tips.md)
+
 ## Credit
 [@Woon2](https://github.com/MyeongWoonJang)   
 [@Lcat12345](https://github.com/Lcat12345)   
