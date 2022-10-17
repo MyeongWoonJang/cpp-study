@@ -13,6 +13,19 @@ Repository for c++ review and advanced learning
 보여지지 않는 부분까지 공부하고, 타당하게 도구를 사용할 수 있도록   
 스스로 과제를 생성하고 해결하며 날마다 견고해지는 프로젝트입니다.
 
+## What are the fruits of studying C++
+
+대양과도 같은 방대함을 지닌 C++ 개념들을 익히면
+
+- 현대 프로그래밍 언어의 구현
+- 코드가 하드웨어와 운영체제를 조작하는 과정
+- 타이핑을 줄이고, 인간의 기억력에 의존하지 않는 코드 설계
+- 코드로 코드를 만들어 내는 메타 프로그래밍
+
+을 이해할 수 있습니다.
+
+성능 최적화, 유지보수성과 확장성 향상, 버그의 해결 등에 있어서 쉽게 찾아지지 않았던 답들이 여기에 있을 것입니다.
+
 ## Table of contents
 [unique_ptr]("")   
 [shared_ptr]("")   
@@ -59,7 +72,7 @@ Repository for c++ review and advanced learning
 - 코드나 설계에 대해서 개선 사항이 있을 때 사용합니다.
 
 ## Work Tips
-[Project Owner인 Won2가 개인적으로 작성한 업무 팁들을 소개합니다.](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/work_tips.md)
+[Project Owner인 Woon2가 개인적으로 작성한 업무 팁들을 소개합니다.](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/work_tips.md)
 
 ## Credit
 [@Woon2](https://github.com/MyeongWoonJang)   
