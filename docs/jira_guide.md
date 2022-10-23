@@ -5,8 +5,8 @@
 우리는 `Jira`에서 제공하는 방식 중 `scrum` 방식을 이용해 개발합니다.
 
 ## 먼저 읽기
-- [애자일 방법론](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/agile_methodology.md)   
-- [스크럼](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/scrum.md)   
+- [애자일 방법론](https://github.com/Woon-2/cpp-study/blob/main/docs/agile_methodology.md)   
+- [스크럼](https://github.com/Woon-2/cpp-study/blob/main/docs/scrum.md)   
 
 ## Table of contents
 - 스프린트 단계
@@ -53,7 +53,7 @@
   
 ## Issue와 Github Branch 연동
 
-- [Jira Issue를 Git과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/jira_git.md)를 참고하세요.
+- [Jira Issue를 Git과 연동하기](https://github.com/Woon-2/cpp-study/blob/main/docs/jira_git.md)를 참고하세요.
   
 # 스프린트 계획 단계
   
