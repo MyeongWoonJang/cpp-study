@@ -4,5 +4,12 @@
 #ifndef mat
 #define mat
 
+class mat
+{
+public:
+
+private:
+
+};
 
 #endif

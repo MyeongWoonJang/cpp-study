@@ -5,4 +5,12 @@
 #ifndef vec
 #define vec
 
+class vec
+{
+public:
+
+private:
+
+};
+
 #endif
