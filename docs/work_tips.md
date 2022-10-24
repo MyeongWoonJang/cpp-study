@@ -1,5 +1,5 @@
 # Work Tips
-[@Woon2](https://github.com/MyeongWoonJang)의 자잘한 업무 팁들을 소개합니다.   
+[@Woon2](https://github.com/Woon-2)의 자잘한 업무 팁들을 소개합니다.   
 저는 싱글 모니터 환경에서 작업하기 때문에, 듀얼 모니터를 사용하시는 분들을 위한 팁은 준비하지 못했습니다.
 
 ## Table of contents
@@ -121,7 +121,7 @@
   - 이제 원하는 곳에 `붙여넣기` 하면 됩니다.
   - 이런 느낌이 됩니다.
 
-  https://github.com/MyeongWoonJang/cpp-study/blob/2b98231f2ef9b0c7e0a503aa3016b80e2a049b1a/base_app.cpp#L3-L11
+  https://github.com/Woon-2/cpp-study/blob/2b98231f2ef9b0c7e0a503aa3016b80e2a049b1a/base_app.cpp#L3-L11
 
   - 여기서 잠깐, 여러분이 `Github` `Repository`의 `Code` 항목에서 파일을 클릭하고 코드를 복사하는 것도 특정 `Commit`의 코드를 복사하는 것입니다.    
   
@@ -147,7 +147,7 @@
 
     - `Github`에서 파일을 클릭하면 위쪽에 `URL`이 바뀌죠?   
       `Repository` 내의 파일도 각각 `URL`이 있습니다.
-    - `[Github Desktop 사용법](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/github_desktop_guide.md)`와 같은 예시가 있습니다.
+    - `[Github Desktop 사용법](https://github.com/Woon-2/cpp-study/blob/main/docs/github_desktop_guide.md)`와 같은 예시가 있습니다.
 
   - `Commit`
 

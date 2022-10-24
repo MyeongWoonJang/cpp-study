@@ -218,7 +218,7 @@ ___
 
 ### Pull Request
 
-[Pull Request](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/pull_request.md) (제가 작성한, Pull Request를 설명하는 글입니다.)
+[Pull Request](https://github.com/Woon-2/cpp-study/blob/main/docs/pull_request.md) (제가 작성한, Pull Request를 설명하는 글입니다.)
   
 - 다른 사람의 허락을 얻고 `Merge`하는 것이 `Pull Request`입니다.
 - 프로젝트의 내용물을 직접 수정할 수 없는 `Contributor`분들이 기여하는 방법이기도 합니다.
@@ -250,7 +250,7 @@ ___
 `Trello`, `Jira` 등 프로젝트 관리 툴에 `Branch`를 연동시킬 수 있습니다.   
 `Github` 상에서 `Branch`들의 `Commit`을 살피는 것보다 훨씬 유용하게 작업 진척을 파악할 수 있죠.
 
-[`Jira` `Issue`를 `Git`과 연동하기](https://github.com/MyeongWoonJang/cpp-study/blob/main/docs/jira_git.md)를 참고하세요.
+[`Jira` `Issue`를 `Git`과 연동하기](https://github.com/Woon-2/cpp-study/blob/main/docs/jira_git.md)를 참고하세요.
   
 ## Reference
 
