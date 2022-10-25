@@ -58,11 +58,11 @@
 
 ## Jira Issue에 연관된 Git Commit 표시하기
 
+- `Git` `Commit Message`에 `Jira` `Issue Key`가 포함되면, 해당 `Git` `Commit`과 해당 `Jira` `Issue`가 연동됩니다.
+
 <div align="center"><image width="700" height="554" src="https://user-images.githubusercontent.com/73771162/194706752-f71ef5b8-630e-47ee-aa39-fa41ae56df7b.png"></image></div>
 <div align="center"><image width="700" height="453" src="https://user-images.githubusercontent.com/73771162/194706746-12809fa2-a7b4-4fff-9d5c-09151ccff40c.png"></image></div>
 <div align="center">source: Atlassian JIRA</div>
-
-- `Git` `Commit Message`에 `Jira` `Issue Key`가 포함되면, 해당 `Git` `Commit`과 해당 `Jira` `Issue`가 연동됩니다.
 
   - 예시 사진처럼, `Issue Key`를 포함해서 여러분이 적고 싶은 `Commit Message`를 작성하시면 됩니다.
   - 여러 개의 `Issue Key`를 포함하면, 여러 개의 `Jira` `Issue`와 연동됩니다.
