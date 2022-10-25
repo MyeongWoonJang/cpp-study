@@ -11,6 +11,7 @@
 ## Table of contents
 
 - [Jira Issue를 Git과 연동하기](#jira-issue를-git과-연동하기)
+  
   - [Table of contents](#table-of-contents)
   - [Issue Key](#issue-key)
   - [Jira Issue에 연관된 Git Branch 표시하기](#jira-issue에-연관된-git-branch-표시하기)
