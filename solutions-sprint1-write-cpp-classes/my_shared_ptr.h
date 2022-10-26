@@ -1,7 +1,7 @@
 #ifndef _my_shared_ptr
 #define _my_shared_ptr
 
-#include "../my_unique_ptr/my_unique_ptr.h"
+#include "my_unique_ptr.h"
 #include <type_traits>
 
 template <class T>
