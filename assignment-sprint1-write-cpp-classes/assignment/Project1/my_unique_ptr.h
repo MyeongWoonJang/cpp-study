@@ -6,12 +6,13 @@
 class my_unique_ptr
 {
 public:
+	int* get();
+	void release();
+	void reset(int* other);
 
 private:
 
 };
-
-
 #endif
 
 
