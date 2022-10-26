@@ -1,8 +1,8 @@
-#include <cstddef>
-#include <limits>
-
 #ifndef mat
 #define mat
+
+#include <cstddef>
+#include <limits>
 
 class mat
 {

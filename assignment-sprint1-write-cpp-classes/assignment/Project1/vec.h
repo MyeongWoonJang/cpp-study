@@ -1,9 +1,9 @@
-#pragma once
+#ifndef vec
+#define vec
+
 #include <cstddef>
 #include <limits>
 
-#ifndef vec
-#define vec
 
 class vec
 {
