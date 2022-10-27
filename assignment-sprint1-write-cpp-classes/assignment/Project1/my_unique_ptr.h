@@ -11,6 +11,7 @@ public:
 	void reset(int* other);
 
 private:
+	int* pObject;
 
 };
 #endif
