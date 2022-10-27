@@ -18,15 +18,15 @@ public:
 	void shrink_to_fit();
 	void resize(const size_t n);
 	void clear();
-	void insert(const size_t n, const std::string other);
+	void insert(const size_t n, const char* other);
 	void erase(const size_t n, const size_t m);
 	void push_back(const char c);
 	void pop_back();
 	void append(const char c);
-	int compare(const std::string& other) const;
-	void replace(const std::string& A, const std::string B);
+	int compare(const char* other) const;
+	void replace(const char* A, const char* B);
 	const my_string& substr(const size_t n, const size_t m);
-	int find(const std::string str) const;
+	int find(const char* str) const;
 
 private:
 
