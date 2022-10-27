@@ -29,6 +29,8 @@ public:
 	int find(const char* str) const;
 
 private:
-
+	size_t byteObtained;
+	char* myString;
+	int length;
 };
 #endif
