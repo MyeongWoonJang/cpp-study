@@ -14,6 +14,7 @@ public:
 	float* inverseTranspose() const;
 
 private:
+	float mat3[3][3];
 
 };
 #endif
