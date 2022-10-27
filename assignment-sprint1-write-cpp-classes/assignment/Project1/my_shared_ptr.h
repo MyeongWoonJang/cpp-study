@@ -11,6 +11,7 @@ public:
 	void reset(int* other);
 
 private:
-
+	int count;
+	int* pObject;
 };
 #endif
