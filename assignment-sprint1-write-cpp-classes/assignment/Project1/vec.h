@@ -11,6 +11,6 @@ public:
 	void normalize();
 
 private:
-
+	float vec3[3];
 };
 #endif
