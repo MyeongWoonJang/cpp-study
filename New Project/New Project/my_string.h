@@ -3,4 +3,12 @@
 
 #include <cstring>
 
+class my_string
+{
+public:
+
+private:
+
+};
+
 #endif

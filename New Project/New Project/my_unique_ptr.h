@@ -3,4 +3,12 @@
 
 #include <type_traits>
 
+class my_unique_ptr
+{
+public:
+
+private:
+
+};
+
 #endif
