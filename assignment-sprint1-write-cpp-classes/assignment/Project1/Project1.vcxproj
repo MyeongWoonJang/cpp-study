@@ -134,6 +134,7 @@
     <ClInclude Include="vec.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="manage_memory.cpp" />
     <ClCompile Include="mat.cpp" />
     <ClCompile Include="my_shared_ptr.cpp" />
     <ClCompile Include="my_string.cpp" />

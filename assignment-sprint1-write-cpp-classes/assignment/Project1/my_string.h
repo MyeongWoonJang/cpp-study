@@ -25,12 +25,12 @@ public:
 	void append(const char c);
 	int compare(const char* other) const;
 	void replace(const char* A, const char* B);
-	const my_string& substr(const size_t n, const size_t m);
+	// const my_string& substr(const size_t n, const size_t m);
 	int find(const char* str) const;
 
 private:
-	size_t byteObtained;
-	char* myString;
-	int length;
+	size_t	byteObtained;
+	char*	myString;
+	int		m_length;
 };
 #endif
