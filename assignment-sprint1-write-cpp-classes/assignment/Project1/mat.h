@@ -1,5 +1,5 @@
-#ifndef mat
-#define mat
+#ifndef _mat
+#define _mat
 
 #include <cstddef>
 #include <limits>

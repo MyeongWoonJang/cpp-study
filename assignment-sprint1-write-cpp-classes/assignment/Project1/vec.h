@@ -1,5 +1,5 @@
-#ifndef vec
-#define vec
+#ifndef _vec
+#define _vec
 #include <cstddef>
 #include <limits>
 

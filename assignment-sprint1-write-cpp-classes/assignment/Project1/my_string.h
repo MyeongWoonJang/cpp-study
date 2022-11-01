@@ -1,5 +1,5 @@
-#ifndef my_string
-#define my_string
+#ifndef _my_string
+#define _my_string
 
 #include <cstring>
 
@@ -25,7 +25,7 @@ public:
 	void append(const char c);
 	int compare(const char* other) const;
 	void replace(const char* A, const char* B);
-	// const my_string& substr(const size_t n, const size_t m);
+	const my_string& substr(const size_t n, const size_t m);
 	int find(const char* str) const;
 
 private:

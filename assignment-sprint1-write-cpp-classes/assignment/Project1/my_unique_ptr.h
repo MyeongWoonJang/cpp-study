@@ -1,5 +1,5 @@
-#ifndef my_unique_ptr
-#define my_unique_ptr
+#ifndef _my_unique_ptr
+#define _my_unique_ptr
 
 #include <type_traits>
 
