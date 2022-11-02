@@ -19,18 +19,18 @@ my_unique_ptr<T>::my_unique_ptr(T* const ptr) noexcept : ptr{ptr}
 }
 
 template <typename T>
-my_unique_ptr<T>::my_unique_ptr(my_unique_ptr&& other) noexcept : ptr{other.ptr}
+my_unique_ptr<T>::my_unique_ptr(my_unique_ptr&& src) noexcept : ptr{src.get()}
 {
-    other.ptr = nullptr;
+    src.invalidate();
 }
 
 template <typename T>
-my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& other) noexcept
+my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& src) noexcept
 {
-    if (this != &other)
+    if (this != &src)
     {
-        reset(other.ptr);
-        other.ptr = nullptr;
+        reset(src.get());
+        src.invalidate();
     }
     
     return *this;
@@ -43,37 +43,19 @@ my_unique_ptr<T>::~my_unique_ptr()
 }
 
 template <typename T>
-T* const my_unique_ptr<T>::operator->() noexcept
+T* const my_unique_ptr<T>::operator->() const noexcept
 {
     return ptr;
 }
 
 template <typename T>
-const T* const my_unique_ptr<T>::operator->() const noexcept
-{
-    return ptr;
-}
-
-template <typename T>
-T& my_unique_ptr<T>::operator*() noexcept
+T& my_unique_ptr<T>::operator*() const noexcept(noexcept(*std::declval<T>()))
 {
     return *ptr;
 }
 
 template <typename T>
-const T& my_unique_ptr<T>::operator*() const noexcept(noexcept(*std::declval<T>()))
-{
-    return *ptr;
-}
-
-template <typename T>
-T* const my_unique_ptr<T>::get() noexcept
-{
-    return operator->();
-}
-
-template <typename T>
-const T* const my_unique_ptr<T>::get() const noexcept
+T* const my_unique_ptr<T>::get() const noexcept
 {
     return operator->();
 }
@@ -81,22 +63,23 @@ const T* const my_unique_ptr<T>::get() const noexcept
 template <typename T>
 void my_unique_ptr<T>::reset(T* const ptr) noexcept
 {
-    if (this->ptr) delete this->ptr;
+    dealloc();
     this->ptr = ptr;
 }
 
 template <typename T>
 void my_unique_ptr<T>::reset(std::nullptr_t) noexcept
 {
-    if (this->ptr) delete this->ptr;
-    this->ptr = nullptr;
+    dealloc();
+    invalidate();
 }
 
 template <typename T>
 T* my_unique_ptr<T>::release() noexcept
 {
-    reset(nullptr);
-    return ptr;
+    T* ret = get();
+    reset();
+    return ret;
 }
 
 template <typename T>
@@ -109,6 +92,18 @@ template <typename T>
 my_unique_ptr<T>::operator bool() const noexcept
 {
     return static_cast<bool>(ptr);
+}
+
+template <class T>
+void my_unique_ptr<T>::dealloc() noexcept
+{
+    if (ptr) delete ptr;
+}
+
+template <class T>
+void my_unique_ptr<T>::invalidate() noexcept
+{
+    ptr = nullptr;
 }
 
 template <typename T1, typename T2>
@@ -217,4 +212,11 @@ template <typename T>
 const bool operator>=(std::nullptr_t lhs, const my_unique_ptr<T>& rhs) noexcept
 {
     return !(nullptr < rhs);
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& os, const my_unique_ptr<T>& rhs)
+{
+    os << rhs.get();
+    return os;
 }
