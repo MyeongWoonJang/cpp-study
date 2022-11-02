@@ -27,12 +27,8 @@ public:
     T* release() noexcept;
     void swap(my_unique_ptr&) noexcept;
     explicit operator bool() const noexcept;
-
-    template <class Y> friend class my_shared_ptr;
+    
 private:
-    void dealloc() noexcept;
-    void invalidate() noexcept;
-
     T* ptr;
 };
 

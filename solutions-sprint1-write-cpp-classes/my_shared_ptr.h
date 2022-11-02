@@ -35,20 +35,13 @@ public:
     T* const operator->() const noexcept;
     T& operator*() const noexcept(noexcept(*std::declval<T>()));
     T* const get() const noexcept;
+    void swap(my_shared_ptr&) noexcept;
     
     explicit operator bool() const noexcept;
 
 private:
     static std::size_t* make_refs();
-    void invalidate() noexcept;
-    void copy_ptr_and_refs(const my_shared_ptr&) noexcept;
-    void copy_ptr_and_refs(my_shared_ptr&&) noexcept;
-    template <class Y>
-    void copy_ptr_and_refs(const my_shared_ptr<Y>&) noexcept;
-    template <class Y>
-    void copy_ptr_and_refs(my_shared_ptr<Y>&&) noexcept;
     void inc_if_refs_valid() noexcept;
-    void dec_or_free_refs_if_refs_valid() noexcept;
 
     T* ptr;
     std::size_t* refs;

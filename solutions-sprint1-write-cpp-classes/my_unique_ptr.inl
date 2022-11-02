@@ -21,17 +21,13 @@ my_unique_ptr<T>::my_unique_ptr(T* const ptr) noexcept : ptr{ptr}
 template <typename T>
 my_unique_ptr<T>::my_unique_ptr(my_unique_ptr&& src) noexcept : ptr{src.get()}
 {
-    src.invalidate();
+    src.ptr = nullptr;
 }
 
 template <typename T>
 my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& src) noexcept
 {
-    if (this != &src)
-    {
-        reset(src.get());
-        src.invalidate();
-    }
+    if (this != &src) swap(src);
     
     return *this;
 }
@@ -39,7 +35,7 @@ my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& src) noexcept
 template <typename T>
 my_unique_ptr<T>::~my_unique_ptr()
 {
-    reset();
+    delete release();
 }
 
 template <typename T>
@@ -63,47 +59,34 @@ T* const my_unique_ptr<T>::get() const noexcept
 template <typename T>
 void my_unique_ptr<T>::reset(T* const ptr) noexcept
 {
-    dealloc();
+    ~my_unique_ptr();
     this->ptr = ptr;
 }
 
 template <typename T>
 void my_unique_ptr<T>::reset(std::nullptr_t) noexcept
 {
-    dealloc();
-    invalidate();
+    ~my_unique_ptr();
 }
 
 template <typename T>
 T* my_unique_ptr<T>::release() noexcept
 {
     T* ret = get();
-    reset();
+    ptr = nullptr;
     return ret;
 }
 
 template <typename T>
-void my_unique_ptr<T>::swap(my_unique_ptr& other) noexcept
+void my_unique_ptr<T>::swap(my_unique_ptr& rhs) noexcept
 {
-    std::swap(ptr, other.ptr);
+    std::swap(ptr, rhs.ptr);
 }
 
 template <typename T>
 my_unique_ptr<T>::operator bool() const noexcept
 {
     return static_cast<bool>(ptr);
-}
-
-template <class T>
-void my_unique_ptr<T>::dealloc() noexcept
-{
-    if (ptr) delete ptr;
-}
-
-template <class T>
-void my_unique_ptr<T>::invalidate() noexcept
-{
-    ptr = nullptr;
 }
 
 template <typename T1, typename T2>
