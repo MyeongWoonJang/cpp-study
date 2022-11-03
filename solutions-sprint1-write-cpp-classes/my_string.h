@@ -18,6 +18,14 @@ public:
     my_string(std::nullptr_t) = delete;
     
 private:
+    std::size_t cap;
+    std::size_t sz;
+    CharT* dat;
+};
+
+namespace
+{
+    constexpr std::size_t closest_bin(std::size_t n);
 }
 
 #include "my_string.inl"
