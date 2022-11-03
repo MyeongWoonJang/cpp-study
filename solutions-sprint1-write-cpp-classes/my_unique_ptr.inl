@@ -19,16 +19,15 @@ my_unique_ptr<T>::my_unique_ptr(T* const ptr) noexcept : ptr{ ptr }
 }
 
 template <class T>
-my_unique_ptr<T>::my_unique_ptr(my_unique_ptr&& src) noexcept : ptr{ src.get() }
+my_unique_ptr<T>::my_unique_ptr(my_unique_ptr&& other) noexcept : ptr{ other.get() }
 {
-    src.ptr = nullptr;
+    other.ptr = nullptr;
 }
 
 template <class T>
-my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& src) noexcept
+my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& other) noexcept
 {
-    swap(src);
-
+    swap(other);
     return *this;
 }
 

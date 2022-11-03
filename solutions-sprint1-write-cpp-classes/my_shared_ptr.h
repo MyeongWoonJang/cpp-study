@@ -12,31 +12,31 @@ public:
     constexpr my_shared_ptr(std::nullptr_t) noexcept;
     template <class Y>
     explicit my_shared_ptr(Y*);
-    my_shared_ptr(const my_shared_ptr&) noexcept;
+    my_shared_ptr(const my_shared_ptr& other) noexcept;
     template <class Y>
-    my_shared_ptr(const my_shared_ptr<Y>&) noexcept;
-    my_shared_ptr(my_shared_ptr&&) noexcept;
+    my_shared_ptr(const my_shared_ptr<Y>& other) noexcept;
+    my_shared_ptr(my_shared_ptr&& other) noexcept;
     template <class Y>
-    my_shared_ptr(my_shared_ptr<Y>&&) noexcept;
+    my_shared_ptr(my_shared_ptr<Y>&& other) noexcept;
     template <class Y>
-    my_shared_ptr(my_unique_ptr<Y>&&);
+    my_shared_ptr(my_unique_ptr<Y>&& other);
 
-    my_shared_ptr& operator=(const my_shared_ptr&) noexcept;
+    my_shared_ptr& operator=(const my_shared_ptr& other) noexcept;
     template <class Y>
-    my_shared_ptr& operator=(const my_shared_ptr<Y>&) noexcept;
-    my_shared_ptr& operator=(my_shared_ptr&&) noexcept;
+    my_shared_ptr& operator=(const my_shared_ptr<Y>& other) noexcept;
+    my_shared_ptr& operator=(my_shared_ptr&& other) noexcept;
     template <class Y>
-    my_shared_ptr& operator=(my_shared_ptr<Y>&&) noexcept;
+    my_shared_ptr& operator=(my_shared_ptr<Y>&& other) noexcept;
     template <class Y>
-    my_shared_ptr& operator=(my_unique_ptr<Y>&&);
+    my_shared_ptr& operator=(my_unique_ptr<Y>&& other);
 
     ~my_shared_ptr() noexcept;
 
     T* const operator->() const noexcept;
     T& operator*() const noexcept(noexcept(*std::declval<T>()));
     T* const get() const noexcept;
-    T& operator[](std::size_t) const;
-    void swap(my_shared_ptr&) noexcept;
+    T& operator[](std::size_t idx) const;
+    void swap(my_shared_ptr& rhs) noexcept;
     void reset() noexcept;
     template <class Y>
     void reset(Y* ptr);

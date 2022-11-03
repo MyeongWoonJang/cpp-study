@@ -19,73 +19,73 @@ my_shared_ptr<T>::my_shared_ptr(Y* ptr) : ptr{ ptr }, refs{ make_refs() }
 }
 
 template <class T>
-my_shared_ptr<T>::my_shared_ptr(const my_shared_ptr& src) noexcept : ptr{ src.get() }, refs{ src.refs }
+my_shared_ptr<T>::my_shared_ptr(const my_shared_ptr& other) noexcept : ptr{ other.get() }, refs{ other.refs }
 {
     inc_if_refs_valid();
 }
 
 template <class T> template <class Y>
-my_shared_ptr<T>::my_shared_ptr(const my_shared_ptr<Y>& src) noexcept : ptr{ static_cast<T*>(src.get()) }, refs{ src.refs }
+my_shared_ptr<T>::my_shared_ptr(const my_shared_ptr<Y>& other) noexcept : ptr{ static_cast<T*>(other.get()) }, refs{ other.refs }
 {
     inc_if_refs_valid();
 }
 
 template <class T>
-my_shared_ptr<T>::my_shared_ptr(my_shared_ptr&& src) noexcept : ptr{ nullptr }, refs{ nullptr }
+my_shared_ptr<T>::my_shared_ptr(my_shared_ptr&& other) noexcept : ptr{ nullptr }, refs{ nullptr }
 {
-    swap(src);
+    swap(other);
 }
 
 template <class T> template <class Y>
-my_shared_ptr<T>::my_shared_ptr(my_shared_ptr<Y>&& src) noexcept : ptr{ nullptr }, refs{ nullptr }
+my_shared_ptr<T>::my_shared_ptr(my_shared_ptr<Y>&& other) noexcept : ptr{ nullptr }, refs{ nullptr }
 {
-    swap(static_cast<my_shared_ptr<T>>(src));
+    swap(static_cast<my_shared_ptr<T>>(other));
 }
 
 template <class T> template <class Y>
-my_shared_ptr<T>::my_shared_ptr(my_unique_ptr<Y>&& src) : ptr{ static_cast<T*>(src.release()) }, refs{ make_refs() }
+my_shared_ptr<T>::my_shared_ptr(my_unique_ptr<Y>&& other) : ptr{ static_cast<T*>(other.release()) }, refs{ make_refs() }
 {
 
 }
 
 template <class T>
-my_shared_ptr<T>& my_shared_ptr<T>::operator=(const my_shared_ptr& src) noexcept
+my_shared_ptr<T>& my_shared_ptr<T>::operator=(const my_shared_ptr& other) noexcept
 {
-    my_shared_ptr tmp{ src };
+    my_shared_ptr tmp{ other };
     swap(tmp);
 
     return *this;
 }
 
 template <class T> template <class Y>
-my_shared_ptr<T>& my_shared_ptr<T>::operator=(const my_shared_ptr<Y>& src) noexcept
+my_shared_ptr<T>& my_shared_ptr<T>::operator=(const my_shared_ptr<Y>& other) noexcept
 {
-    my_shared_ptr tmp{ src };
+    my_shared_ptr tmp{ other };
     swap(tmp);
 
     return *this;
 }
 
 template <class T>
-my_shared_ptr<T>& my_shared_ptr<T>::operator=(my_shared_ptr&& src) noexcept
+my_shared_ptr<T>& my_shared_ptr<T>::operator=(my_shared_ptr&& other) noexcept
 {
-    swap(src);
+    swap(other);
 
     return *this;
 }
 
 template <class T> template <class Y>
-my_shared_ptr<T>& my_shared_ptr<T>::operator=(my_shared_ptr<Y>&& src) noexcept
+my_shared_ptr<T>& my_shared_ptr<T>::operator=(my_shared_ptr<Y>&& other) noexcept
 {
-    swap(src);
+    swap(other);
 
     return *this;
 }
 
 template <class T> template <class Y>
-my_shared_ptr<T>& my_shared_ptr<T>::operator=(my_unique_ptr<Y>&& src)
+my_shared_ptr<T>& my_shared_ptr<T>::operator=(my_unique_ptr<Y>&& other)
 {
-    my_shared_ptr tmp{ src };
+    my_shared_ptr tmp{ other };
     swap(tmp);
 
     return *this;

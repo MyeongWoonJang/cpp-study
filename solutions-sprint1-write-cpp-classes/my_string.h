@@ -8,13 +8,13 @@ class my_string
 {
 public:
     my_string() noexcept;
-    my_string(std::size_t, CharT);
-    my_string(const my_string&, std::size_t);
-    my_string(const my_string&, std::size_t, std::size_t);
-    my_string(const CharT*, std::size_t);
-    my_string(const CharT*);
-    my_string(const my_string&);
-    my_string(my_string&&);
+    my_string(std::size_t count, CharT ch);
+    my_string(const my_string& other, std::size_t pos);
+    my_string(const my_string& other, std::size_t pos, std::size_t count);
+    my_string(const CharT* str, std::size_t count);
+    my_string(const CharT* str);
+    my_string(const my_string& other);
+    my_string(my_string&& other);
     my_string(std::nullptr_t) = delete;
     
 private:
