@@ -134,6 +134,25 @@ void my_shared_ptr<T>::swap(my_shared_ptr& rhs) noexcept
 }
 
 template <class T>
+void my_shared_ptr<T>::reset() noexcept
+{
+    my_shared_ptr{}.swap(*this);
+}
+
+template <class T> template <class Y>
+void my_shared_ptr<T>::reset(Y* ptr)
+{
+    my_shared_ptr{ ptr }.swap(*this);
+}
+
+template <class T>
+const std::size_t my_shared_ptr<T>::use_count() const noexcept
+{
+    if (refs) return *refs;
+    else return 0;
+}
+
+template <class T>
 my_shared_ptr<T>::operator bool() const noexcept
 {
     return static_cast<bool>(ptr);

@@ -37,6 +37,10 @@ public:
     T* const get() const noexcept;
     T& operator[](std::size_t) const;
     void swap(my_shared_ptr&) noexcept;
+    void reset() noexcept;
+    template <class Y>
+    void reset(Y* ptr);
+    const std::size_t use_count() const noexcept;
 
     explicit operator bool() const noexcept;
 
