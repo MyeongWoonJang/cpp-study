@@ -4,7 +4,7 @@
 #include <iostream>
 #include <type_traits>
 
-template <typename T>
+template <class T>
 class my_unique_ptr
 {
 public:
@@ -13,77 +13,78 @@ public:
     explicit my_unique_ptr(T* const ptr) noexcept;
     my_unique_ptr(const my_unique_ptr&) = delete;
     my_unique_ptr(my_unique_ptr&&) noexcept;
-    
+
     my_unique_ptr& operator=(const my_unique_ptr&) = delete;
     my_unique_ptr& operator=(my_unique_ptr&&) noexcept;
-    
+
     ~my_unique_ptr();
 
     T* const operator->() const noexcept;
     T& operator*() const noexcept(noexcept(*std::declval<T>()));
     T* const get() const noexcept;
+    T& operator[](std::size_t) const;
     void reset(T* const) noexcept;
     void reset(std::nullptr_t ptr = nullptr) noexcept;
     T* release() noexcept;
     void swap(my_unique_ptr&) noexcept;
     explicit operator bool() const noexcept;
-    
+
 private:
     T* ptr;
 };
 
-template <typename T1, typename T2>
+template <class T1, class T2>
 const bool operator==(const my_unique_ptr<T1>& lhs, const my_unique_ptr<T2>& rhs) noexcept;
 
-template <typename T1, typename T2>
+template <class T1, class T2>
 const bool operator!=(const my_unique_ptr<T1>& lhs, const my_unique_ptr<T2>& rhs) noexcept;
 
-template <typename T1, typename T2>
+template <class T1, class T2>
 const bool operator>(const my_unique_ptr<T1>& lhs, const my_unique_ptr<T2>& rhs) noexcept;
 
-template <typename T1, typename T2>
+template <class T1, class T2>
 const bool operator<(const my_unique_ptr<T1>& lhs, const my_unique_ptr<T2>& rhs) noexcept;
 
-template <typename T1, typename T2>
+template <class T1, class T2>
 const bool operator>=(const my_unique_ptr<T1>& lhs, const my_unique_ptr<T2>& rhs) noexcept;
 
-template <typename T1, typename T2>
+template <class T1, class T2>
 const bool operator<=(const my_unique_ptr<T1>& lhs, const my_unique_ptr<T2>& rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator==(const my_unique_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator==(std::nullptr_t lhs, const my_unique_ptr<T>& rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator!=(const my_unique_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator!=(std::nullptr_t lhs, const my_unique_ptr<T>& rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator>(const my_unique_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator>(std::nullptr_t lhs, const my_unique_ptr<T>& rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator<(const my_unique_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator<(std::nullptr_t lhs, const my_unique_ptr<T>& rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator>=(const my_unique_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator>=(std::nullptr_t lhs, const my_unique_ptr<T>& rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator<=(const my_unique_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
-template <typename T>
+template <class T>
 const bool operator<=(std::nullptr_t lhs, const my_unique_ptr<T>& rhs) noexcept;
 
 template <class T>

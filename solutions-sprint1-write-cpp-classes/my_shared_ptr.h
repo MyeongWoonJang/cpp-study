@@ -29,14 +29,15 @@ public:
     my_shared_ptr& operator=(my_shared_ptr<Y>&&) noexcept;
     template <class Y>
     my_shared_ptr& operator=(my_unique_ptr<Y>&&);
-    
+
     ~my_shared_ptr() noexcept;
-    
+
     T* const operator->() const noexcept;
     T& operator*() const noexcept(noexcept(*std::declval<T>()));
     T* const get() const noexcept;
+    T& operator[](std::size_t) const;
     void swap(my_shared_ptr&) noexcept;
-    
+
     explicit operator bool() const noexcept;
 
 private:
