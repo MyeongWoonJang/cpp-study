@@ -134,7 +134,11 @@
     <ClInclude Include="vec.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="manage_memory.cpp" />
+    <ClCompile Include="dynamic allocation.cpp" />
+    <ClCompile Include="manage_memory.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="mat.cpp" />
     <ClCompile Include="my_shared_ptr.cpp" />
     <ClCompile Include="my_string.cpp" />
