@@ -17,6 +17,20 @@ int main()
     // dynamic deallocation
     // delete name;
     delete heap_int;
+
+    // array dynamic allocation
+    // type* name = new int[number of elements]{initialization values};
+    int* heap_arr = new int[5] {1, 2, 3, 4, 5};
+
+    printmem(heap_arr);
+    printmem(*heap_arr);
+
+    for (int i = 0; i < 5; ++i)
+        printmem(heap_arr[i]);
+
+    // array dynamic deallocation
+    // delete[] name;
+    delete[] heap_arr;
 }
 
 // 변수를 전달하면 그 변수의 메모리 개요를 출력합니다.
