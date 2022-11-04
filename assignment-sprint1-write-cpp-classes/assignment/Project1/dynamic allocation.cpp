@@ -5,32 +5,13 @@ void printmem_stream(const Ty& var, std::ostream& os);  // function template dec
 template <typename Ty>
 void printmem(const Ty& var);   // function template declaration
 
+void memory_leak();
+
 int main()
 {
-    // dynamic allocation
-    // type* name = new type{initialization value};
-    int* heap_int = new int{ 123 };
+    memory_leak();
 
-    printmem(heap_int);
-    printmem(*heap_int);
-
-    // dynamic deallocation
-    // delete name;
-    delete heap_int;
-
-    // array dynamic allocation
-    // type* name = new int[number of elements]{initialization values};
-    int* heap_arr = new int[5] {1, 2, 3, 4, 5};
-
-    printmem(heap_arr);
-    printmem(*heap_arr);
-
-    for (int i = 0; i < 5; ++i)
-        printmem(heap_arr[i]);
-
-    // array dynamic deallocation
-    // delete[] name;
-    delete[] heap_arr;
+    std::cin.get();
 }
 
 // 변수를 전달하면 그 변수의 메모리 개요를 출력합니다.
@@ -48,4 +29,11 @@ template <typename Ty>
 void printmem(const Ty& var)    // function template definition
 {
     printmem_stream(var, std::cout);
+}
+
+void memory_leak()
+{
+    char* mem = new char[1'000'000'000] {0};
+
+    // delete[] mem이 없어 1GB의 메모리가 누수됩니다.
 }
