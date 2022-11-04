@@ -6,12 +6,11 @@ template <typename Ty>
 void printmem(const Ty& var);   // function template declaration
 
 void memory_leak();
+void dangling_pointer();
 
 int main()
 {
-    memory_leak();
-
-    std::cin.get();
+    dangling_pointer();
 }
 
 // 변수를 전달하면 그 변수의 메모리 개요를 출력합니다.
@@ -36,4 +35,13 @@ void memory_leak()
     char* mem = new char[1'000'000'000] {0};
 
     // delete[] mem이 없어 1GB의 메모리가 누수됩니다.
+}
+
+void dangling_pointer()
+{
+    char* mem = new char[1000] {0};  // 여기서 할당됩니다.
+
+    delete[] mem;   // 여기서 반납됩니다.
+
+    std::cout << mem[100];  // 반납된 메모리에 접근해 미정의 동작이 발생합니다.
 }
