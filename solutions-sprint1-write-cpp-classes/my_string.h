@@ -19,6 +19,11 @@ public:
     my_string(my_string&& other);
     my_string(std::nullptr_t) = delete;
 
+    my_string& operator=(const my_string& other);
+    my_string& operator=(my_string&& other) noexcept;
+    my_string& operator=(const CharT* str);
+    my_string& operator=(CharT ch);
+
     void assign(std::size_t count, CharT ch);
     void assign(const my_string& str);
     void assign(const my_string& str, std::size_t pos, std::size_t count = npos);
@@ -26,8 +31,8 @@ public:
     void assign(const CharT* str, std::size_t count);
     void assign(const CharT* str);
 
-    const std::size_t size() const;
-    const std::size_t length() const;
+    const std::size_t size() const noexcept;
+    const std::size_t length() const noexcept;
 
     void swap(my_string& rhs) noexcept;
 
@@ -36,7 +41,7 @@ public:
     constexpr const CharT* c_str() const noexcept;
 
 private:
-    static std::size_t _strlen(const CharT* str) noexcept;
+    static constexpr std::size_t _strlen(const CharT* str);
 
     std::size_t sz;
     std::size_t cap;
@@ -45,8 +50,8 @@ private:
 
 namespace
 {
-    constexpr std::size_t subsize(std::size_t src_size, std::size_t pos);
-    constexpr std::size_t closest_bin(std::size_t n);
+    constexpr std::size_t subsize(std::size_t src_size, std::size_t pos) noexcept;
+    constexpr std::size_t closest_bin(std::size_t n) noexcept;
 }
 
 #include "my_string.inl"

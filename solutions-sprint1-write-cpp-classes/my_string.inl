@@ -52,6 +52,30 @@ my_string<CharT>::my_string(my_string&& other) : sz{ 0 }, cap{ 0 }, dat{ nullptr
 }
 
 template <class CharT>
+my_string<CharT>& my_string<CharT>::operator=(const my_string& other)
+{
+    assign(other);
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::operator=(my_string&& other) noexcept
+{
+    assign(std::move(other));
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::operator=(const CharT* str)
+{
+    assign(str);
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::operator=(CharT ch)
+{
+    assign(&ch, 1);
+}
+
+template <class CharT>
 void my_string<CharT>::assign(std::size_t count, CharT ch)
 {
     my_string tmp{ count, ch };
@@ -93,13 +117,13 @@ void my_string<CharT>::assign(const CharT* str)
 }
 
 template <class CharT>
-const std::size_t my_string<CharT>::size() const
+const std::size_t my_string<CharT>::size() const noexcept
 {
     return sz;
 }
 
 template <class CharT>
-const std::size_t my_string<CharT>::length() const
+const std::size_t my_string<CharT>::length() const noexcept
 {
     return size();
 }
@@ -131,7 +155,7 @@ constexpr const CharT* my_string<CharT>::c_str() const noexcept
 }
 
 template <class CharT>
-std::size_t my_string<CharT>::_strlen(const CharT* str) noexcept
+constexpr std::size_t my_string<CharT>::_strlen(const CharT* str)
 {
     std::size_t ret = -1;
     while (str[++ret] != '\0')
@@ -142,12 +166,12 @@ std::size_t my_string<CharT>::_strlen(const CharT* str) noexcept
 
 namespace
 {
-    constexpr std::size_t subsize(std::size_t src_size, std::size_t pos)
+    constexpr std::size_t subsize(std::size_t src_size, std::size_t pos) noexcept
     {
         return pos < src_size ? src_size - pos : 0;
     }
 
-    constexpr std::size_t closest_bin(std::size_t n)
+    constexpr std::size_t closest_bin(std::size_t n) noexcept
     {
         std::size_t ret = 2;
         --n;
