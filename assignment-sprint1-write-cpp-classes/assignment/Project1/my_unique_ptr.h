@@ -7,7 +7,7 @@ class my_unique_ptr
 {
 public:
 	int* get();
-	void release();
+	int* release();
 	void reset(int* other);
 
 private:
