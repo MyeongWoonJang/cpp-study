@@ -39,11 +39,12 @@ public:
     constexpr const std::size_t length() const noexcept;
     constexpr const std::size_t capacity() const noexcept;
     void reserve(std::size_t new_cap);
+    void shrink_to_fit();
     
     void swap(my_string& rhs) noexcept;
     
 private:
-    my_string(std::size_t cap, const my_string& other);     //  for void reserve(std::size_t new cap);
+    my_string(std::size_t cap, const my_string& other);     // for reconstructing operations
 
     static constexpr std::size_t _strlen(const CharT* str);
 

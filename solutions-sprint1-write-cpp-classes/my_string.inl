@@ -159,6 +159,12 @@ void my_string<CharT>::reserve(std::size_t new_cap)
 }
 
 template <class CharT>
+void my_string<CharT>::shrink_to_fit()
+{
+    my_string{ size(), *this }.swap(*this);
+}
+
+template <class CharT>
 void my_string<CharT>::swap(my_string& rhs) noexcept
 {
     std::swap(sz, rhs.sz);
@@ -167,7 +173,8 @@ void my_string<CharT>::swap(my_string& rhs) noexcept
 }
 
 template <class CharT>
-my_string<CharT>::my_string(std::size_t cap, const my_string& other) : sz{ other.sz }, cap{ cap }, dat{ _construct<CharT>(cap, 0) }
+my_string<CharT>::my_string(std::size_t required_cap, const my_string& other)
+    : sz{ std::min(other.sz, required_cap) }, cap{ required_cap }, dat{ _construct<CharT>(cap, 0) }
 {
     std::copy(other.data(), other.data() + size(), data());
 }
