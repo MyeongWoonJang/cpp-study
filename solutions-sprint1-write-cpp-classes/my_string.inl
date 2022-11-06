@@ -14,14 +14,16 @@ my_string<CharT>::my_string(std::size_t count, CharT ch) : sz{ count }, cap{ clo
 
 template <class CharT>
 my_string<CharT>::my_string(const my_string& other, std::size_t pos)
-    : sz{ sub_protect_overflow(other.size(), pos) }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
+    : sz{ other.size() - debug_check_out_of_range(pos, 0, other.size(), "other.size() < pos") },
+    cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
 {
     std::copy(other.data() + pos, other.data() + pos + size(), data());
 }
 
 template <class CharT>
 my_string<CharT>::my_string(const my_string& other, std::size_t pos, std::size_t count)
-    : sz{ std::min(sub_protect_overflow(other.size(), pos), count) }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
+    : sz{ std::min(other.size() - debug_check_out_of_range(pos, 0, other.size(), "other.size() < pos"), count) },
+    cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
 {
     std::copy(other.data() + pos, other.data() + pos + size(), data());
 }
@@ -165,6 +167,23 @@ void my_string<CharT>::shrink_to_fit()
 }
 
 template <class CharT>
+void my_string<CharT>::clear() noexcept
+{
+    _set_sz(0);
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
+{
+    debug_check_out_of_range(index, 0, size(), "index > size()");
+    
+    if (count == npos) clear();
+    else if (count) _erase(index, std::min(count, size() - index));
+    
+    return *this;
+}
+
+template <class CharT>
 void my_string<CharT>::swap(my_string& rhs) noexcept
 {
     std::swap(sz, rhs.sz);
@@ -177,6 +196,19 @@ my_string<CharT>::my_string(std::size_t required_cap, const my_string& other)
     : sz{ std::min(other.sz, required_cap) }, cap{ required_cap }, dat{ _construct<CharT>(cap, 0) }
 {
     std::copy(other.data(), other.data() + size(), data());
+}
+
+template <class CharT>
+void my_string<CharT>::_set_sz(std::size_t n)
+{
+    sz = n;
+    dat[sz] = '\0';
+}
+
+template <class CharT>
+void my_string<CharT>::_erase(std::size_t index, std::size_t count)
+{
+    std::copy(&data()[index+count], &data()[size()], &data()[index]);
 }
 
 template <class CharT>
@@ -195,11 +227,6 @@ namespace
     T* _construct(std::size_t num_of_obj, Args&& ... args)
     {
         return new T[num_of_obj]{ std::forward(args)... };
-    }
-    
-    constexpr std::size_t sub_protect_overflow(std::size_t lhs, std::size_t rhs) noexcept
-    {
-        return lhs > rhs ? lhs - rhs : 0;
     }
     
     constexpr std::size_t closest_bin(std::size_t n) noexcept

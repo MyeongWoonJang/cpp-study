@@ -1,6 +1,7 @@
 #ifndef _my_string
 #define _my_string
 
+#include "my_exception.h"
 #include <algorithm>
 
 template <class CharT>
@@ -41,10 +42,15 @@ public:
     void reserve(std::size_t new_cap);
     void shrink_to_fit();
     
+    void clear() noexcept;
+    my_string& erase(std::size_t index = 0, std::size_t count = npos);  // https://stackoverflow.com/questions/14121064/what-does-c-string-erase-return-this-mean
+    
     void swap(my_string& rhs) noexcept;
     
 private:
     my_string(std::size_t cap, const my_string& other);     // for reconstructing operations
+    void _set_sz(std::size_t n);
+    void _erase(std::size_t index, std::size_t count);
 
     static constexpr std::size_t _strlen(const CharT* str);
 
@@ -58,7 +64,6 @@ namespace
     template <class T, class ... Args>
     T* _construct(std::size_t num_of_obj, Args&& ... args);
     
-    constexpr std::size_t sub_protect_overflow(std::size_t lhs, std::size_t rhs) noexcept;
     constexpr std::size_t closest_bin(std::size_t n) noexcept;
 }
 
