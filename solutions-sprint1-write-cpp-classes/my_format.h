@@ -9,11 +9,11 @@ namespace
     {
         static constexpr std::size_t FMTBUF_SIZE = 1 << 8;
         
-        static char a[FMTBUF_SIZE];
-        return a;
+        static char fmtbuf[FMTBUF_SIZE];
+        return fmtbuf;
     }
     
-    #define _FMT(...) _get_fmtbuf(sprintf(_get_fmtbuf(), __VA_ARGS__))
+    #define _FMT(...) _get_fmtbuf(sprintf(_get_fmtbuf(), ## __VA_ARGS__))
 }
 
 #endif

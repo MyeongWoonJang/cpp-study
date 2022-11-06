@@ -6,12 +6,19 @@
 
 namespace
 {
-    #ifdef _ACTIVATE_EXCEPTION_MACRO
     
-    #ifdef __PRETTY_FUNCTION__
-    #define check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __PRETTY_FUNCTION__)
+    #ifdef _DEBUG
+    
+    #ifdef __GNUC__
+    #define debug_check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __PRETTY_FUNCTION__)
+    #elif _MSC_VER
+    #define debug_check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __FUNCSIG__)
     #else
-    #define check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __FUNCTION__)
+    #define debug_check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __FUNCTION__)
+    #endif
+    
+    #else
+    #define debug_check_out_of_range(val, ...) (val)
     #endif
  
     inline void _throw_out_of_range(const char* expr, const char* file, int line, const char* func)
@@ -38,8 +45,6 @@ namespace
         _no_chain_check_out_of_range(val, lo, hi, expr, file, line, func);
         return val;
     }
- 
-    #endif   
 }
 
 #endif
