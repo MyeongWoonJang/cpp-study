@@ -6,9 +6,9 @@
 class my_string
 {
 public:
-	char at( unsigned int );
-	char front( );
-	char back( );
+	char& at( unsigned int );
+	char& front( );
+	char& back( );
 	const char* c_str( );
 	const char* data( );
 	bool empty( );
