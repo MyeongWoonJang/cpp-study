@@ -6,17 +6,17 @@
 
 namespace
 {
-    
+    /**
+     * @brief   checks if a value is in a specific range when _DEBUG macro is defined
+     * @param   val     the value which will be checked
+     * @param   lo      lower limit of the range
+     * @param   hi      higher limit of the range
+     * @param   expr    expression which will be forwarded to std::out_of_range
+     * 
+     * if @val is not in [@lo, @hi] then throws std::out_of_range with @expr
+    */
     #ifdef _DEBUG
-    
-    #ifdef __GNUC__
-    #define debug_check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __PRETTY_FUNCTION__)
-    #elif _MSC_VER
-    #define debug_check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __FUNCSIG__)
-    #else
-    #define debug_check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __FUNCTION__)
-    #endif
-    
+    #define debug_check_out_of_range(val, lo, hi, expr) _check_out_of_range((val), (lo), (hi), (expr), __FILE__, __LINE__, __FUNCTION_NAME__)
     #else
     #define debug_check_out_of_range(val, ...) (val)
     #endif
