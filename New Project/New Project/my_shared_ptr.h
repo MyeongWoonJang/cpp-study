@@ -6,9 +6,12 @@
 class my_shared_ptr
 {
 public:
+	int* get( );
+	unsigned int use_count( );
+	void reset( int* );
 
 private:
-
+	
 };
 
 #endif

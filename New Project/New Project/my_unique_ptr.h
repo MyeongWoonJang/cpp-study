@@ -6,9 +6,12 @@
 class my_unique_ptr
 {
 public:
+	int* get( );
+	int* release( );
+	void reset( int* );
 
 private:
-
+	
 };
 
 #endif
