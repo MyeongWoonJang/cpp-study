@@ -173,6 +173,67 @@ void my_string<CharT>::clear() noexcept
 }
 
 template <class CharT>
+my_string<CharT>& my_string<CharT>::insert(std::size_t index, std::size_t count, CharT ch)
+{
+    replace(index, std::size_t{ 0 }, count, ch);
+}
+    
+template <class CharT>
+my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str)
+{
+    // str check
+    replace(index, std::size_t{ 0 }, str);
+}   
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str, std::size_t count)
+{
+    replace(index, std::size_t{ 0 }, str, count);
+}   
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str)
+{
+    replace(index, std::size_t{ 0 }, str);
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str, std::size_t index_str, std::size_t count = npos)
+{
+    replace(index, std::size_t{ 0 }, str, index_str, count);
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str)
+{
+    
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str, std::size_t pos_str, std::size_t count_str = npos)
+{
+    
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const CharT* str, std::size_t count_str)
+{
+    
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const CharT* str)
+{
+    
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, std::size_t count_ch, CharT ch)
+{
+    
+}
+
+template <class CharT>
 my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 {
     debug_check_out_of_range(index, 0, size(), "index > size()");

@@ -43,7 +43,20 @@ public:
     void shrink_to_fit();
     
     void clear() noexcept;
+    my_string& insert(std::size_t index, std::size_t count, CharT ch);
+    my_string& insert(std::size_t index, const CharT* str);
+    my_string& insert(std::size_t index, const CharT* str, std::size_t count);
+    my_string& insert(std::size_t index, const my_string& str);
+    my_string& insert(std::size_t index, const my_string& str, std::size_t index_str, std::size_t count = npos);
+    my_string& replace(std::size_t pos, std::size_t count, const my_string& str);
+    my_string& replace(std::size_t pos, std::size_t count, const my_string& str, std::size_t pos_str, std::size_t count_str = npos);
+    my_string& replace(std::size_t pos, std::size_t count, const CharT* str, std::size_t count_str);
+    my_string& replace(std::size_t pos, std::size_t count, const CharT* str);
+    my_string& replace(std::size_t pos, std::size_t count, std::size_t count_ch, CharT ch);
+    
     my_string& erase(std::size_t index = 0, std::size_t count = npos);  // https://stackoverflow.com/questions/14121064/what-does-c-string-erase-return-this-mean
+    
+    
     
     void swap(my_string& rhs) noexcept;
     
