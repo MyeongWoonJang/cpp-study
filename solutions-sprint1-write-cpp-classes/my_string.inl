@@ -1,7 +1,7 @@
 #include "my_string.h"
 
 template <class CharT>
-constexpr my_string<CharT>::my_string() noexcept : sz{ 0 }, cap{ 0 }, dat{ nullptr }
+constexpr my_string<CharT>::my_string() noexcept : sz{ std::size_t{ 0 } }, cap{ std::size_t{ 0 } }, dat{ nullptr }
 {
     
 }
@@ -13,11 +13,9 @@ my_string<CharT>::my_string(std::size_t count, CharT ch) : sz{ count }, cap{ clo
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const my_string& other, std::size_t pos)
-    : sz{ other.size() - debug_check_out_of_range(pos, 0, other.size(), "other.size() < pos") },
-    cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
+my_string<CharT>::my_string(const my_string& other, std::size_t pos) : my_string(other, pos, npos)
 {
-    std::copy(other.data() + pos, other.data() + pos + size(), data());
+
 }
 
 template <class CharT>
@@ -36,19 +34,19 @@ my_string<CharT>::my_string(const CharT* str, std::size_t count)
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const CharT* str) : sz{ _strlen(str) }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
+my_string<CharT>::my_string(const CharT* str) : my_string(str, npos)
 {
-    std::copy(str, str + size(), data());
+
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const my_string& other) : sz{ other.sz }, cap{ other.cap }, dat{ _construct<CharT>(cap, 0) }
+my_string<CharT>::my_string(const my_string& other) : my_string(other, std::size_t{ 0 }, npos)
 {
-    std::copy(other.data(), other.data() + size(), data());
+
 }
 
 template <class CharT>
-my_string<CharT>::my_string(my_string&& other) : sz{ 0 }, cap{ 0 }, dat{ nullptr }
+my_string<CharT>::my_string(my_string&& other) : my_string()
 {
     this->swap(other);
 }
