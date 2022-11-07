@@ -85,8 +85,7 @@ void my_string<CharT>::assign(std::size_t count, CharT ch)
 template <class CharT>
 void my_string<CharT>::assign(const my_string& str)
 {
-    my_string tmp{ str };
-    this->swap(tmp);
+    this->assign(str, 0, npos);
 }
 
 template <class CharT>
@@ -112,8 +111,7 @@ void my_string<CharT>::assign(const CharT* str, std::size_t count)
 template <class CharT>
 void my_string<CharT>::assign(const CharT* str)
 {
-    my_string tmp{ str };
-    this->swap(tmp);
+    this->assign(str, npos);
 }
 
 template <class CharT>
