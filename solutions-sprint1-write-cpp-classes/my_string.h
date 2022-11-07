@@ -81,5 +81,6 @@ namespace
 }
 
 #include "my_string.inl"
+#include "undef_macros.inl"
 
 #endif
