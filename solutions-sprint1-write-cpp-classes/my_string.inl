@@ -50,72 +50,72 @@ my_string<CharT>::my_string(const my_string& other) : sz{ other.sz }, cap{ other
 template <class CharT>
 my_string<CharT>::my_string(my_string&& other) : sz{ 0 }, cap{ 0 }, dat{ nullptr }
 {
-    swap(other);
+    this->swap(other);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::operator=(const my_string& other)
 {
-    assign(other);
+    this->assign(other);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::operator=(my_string&& other) noexcept
 {
-    assign(std::move(other));
+    this->assign(std::move(other));
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::operator=(const CharT* str)
 {
-    assign(str);
+    this->assign(str);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::operator=(CharT ch)
 {
-    assign(&ch, 1);
+    this->assign(&ch, 1);
 }
 
 template <class CharT>
 void my_string<CharT>::assign(std::size_t count, CharT ch)
 {
     my_string tmp{ count, ch };
-    swap(tmp);
+    this->swap(tmp);
 }
 
 template <class CharT>
 void my_string<CharT>::assign(const my_string& str)
 {
     my_string tmp{ str };
-    swap(tmp);
+    this->swap(tmp);
 }
 
 template <class CharT>
 void my_string<CharT>::assign(const my_string& str, std::size_t pos, std::size_t count)
 {
     my_string tmp{ str, pos, count };
-    swap(tmp);
+    this->swap(tmp);
 }
 
 template <class CharT>
 void my_string<CharT>::assign(my_string&& str) noexcept
 {
-    swap(str);
+    this->swap(str);
 }
 
 template <class CharT>
 void my_string<CharT>::assign(const CharT* str, std::size_t count)
 {
     my_string tmp{ str, count };
-    swap(tmp);
+    this->swap(tmp);
 }
 
 template <class CharT>
 void my_string<CharT>::assign(const CharT* str)
 {
     my_string tmp{ str };
-    swap(tmp);
+    this->swap(tmp);
 }
 
 template <class CharT>
@@ -169,38 +169,38 @@ void my_string<CharT>::shrink_to_fit()
 template <class CharT>
 void my_string<CharT>::clear() noexcept
 {
-    _set_sz(0);
+    this->_set_sz(0);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, std::size_t count, CharT ch)
 {
-    replace(index, std::size_t{ 0 }, count, ch);
+    this->replace(index, std::size_t{ 0 }, count, ch);
 }
     
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str)
 {
     // str check
-    replace(index, std::size_t{ 0 }, str);
+    this->replace(index, std::size_t{ 0 }, str);
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str, std::size_t count)
 {
-    replace(index, std::size_t{ 0 }, str, count);
+    this->replace(index, std::size_t{ 0 }, str, count);
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str)
 {
-    replace(index, std::size_t{ 0 }, str);
+    this->replace(index, std::size_t{ 0 }, str);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str, std::size_t index_str, std::size_t count = npos)
 {
-    replace(index, std::size_t{ 0 }, str, index_str, count);
+    this->replace(index, std::size_t{ 0 }, str, index_str, count);
 }
 
 template <class CharT>
@@ -238,8 +238,8 @@ my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 {
     debug_check_out_of_range(index, 0, size(), "index > size()");
     
-    if (count == npos) clear();
-    else if (count) _erase(index, std::min(count, size() - index));
+    if (count == npos) this->clear();
+    else if (count) this->_erase(index, std::min(count, size() - index));
     
     return *this;
 }
@@ -262,8 +262,8 @@ my_string<CharT>::my_string(std::size_t required_cap, const my_string& other)
 template <class CharT>
 void my_string<CharT>::_set_sz(std::size_t n)
 {
-    sz = n;
-    dat[sz] = '\0';
+    this->sz = n;
+    this->dat[sz] = '\0';
 }
 
 template <class CharT>
