@@ -121,7 +121,7 @@ void my_string<CharT>::assign(const CharT* str)
 template <class CharT>
 constexpr CharT* my_string<CharT>::data() noexcept
 {
-    return dat;
+    return const_cast<CharT*>( static_cast<const decltype(*this)>(*this).data() );
 }
 
 template <class CharT>
@@ -198,7 +198,7 @@ my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& s
 }
 
 template <class CharT>
-my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str, std::size_t index_str, std::size_t count = npos)
+my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str, std::size_t index_str, std::size_t count)
 {
     this->replace(index, std::size_t{ 0 }, str, index_str, count);
 }
@@ -210,7 +210,7 @@ my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, 
 }
 
 template <class CharT>
-my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str, std::size_t pos_str, std::size_t count_str = npos)
+my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str, std::size_t pos_str, std::size_t count_str)
 {
     
 }
