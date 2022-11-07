@@ -137,19 +137,19 @@ constexpr const CharT* my_string<CharT>::c_str() const noexcept
 }
 
 template <class CharT>
-constexpr const std::size_t my_string<CharT>::size() const noexcept
+constexpr std::size_t my_string<CharT>::size() const noexcept
 {
     return sz;
 }
 
 template <class CharT>
-constexpr const std::size_t my_string<CharT>::length() const noexcept
+constexpr std::size_t my_string<CharT>::length() const noexcept
 {
     return size();
 }
 
 template <class CharT>
-constexpr const std::size_t my_string<CharT>::capacity() const noexcept
+constexpr std::size_t my_string<CharT>::capacity() const noexcept
 {
     return cap;
 }

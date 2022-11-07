@@ -36,9 +36,9 @@ public:
     constexpr const CharT* data() const noexcept;
     constexpr const CharT* c_str() const noexcept;
     
-    constexpr const std::size_t size() const noexcept;
-    constexpr const std::size_t length() const noexcept;
-    constexpr const std::size_t capacity() const noexcept;
+    constexpr std::size_t size() const noexcept;
+    constexpr std::size_t length() const noexcept;
+    constexpr std::size_t capacity() const noexcept;
     void reserve(std::size_t new_cap);
     void shrink_to_fit();
     
