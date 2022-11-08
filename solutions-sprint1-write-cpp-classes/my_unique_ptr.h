@@ -10,25 +10,25 @@ class my_unique_ptr
 public:
     constexpr my_unique_ptr() noexcept;
     constexpr my_unique_ptr(std::nullptr_t) noexcept;
-    explicit my_unique_ptr(T* const ptr) noexcept;
+    explicit my_unique_ptr(T* ptr) noexcept;
     my_unique_ptr(const my_unique_ptr&) = delete;
     my_unique_ptr(my_unique_ptr&& other) noexcept;
-
+    
     my_unique_ptr& operator=(const my_unique_ptr&) = delete;
     my_unique_ptr& operator=(my_unique_ptr&& other) noexcept;
-
+    
     ~my_unique_ptr();
 
-    T* const operator->() const noexcept;
-    T& operator*() const noexcept(noexcept(*std::declval<T>()));
-    T* const get() const noexcept;
-    T& operator[](std::size_t idx) const;
-    void reset(T* const ptr) noexcept;
+    [[nodiscard]] T* const operator->() const noexcept;
+    [[nodiscard]] T& operator*() const noexcept(noexcept(*std::declval<T>()));
+    [[nodiscard]] T* const get() const noexcept;
+    [[nodiscard]] T& operator[](std::size_t idx) const;
+    void reset(T* ptr) noexcept;
     void reset(std::nullptr_t ptr = nullptr) noexcept;
     T* release() noexcept;
     void swap(my_unique_ptr& rhs) noexcept;
-    explicit operator bool() const noexcept;
-
+    [[nodiscard]] explicit operator bool() const noexcept;
+    
 private:
     T* ptr;
 };

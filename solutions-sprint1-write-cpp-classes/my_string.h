@@ -32,13 +32,13 @@ public:
     void assign(const CharT* str, std::size_t count);
     void assign(const CharT* str);
     
-    constexpr CharT* data() noexcept;
-    constexpr const CharT* data() const noexcept;
-    constexpr const CharT* c_str() const noexcept;
+    [[nodiscard]] constexpr CharT* data() noexcept;
+    [[nodiscard]] constexpr const CharT* data() const noexcept;
+    [[nodiscard]] constexpr const CharT* c_str() const noexcept;
     
-    constexpr std::size_t size() const noexcept;
-    constexpr std::size_t length() const noexcept;
-    constexpr std::size_t capacity() const noexcept;
+    [[nodiscard]] constexpr std::size_t size() const noexcept;
+    [[nodiscard]] constexpr std::size_t length() const noexcept;
+    [[nodiscard]] constexpr std::size_t capacity() const noexcept;
     void reserve(std::size_t new_cap);
     void shrink_to_fit();
     
