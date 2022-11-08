@@ -27,7 +27,7 @@ my_unique_ptr<T>::my_unique_ptr(my_unique_ptr&& other) noexcept : ptr{ other.get
 template <class T>
 my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& other) noexcept
 {
-    this->swap(other);
+    other.swap(*this);
     return *this;
 }
 

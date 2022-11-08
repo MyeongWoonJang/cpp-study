@@ -31,9 +31,9 @@ my_shared_ptr<T>::my_shared_ptr(const my_shared_ptr<Y>& other) noexcept : ptr{ o
 }
 
 template <class T>
-my_shared_ptr<T>::my_shared_ptr(my_shared_ptr&& other) noexcept : ptr{ nullptr }, refs{ nullptr }
+my_shared_ptr<T>::my_shared_ptr(my_shared_ptr&& other) noexcept : ptr{ other.get() }, refs{ nullptr }
 {
-    this->swap(other);
+    std::swap(refs, other.refs);
 }
 
 template <class T> template <class Y>
