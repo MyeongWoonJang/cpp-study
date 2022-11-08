@@ -169,3 +169,118 @@ void my_shared_ptr<T>::inc_if_refs_valid() noexcept
 {
     if (refs) ++*refs;
 }
+
+template <class T1, class T2>
+const bool operator==(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept
+{
+    return lhs.get() == rhs.get();
+}
+
+template <class T1, class T2>
+const bool operator!=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept
+{
+    return lhs.get() != rhs.get();
+}
+
+template <class T1, class T2>
+const bool operator<(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept
+{
+    return std::less<std::common_type_t<T1*, T2*>>{}(lhs.get(), rhs.get());
+}
+
+template <class T1, class T2>
+const bool operator>(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept
+{
+    return rhs < lhs;
+}
+
+template <class T1, class T2>
+const bool operator<=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept
+{
+    return !(rhs < lhs);
+}
+
+template <class T1, class T2>
+const bool operator>=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept
+{
+    return !(lhs < rhs);
+}
+
+template <class T>
+const bool operator==(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept
+{
+    return !lhs;
+}
+
+template <class T>
+const bool operator==(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept
+{
+    return !rhs;
+}
+
+template <class T>
+const bool operator!=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept
+{
+    return (bool)lhs;
+}
+
+template <class T>
+const bool operator!=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept
+{
+    return (bool)rhs;
+}
+
+template <class T>
+const bool operator<(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept
+{
+    return std::less<T*>{}(lhs.get(), nullptr);
+}
+
+template <class T>
+const bool operator<(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept
+{
+    return std::less<T*>{}(nullptr, rhs.get());
+}
+
+template <class T>
+const bool operator>(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept
+{
+    return nullptr < lhs;
+}
+
+template <class T>
+const bool operator>(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept
+{
+    return rhs < nullptr;
+}
+
+template <class T>
+const bool operator<=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept
+{
+    return !(nullptr < lhs);
+}
+
+template <class T>
+const bool operator<=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept
+{
+    return !(rhs < nullptr);
+}
+
+template <class T>
+const bool operator>=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept
+{
+    return !(lhs < nullptr);
+}
+
+template <class T>
+const bool operator>=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept
+{
+    return !(nullptr < rhs);
+}
+
+template <class T>
+std::ostream& operator<<(std::ostream& os, const my_shared_ptr<T>& rhs)
+{
+    os << rhs.get();
+    return os;
+}
