@@ -16,6 +16,7 @@ public:
 	size_t length( );
 	void reserve( unsigned int );
 	int capacity( );
+	char* shrink_to_fit( );		
 
 private:
 
