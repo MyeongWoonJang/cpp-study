@@ -27,7 +27,7 @@ my_unique_ptr<T>::my_unique_ptr(my_unique_ptr&& other) noexcept : ptr{ other.get
 template <class T>
 my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& other) noexcept
 {
-    swap(other);
+    this->swap(other);
     return *this;
 }
 
@@ -64,14 +64,13 @@ T& my_unique_ptr<T>::operator[](std::size_t idx) const
 template <class T>
 void my_unique_ptr<T>::reset(T* const ptr) noexcept
 {
-    ~my_unique_ptr();
-    this->ptr = ptr;
+    my_unique_ptr{ ptr }.swap(*this);
 }
 
 template <class T>
 void my_unique_ptr<T>::reset(std::nullptr_t) noexcept
 {
-    ~my_unique_ptr();
+    my_unique_ptr{}.swap(*this);
 }
 
 template <class T>
