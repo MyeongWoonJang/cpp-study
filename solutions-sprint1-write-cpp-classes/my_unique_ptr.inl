@@ -34,31 +34,31 @@ my_unique_ptr<T>& my_unique_ptr<T>::operator=(my_unique_ptr&& other) noexcept
 template <class T>
 my_unique_ptr<T>::~my_unique_ptr()
 {
-    delete release();
+    delete this->release();
 }
 
 template <class T>
 T* const my_unique_ptr<T>::operator->() const noexcept
 {
-    return ptr;
+    return this->ptr;
 }
 
 template <class T>
 T& my_unique_ptr<T>::operator*() const noexcept(noexcept(*std::declval<T>()))
 {
-    return *ptr;
+    return *this->ptr;
 }
 
 template <class T>
 T* const my_unique_ptr<T>::get() const noexcept
 {
-    return operator->();
+    return this->operator->();
 }
 
 template <class T>
 T& my_unique_ptr<T>::operator[](std::size_t idx) const
 {
-    return get()[idx];
+    return this->get()[idx];
 }
 
 template <class T>
@@ -76,21 +76,21 @@ void my_unique_ptr<T>::reset(std::nullptr_t) noexcept
 template <class T>
 T* my_unique_ptr<T>::release() noexcept
 {
-    T* ret = get();
-    ptr = nullptr;
+    T* ret = this->get();
+    this->ptr = nullptr;
     return ret;
 }
 
 template <class T>
 void my_unique_ptr<T>::swap(my_unique_ptr& rhs) noexcept
 {
-    std::swap(ptr, rhs.ptr);
+    std::swap(this->ptr, rhs.ptr);
 }
 
 template <class T>
 my_unique_ptr<T>::operator bool() const noexcept
 {
-    return static_cast<bool>(ptr);
+    return static_cast<bool>(this->ptr);
 }
 
 template <class T1, class T2>

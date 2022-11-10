@@ -33,13 +33,13 @@ my_shared_ptr<T>::my_shared_ptr(const my_shared_ptr<Y>& other) noexcept : ptr{ o
 template <class T>
 my_shared_ptr<T>::my_shared_ptr(my_shared_ptr&& other) noexcept : ptr{ other.get() }, refs{ nullptr }
 {
-    std::swap(refs, other.refs);
+    std::swap(this->refs, other.refs);
 }
 
 template <class T> template <class Y>
 my_shared_ptr<T>::my_shared_ptr(my_shared_ptr<Y>&& other) noexcept : ptr{ other.get() }, refs{ nullptr }
 {
-    std::swap(refs, other.refs);
+    std::swap(this->refs, other.refs);
 }
 
 template <class T> template <class Y>
@@ -94,8 +94,8 @@ my_shared_ptr<T>& my_shared_ptr<T>::operator=(my_unique_ptr<Y>&& other)
 template <class T>
 my_shared_ptr<T>::~my_shared_ptr() noexcept
 {
-    if (refs)
-        if (!--*refs)
+    if (this->refs)
+        if (!--*this->refs)
         {
             delete refs;
             delete ptr;
@@ -105,13 +105,13 @@ my_shared_ptr<T>::~my_shared_ptr() noexcept
 template <class T>
 T* const my_shared_ptr<T>::operator->() const noexcept
 {
-    return ptr;
+    return this->ptr;
 }
 
 template <class T>
 T& my_shared_ptr<T>::operator*() const noexcept(noexcept(*std::declval<T>()))
 {
-    return *ptr;
+    return *this->ptr;
 }
 
 template <class T>
@@ -129,8 +129,8 @@ T& my_shared_ptr<T>::operator[](std::size_t idx) const
 template <class T>
 void my_shared_ptr<T>::swap(my_shared_ptr& rhs) noexcept
 {
-    std::swap(ptr, rhs.ptr);
-    std::swap(refs, rhs.refs);
+    std::swap(this->ptr, rhs.ptr);
+    std::swap(this->refs, rhs.refs);
 }
 
 template <class T>
@@ -148,14 +148,14 @@ void my_shared_ptr<T>::reset(Y* ptr)
 template <class T>
 std::size_t my_shared_ptr<T>::use_count() const noexcept
 {
-    if (refs) return *refs;
+    if (this->refs) return *refs;
     else return 0;
 }
 
 template <class T>
 my_shared_ptr<T>::operator bool() const noexcept
 {
-    return static_cast<bool>(ptr);
+    return static_cast<bool>(this->ptr);
 }
 
 template <class T>
@@ -167,7 +167,7 @@ std::size_t* my_shared_ptr<T>::make_refs()
 template <class T>
 void my_shared_ptr<T>::inc_if_refs_valid() noexcept
 {
-    if (refs) ++*refs;
+    if (this->refs) ++*refs;
 }
 
 template <class T1, class T2>

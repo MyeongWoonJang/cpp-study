@@ -123,37 +123,37 @@ constexpr CharT* my_string<CharT>::data() noexcept
 template <class CharT>
 constexpr const CharT* my_string<CharT>::data() const noexcept
 {
-    return dat;
+    return this->dat;
 }
 
 template <class CharT>
 constexpr const CharT* my_string<CharT>::c_str() const noexcept
 {
-    return data();
+    return this->data();
 }
 
 template <class CharT>
 constexpr std::size_t my_string<CharT>::size() const noexcept
 {
-    return sz;
+    return this->sz;
 }
 
 template <class CharT>
 constexpr std::size_t my_string<CharT>::length() const noexcept
 {
-    return size();
+    return this->size();
 }
 
 template <class CharT>
 constexpr std::size_t my_string<CharT>::capacity() const noexcept
 {
-    return cap;
+    return this->cap;
 }
 
 template <class CharT>
 void my_string<CharT>::reserve(std::size_t new_cap)
 {
-    if (capacity() < new_cap) my_string{ new_cap, *this }.swap(*this);
+    if (this->capacity() < new_cap) my_string{ new_cap, *this }.swap(*this);
 }
 
 template <class CharT>
@@ -232,10 +232,10 @@ my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 {
-    debug_check_out_of_range(index, 0, size(), "index > size()");
+    debug_check_out_of_range(index, 0, this->size(), "index > size()");
     
     if (count == npos) this->clear();
-    else if (count) this->_erase(index, std::min(count, size() - index));
+    else if (count) this->_erase(index, std::min(count, this->size() - index));
     
     return *this;
 }
@@ -243,16 +243,16 @@ my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 template <class CharT>
 void my_string<CharT>::swap(my_string& rhs) noexcept
 {
-    std::swap(sz, rhs.sz);
-    std::swap(cap, rhs.cap);
-    std::swap(dat, rhs.cap);
+    std::swap(this->sz, rhs.sz);
+    std::swap(this->cap, rhs.cap);
+    std::swap(this->dat, rhs.cap);
 }
 
 template <class CharT>
 my_string<CharT>::my_string(std::size_t required_cap, const my_string& other)
     : sz{ std::min(other.sz, required_cap) }, cap{ required_cap }, dat{ _construct<CharT>(cap, 0) }
 {
-    std::copy(other.data(), other.data() + size(), data());
+    std::copy(other.data(), other.data() + this->size(), this->data());
 }
 
 template <class CharT>
