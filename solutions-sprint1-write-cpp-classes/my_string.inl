@@ -115,8 +115,33 @@ void my_string<CharT>::assign(const CharT* str)
 }
 
 template <class CharT>
+constexpr CharT& at(std::size_t pos)
+{
+    return const_cast<CharT&>(static_cast<const decltype(*this)>(*this).at(pos));
+}
+
+template <class CharT>
+constexpr const CharT& at(std::size_t pos) const
+{
+    return this->operator[](debug_check_out_of_range(pos, 0, this->size() - 1, "pos >= size()"));
+}
+
+template <class CharT>
+constexpr CharT& operator[](std::size_t index)
+{
+    return const_cast<CharT&>(static_cast<const decltype(*this)>(*this).operator[](index));
+}
+
+template <class CharT>
+constexpr const CharT& operator[](std::size_t index) const
+{
+    return this->data()[index];
+}
+
+template <class CharT>
 constexpr CharT* my_string<CharT>::data() noexcept
 {
+    // Is it really working that const_cast<CharT*> from const CharT*, not CharT* const?
     return const_cast<CharT*>( static_cast<const decltype(*this)>(*this).data() );
 }
 

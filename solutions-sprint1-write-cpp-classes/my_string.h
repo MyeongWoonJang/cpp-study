@@ -32,6 +32,10 @@ public:
     void assign(const CharT* str, std::size_t count);
     void assign(const CharT* str);
     
+    [[nodiscard]] constexpr CharT& at(std::size_t pos);
+    [[nodiscard]] constexpr const CharT& at(std::size_t pos) const;
+    [[nodiscard]] constexpr CharT& operator[](std::size_t index);
+    [[nodiscard]] constexpr const CharT& operator[](std::size_t index) const;
     [[nodiscard]] constexpr CharT* data() noexcept;
     [[nodiscard]] constexpr const CharT* data() const noexcept;
     [[nodiscard]] constexpr const CharT* c_str() const noexcept;
