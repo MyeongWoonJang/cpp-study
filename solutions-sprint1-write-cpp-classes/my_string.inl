@@ -115,25 +115,25 @@ void my_string<CharT>::assign(const CharT* str)
 }
 
 template <class CharT>
-constexpr CharT& at(std::size_t pos)
+constexpr CharT& my_string<CharT>::at(std::size_t pos)
 {
     return const_cast<CharT&>(static_cast<const decltype(*this)>(*this).at(pos));
 }
 
 template <class CharT>
-constexpr const CharT& at(std::size_t pos) const
+constexpr const CharT& my_string<CharT>::at(std::size_t pos) const
 {
     return this->operator[](debug_check_out_of_range(pos, 0, this->size() - 1, "pos >= size()"));
 }
 
 template <class CharT>
-constexpr CharT& operator[](std::size_t index)
+constexpr CharT& my_string<CharT>::operator[](std::size_t index)
 {
     return const_cast<CharT&>(static_cast<const decltype(*this)>(*this).operator[](index));
 }
 
 template <class CharT>
-constexpr const CharT& operator[](std::size_t index) const
+constexpr const CharT& my_string<CharT>::operator[](std::size_t index) const
 {
     return this->data()[index];
 }
@@ -227,31 +227,31 @@ my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& s
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str)
 {
-    
+    this->replace(pos, count, str.data(), str.size());
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str, std::size_t pos_str, std::size_t count_str)
 {
-    
+    this->replace(pos, count, str.data(), count_str);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const CharT* str, std::size_t count_str)
 {
-    
+    this->_mutate(pos, count, str, count_str);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const CharT* str)
 {
-    
+    this->replace(pos, count, str, _strlen(str));
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, std::size_t count_ch, CharT ch)
 {
-    
+    this->replace(pos, count, my_string{count_ch, ch}, count_ch);
 }
 
 template <class CharT>
@@ -291,6 +291,28 @@ template <class CharT>
 void my_string<CharT>::_erase(std::size_t index, std::size_t count)
 {
     std::copy(&data()[index+count], &data()[size()], &data()[index]);
+}
+
+// data in range [this->data() + pos, this->data() + pos + len1]
+// is replaced with [str, str + len2].
+// exception unchecked.
+// blanks are filled with 0.
+template <class CharT>
+void my_string<CharT>::_mutate(std::size_t pos, std::size_t len1, const CharT* str, std::size_t len2)
+{
+    const std::size_t how_much = this->size() - pos - len1;
+    std::size_t new_cap = closest_bin(this->size() + len2 - len1);
+    
+    my_string tmp{ new_cap, *this };
+    
+    if (pos)
+        std::copy(this->data(), this->data() + pos, tmp.data());
+    if (str && len2)
+        std::copy(str, str + len2, tmp.data() + pos);
+    if (how_much)
+        std::copy(this->data() + pos + len1, this->data() + this->size(), tmp.data() + pos + len2);
+        
+    this->swap(tmp);
 }
 
 template <class CharT>
