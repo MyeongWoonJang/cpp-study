@@ -139,6 +139,31 @@ constexpr const CharT& my_string<CharT>::operator[](std::size_t index) const
 }
 
 template <class CharT>
+constexpr Char& my_string<CharT>::front()
+{
+    return const_cast<CharT&>(static_cast<const decltype(*this)>(*this).front());
+}
+
+template <class CharT>
+constexpr const Char& my_string<CharT>::front() const
+{
+    return this->operator[](0);
+}
+
+template <class CharT>
+constexpr Char& my_string<CharT>::back()
+{
+    return const_cast<CharT&>(static_cast<const decltype(*this)>(*this).back());
+}
+
+template <class CharT>
+constexpr const Char& my_string<CharT>::back() const
+{
+    // The behavior is undefined if empty() == true. : cppreference
+    return this->operator[](this->size() - 1);
+}
+
+template <class CharT>
 constexpr CharT* my_string<CharT>::data() noexcept
 {
     // Is it really working that const_cast<CharT*> from const CharT*, not CharT* const?

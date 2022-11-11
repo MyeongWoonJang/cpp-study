@@ -36,6 +36,10 @@ public:
     [[nodiscard]] constexpr const CharT& at(std::size_t pos) const;
     [[nodiscard]] constexpr CharT& operator[](std::size_t index);
     [[nodiscard]] constexpr const CharT& operator[](std::size_t index) const;
+    [[nodiscard]] constexpr Char& front();
+    [[nodiscard]] constexpr const Char& front() const;
+    [[nodiscard]] constexpr Char& back();
+    [[nodiscard]] constexpr const Char& back() const;
     [[nodiscard]] constexpr CharT* data() noexcept;
     [[nodiscard]] constexpr const CharT* data() const noexcept;
     [[nodiscard]] constexpr const CharT* c_str() const noexcept;
