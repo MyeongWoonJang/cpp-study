@@ -417,7 +417,7 @@ namespace
     template <class T, class ... Args>
     T* _construct(std::size_t num_of_obj, Args&& ... args)
     {
-        return new T[num_of_obj]{ std::forward(args)... };
+        return new T[num_of_obj]{ std::forward<Args>(args)... };
     }
     
     constexpr std::size_t closest_bin(std::size_t n) noexcept
