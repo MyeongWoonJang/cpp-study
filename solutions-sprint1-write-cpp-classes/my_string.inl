@@ -161,7 +161,7 @@ template <class CharT>
 constexpr const CharT& my_string<CharT>::back() const
 {
     // The behavior is undefined if empty() == true. : cppreference
-    return (*this)[this->size() - 1);
+    return (*this)[this->size() - 1];
 }
 
 template <class CharT>
@@ -398,6 +398,8 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, con
     if (!ret && len)
         // Secondly, compare last character if lengths are same.
         ret = (*this)[pos + len - 1] - str[count2 - 1];
+        
+    return ret;
 }
 
 template <class CharT>
