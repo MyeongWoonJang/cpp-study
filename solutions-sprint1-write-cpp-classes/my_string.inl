@@ -184,6 +184,12 @@ constexpr const CharT* my_string<CharT>::c_str() const noexcept
 }
 
 template <class CharT>
+constexpr bool my_string<CharT>::empty() const noexcept
+{
+    return this->size() == 0;
+}
+
+template <class CharT>
 constexpr std::size_t my_string<CharT>::size() const noexcept
 {
     return this->sz;

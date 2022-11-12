@@ -44,6 +44,7 @@ public:
     [[nodiscard]] constexpr const CharT* data() const noexcept;
     [[nodiscard]] constexpr const CharT* c_str() const noexcept;
     
+    [[nodiscard]] constexpr bool empty() const noexcept;
     [[nodiscard]] constexpr std::size_t size() const noexcept;
     [[nodiscard]] constexpr std::size_t length() const noexcept;
     [[nodiscard]] constexpr std::size_t capacity() const noexcept;
