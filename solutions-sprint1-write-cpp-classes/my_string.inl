@@ -20,7 +20,7 @@ my_string<CharT>::my_string(const my_string& other, std::size_t pos) : my_string
 
 template <class CharT>
 my_string<CharT>::my_string(const my_string& other, std::size_t pos, std::size_t count)
-    : sz{ std::min(other.size() - other._check_i_is_in_size(pos, "other.size() < pos"), count) },
+    : sz{ std::min(other.size() - _check_i_is_in_size(pos, other, "pos > other.size()"), count) },
     cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
     std::copy(other.data() + pos, other.data() + pos + this->size(), this->data());
@@ -228,7 +228,7 @@ void my_string<CharT>::clear() noexcept
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, std::size_t count, CharT ch)
 {
-    this->_check_i_is_in_size(index, "index > size()");
+    _check_i_is_in_size(index, *this, "index > size()");
     this->_mutate(index, std::size_t{ 0 }, ch, count);
 }
     
@@ -241,7 +241,7 @@ my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str)
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str, std::size_t count)
 {
-    this->_check_i_is_in_size(index, "index > size()");
+    _check_i_is_in_size(index, *this, "index > size()");
     this->_mutate(index, std::size_t{ 0 }, str, count);
 }   
 
@@ -254,8 +254,8 @@ my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& s
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str, std::size_t index_str, std::size_t count)
 {
-    this->_check_i_is_in_size(index, "index > size()");
-    str._check_i_is_in_size(index_str, "index_str > str.size()");
+    _check_i_is_in_size(index, *this, "index > size()");
+    _check_i_is_in_size(index_str, str, "index_str > str.size()");
     this->_mutate(index, std::size_t{ 0 }, str.data() + index_str, std::min(count, str.size() - index_str));
 }
 
@@ -269,15 +269,15 @@ template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str, std::size_t pos_str, std::size_t count_str)
 {
     // if count_str == npos or if would extend past str.size(), [pos_str, str.size()) is used to replace.
-    this->_check_i_is_in_size(pos, "pos > size()");
-    str._check_i_is_in_size(pos_str, "pos_str > str.size()");
+    _check_i_is_in_size(pos, *this, "pos > size()");
+    _check_i_is_in_size(pos_str, str, "pos_str > str.size()");
     this->_mutate(pos, count, str.data() + pos_str, std::min(count_str, str.size() - pos_str));
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const CharT* str, std::size_t count_str)
 {
-    this->_check_i_is_in_size(pos, "pos > size()");
+    _check_i_is_in_size(pos, str, "pos > size()");
     this->_mutate(pos, count, str, count_str);
 }
 
@@ -320,7 +320,7 @@ my_string<CharT>& my_string<CharT>::append(const my_string& str)
 template <class CharT>
 my_string<CharT>& my_string<CharT>::append(const my_string& str, std::size_t pos, std::size_t count)
 {
-    str._check_i_is_in_size(pos, "pos > str.size()");
+    _check_i_is_in_size(pos, str, "pos > str.size()");
     this->_mutate(this->size(), std::size_t{ 0 }, str.data() + pos, std::min(count, str.size() - pos));
 }   
 
@@ -339,7 +339,7 @@ my_string<CharT>& my_string<CharT>::append(const CharT* str, std::size_t count)
 template <class CharT>
 my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 {
-    this->_check_i_is_in_size(index, "index > size()");
+    _check_i_is_in_size(index, *this, "index > size()");
     
     if (count == npos) this->clear();
     else if (count) this->_mutate(index, std::min(count, this->size() - index), nullptr, std::size_t{ 0 });
@@ -492,12 +492,6 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len, CharT ch, std::
     }
     
     this->_set_sz(new_sz);
-}
-
-template <class CharT> template <class YCharT>
-decltype(auto) my_string<CharT>::_check_i_is_in_size(std::size_t i, const YCharT* emsg)
-{
-    return debug_check_out_of_range(i, std::size_t{ 0 }, this->size(), emsg);
 }
 
 template <class CharT>

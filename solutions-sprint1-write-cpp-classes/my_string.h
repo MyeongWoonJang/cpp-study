@@ -4,6 +4,8 @@
 #include "my_exception.h"
 #include <algorithm>
 
+#define _check_i_is_in_size(i, strobj, emsg) debug_check_out_of_range((i), std::size_t{ 0 }, (strobj).size(), (emsg))
+
 template <class CharT>
 class my_string
 {
@@ -86,8 +88,6 @@ private:
     void _erase(std::size_t index, std::size_t count);
     void _mutate(std::size_t pos, std::size_t len1, const CharT* str, std::size_t len2);
     void _mutate(std::size_t pos, std::size_t len1, CharT ch, std::size_t count);
-    template <class YCharT>
-    decltype(auto) _check_i_is_in_size(std::size_t i, const YCharT* emsg);
 
     static constexpr std::size_t _strlen(const CharT* str);
 
@@ -106,5 +106,6 @@ namespace
 
 #include "my_string.inl"
 #include "undef_macros.inl"
+#undef _check_i_is_in_size
 
 #endif
