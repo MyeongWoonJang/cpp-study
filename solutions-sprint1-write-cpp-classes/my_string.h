@@ -62,7 +62,8 @@ public:
     my_string& replace(std::size_t pos, std::size_t count, const CharT* str, std::size_t count_str);
     my_string& replace(std::size_t pos, std::size_t count, const CharT* str);
     my_string& replace(std::size_t pos, std::size_t count, std::size_t count_ch, CharT ch);
-    
+    void push_back(CharT ch);
+    void pop_back();
     my_string& erase(std::size_t index = 0, std::size_t count = npos);  // https://stackoverflow.com/questions/14121064/what-does-c-string-erase-return-this-mean
     
     

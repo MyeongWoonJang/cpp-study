@@ -294,6 +294,18 @@ my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, 
 }
 
 template <class CharT>
+void my_string<CharT>::push_back(CharT ch)
+{
+    this->_mutate(this->size(), std::size_t{ 0 }, ch, std::size_t{ 1 });
+}
+
+template <class CharT>
+void my_string<CharT>::pop_back()
+{
+    this->_mutate(this->size() - 1, std::size_t{ 1 }, nullptr, std::size_t{ 0 });
+}
+
+template <class CharT>
 my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 {
     this->_check_i_is_in_size(index, "index > size()");
