@@ -7,7 +7,7 @@ constexpr my_string<CharT>::my_string() noexcept : sz{ std::size_t{ 0 } }, cap{ 
 }
 
 template <class CharT>
-my_string<CharT>::my_string(std::size_t count, CharT ch) : sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
+my_string<CharT>::my_string(std::size_t count, CharT ch) : sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
     std::fill_n(data(), size(), ch);
 }
@@ -21,14 +21,14 @@ my_string<CharT>::my_string(const my_string& other, std::size_t pos) : my_string
 template <class CharT>
 my_string<CharT>::my_string(const my_string& other, std::size_t pos, std::size_t count)
     : sz{ std::min(other.size() - other._check_i_is_in_size(pos, "other.size() < pos"), count) },
-    cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
+    cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
     std::copy(other.data() + pos, other.data() + pos + size(), data());
 }
 
 template <class CharT>
 my_string<CharT>::my_string(const CharT* str, std::size_t count)
-    : sz{ std::min(_strlen(str), count) }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, 0) }
+    : sz{ std::min(_strlen(str), count) }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
     std::copy(str, str + size(), data());
 }
@@ -85,7 +85,7 @@ void my_string<CharT>::assign(std::size_t count, CharT ch)
 template <class CharT>
 void my_string<CharT>::assign(const my_string& str)
 {
-    this->assign(str, 0, npos);
+    this->assign(str, std::size_t{ 0 }, npos);
 }
 
 template <class CharT>
@@ -123,14 +123,14 @@ constexpr CharT& my_string<CharT>::at(std::size_t pos)
 template <class CharT>
 constexpr const CharT& my_string<CharT>::at(std::size_t pos) const
 {
-    return this->operator[](debug_check_out_of_range(pos, 0, this->size() - 1, "pos >= size()"));
+    return (*this)[debug_check_out_of_range(pos, std::size_t{ 0 }, this->size() - 1, "pos >= size()")];
 }
 
 template <class CharT>
 constexpr CharT& my_string<CharT>::operator[](std::size_t index)
 {
     // The behavior is undefined if index > size() : cppreference
-    return const_cast<CharT&>(static_cast<const decltype(*this)>(*this).operator[](index));
+    return const_cast<CharT&>(static_cast<const decltype(*this)>(*this)[index]);
 }
 
 template <class CharT>
@@ -148,7 +148,7 @@ constexpr CharT& my_string<CharT>::front()
 template <class CharT>
 constexpr const CharT& my_string<CharT>::front() const
 {
-    return this->operator[](0);
+    return (*this)[std::size_t{ 0 }];
 }
 
 template <class CharT>
@@ -161,7 +161,7 @@ template <class CharT>
 constexpr const CharT& my_string<CharT>::back() const
 {
     // The behavior is undefined if empty() == true. : cppreference
-    return this->operator[](this->size() - 1);
+    return (*this)[this->size() - 1);
 }
 
 template <class CharT>
@@ -186,7 +186,7 @@ constexpr const CharT* my_string<CharT>::c_str() const noexcept
 template <class CharT>
 constexpr bool my_string<CharT>::empty() const noexcept
 {
-    return this->size() == 0;
+    return this->size() == std::size_t{ 0 };
 }
 
 template <class CharT>
@@ -495,7 +495,7 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len, CharT ch, std::
 template <class CharT> template <class YCharT>
 decltype(auto) my_string<CharT>::_check_i_is_in_size(std::size_t i, const YCharT* emsg)
 {
-    return debug_check_out_of_range(i, 0, this->size(), emsg);
+    return debug_check_out_of_range(i, std::size_t{ 0 }, this->size(), emsg);
 }
 
 template <class CharT>
