@@ -9,7 +9,7 @@ constexpr my_string<CharT>::my_string() noexcept : sz{ std::size_t{ 0 } }, cap{ 
 template <class CharT>
 my_string<CharT>::my_string(std::size_t count, CharT ch) : sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
-    std::fill_n(data(), size(), ch);
+    std::fill_n(this->data(), this->size(), ch);
 }
 
 template <class CharT>
@@ -23,18 +23,18 @@ my_string<CharT>::my_string(const my_string& other, std::size_t pos, std::size_t
     : sz{ std::min(other.size() - other._check_i_is_in_size(pos, "other.size() < pos"), count) },
     cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
-    std::copy(other.data() + pos, other.data() + pos + size(), data());
+    std::copy(other.data() + pos, other.data() + pos + this->size(), this->data());
 }
 
 template <class CharT>
 my_string<CharT>::my_string(const CharT* str, std::size_t count)
-    : sz{ std::min(_strlen(str), count) }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
+    : sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
-    std::copy(str, str + size(), data());
+    std::copy(str, str + this->size(), this->data());
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const CharT* str) : my_string(str, npos)
+my_string<CharT>::my_string(const CharT* str) : my_string(str, _strlen(str))
 {
 
 }
