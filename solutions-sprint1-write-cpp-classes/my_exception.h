@@ -24,7 +24,7 @@
 
 namespace
 {
-    [[noreturn]] inline void _throw_out_of_range(const char* expr, const char* file, int line, const char* func)
+    inline void _throw_out_of_range(const char* expr, const char* file, int line, const char* func)
     {
         throw std::out_of_range{_FMT("in %s:%d:%s:\n%s\n", file, line, func, expr)};
     }
