@@ -348,6 +348,59 @@ my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 }
 
 template <class CharT>
+constexpr int my_string<CharT>::compare(const my_string& str) const noexcept
+{
+    return this->compare(std::size_t{ 0 }, this->size(), str);
+}
+
+template <class CharT>
+constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count, const my_string& str) const
+{
+    return this->compare(pos, count, str, std::size_t{ 0 });
+}
+
+template <class CharT>
+constexpr int my_string<CharT>::compare(std::size_t pos1, std::size_t count1, const my_string& str, std::size_t pos2, std::size_t count2) const
+{
+    auto len1 = std::min(count1, this->size() - pos1);
+    auto len2 = std::min(count2, str.size() - pos2);
+    
+    // Firstly, compare length
+    int ret = static_cast<int>(len1 - len2);
+    
+    if (!ret && len1)
+        // Secondly, compare last character if lengths are same.
+        ret = (*this)[pos1 + len1 - 1] - str[pos2 + len2 - 1];
+        
+    return ret;
+}
+
+template <class CharT>
+constexpr int my_string<CharT>::compare(const CharT* str) const
+{
+    return this->compare(std::size_t{ 0 }, this->size(), str);
+}
+
+template <class CharT>
+constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count, const CharT* str) const
+{
+    return this->compare(std::size_t{ 0 }, count, str, _strlen(str));
+}
+
+template <class CharT>
+constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, const CharT* str, std::size_t count2) const
+{
+    auto len = std::min(count1, this->size() - pos);
+    
+    // Firstly, compare length
+    int ret = static_cast<int>(len - count2);
+    
+    if (!ret && len)
+        // Secondly, compare last character if lengths are same.
+        ret = (*this)[pos + len - 1] - str[count2 - 1];
+}
+
+template <class CharT>
 void my_string<CharT>::swap(my_string& rhs) noexcept
 {
     std::swap(this->sz, rhs.sz);

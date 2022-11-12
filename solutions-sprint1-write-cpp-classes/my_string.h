@@ -64,8 +64,18 @@ public:
     my_string& replace(std::size_t pos, std::size_t count, std::size_t count_ch, CharT ch);
     void push_back(CharT ch);
     void pop_back();
+    my_string& append(std::size_t count, CharT ch);
+    my_string& append(const my_string& str);
+    my_string& append(const my_string& str, std::size_t pos, std::size_t count = npos);
+    my_string& append(const CharT* str);
+    my_string& append(const CharT* str, std::size_t count);
     my_string& erase(std::size_t index = 0, std::size_t count = npos);  // https://stackoverflow.com/questions/14121064/what-does-c-string-erase-return-this-mean
-    
+    [[nodiscard]] constexpr int compare(const my_string& str) const noexcept;
+    [[nodiscard]] constexpr int compare(std::size_t pos, std::size_t count, const my_string& str) const;
+    [[nodiscard]] constexpr int compare(std::size_t pos1, std::size_t count1, const my_string& str, std::size_t pos2, std::size_t count2 = npos) const;
+    [[nodiscard]] constexpr int compare(const CharT* str) const;
+    [[nodiscard]] constexpr int compare(std::size_t pos, std::size_t count, const CharT* str) const;
+    [[nodiscard]] constexpr int compare(std::size_t pos, std::size_t count1, const CharT* str, std::size_t count2) const;
     
     
     void swap(my_string& rhs) noexcept;
