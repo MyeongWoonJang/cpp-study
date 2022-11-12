@@ -222,7 +222,7 @@ void my_string<CharT>::shrink_to_fit()
 template <class CharT>
 void my_string<CharT>::clear() noexcept
 {
-    this->_set_sz(0);
+    this->_set_sz(std::size_t{ 0 });
 }
 
 template <class CharT>
@@ -299,6 +299,7 @@ my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
     this->_check_i_is_in_size(index, "index > size()");
     
     if (count == npos) this->clear();
+    else if (count) this->_mutate(index, std::min(count, this->size() - index), nullptr, std::size_t{ 0 });
     else if (count) this->_erase(index, std::min(count, this->size() - index));
     
     return *this;
@@ -324,12 +325,6 @@ void my_string<CharT>::_set_sz(std::size_t n) noexcept
 {
     this->sz = n;
     this->dat[sz] = '\0';
-}
-
-template <class CharT>
-void my_string<CharT>::_erase(std::size_t index, std::size_t count)
-{
-    std::copy(&data()[index + count], &data()[size()], &data()[index]);
 }
 
 /**
