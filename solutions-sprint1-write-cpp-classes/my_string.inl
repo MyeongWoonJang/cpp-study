@@ -501,10 +501,9 @@ decltype(auto) my_string<CharT>::_check_i_is_in_size(std::size_t i, const YCharT
 template <class CharT>
 constexpr std::size_t my_string<CharT>::_strlen(const CharT* str)
 {
-    std::size_t ret = -1;
-    while (str[++ret] != '\0')
+    std::size_t ret{ 0 };
+    for (; *str != '\0' ; ++ret, ++str)
         ;
-        
     return ret;
 }
 
