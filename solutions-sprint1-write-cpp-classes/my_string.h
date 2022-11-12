@@ -96,14 +96,6 @@ private:
     CharT* dat;
 };
 
-namespace
-{
-    template <class T, class ... Args>
-    T* _construct(std::size_t num_of_obj, Args&& ... args);
-    
-    constexpr std::size_t closest_bin(std::size_t n) noexcept;
-}
-
 #include "my_string.inl"
 #include "undef_macros.inl"
 #undef _check_i_is_in_size

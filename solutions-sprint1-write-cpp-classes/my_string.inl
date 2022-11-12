@@ -1,5 +1,13 @@
 #include "my_string.h"
 
+namespace
+{
+    template <class T, class ... Args>
+    T* _construct(std::size_t num_of_obj, Args&& ... args);
+    
+    constexpr std::size_t closest_bin(std::size_t n) noexcept;
+}
+
 template <class CharT>
 constexpr my_string<CharT>::my_string() noexcept : sz{ std::size_t{ 0 } }, cap{ std::size_t{ 0 } }, dat{ nullptr }
 {
