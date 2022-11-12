@@ -312,7 +312,6 @@ my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
     
     if (count == npos) this->clear();
     else if (count) this->_mutate(index, std::min(count, this->size() - index), nullptr, std::size_t{ 0 });
-    else if (count) this->_erase(index, std::min(count, this->size() - index));
     
     return *this;
 }
@@ -380,7 +379,7 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len1, const CharT* s
  * exception unchecked.
 */
 template <class CharT>
-void _mutate(std::size_t pos, std::size_t len, CharT ch, std::size_t count)
+void my_string<CharT>::_mutate(std::size_t pos, std::size_t len, CharT ch, std::size_t count)
 {
     const std::size_t how_much = this->size() - pos - len;
     const std::size_t new_sz = this->size() + count - len;
@@ -401,7 +400,7 @@ void _mutate(std::size_t pos, std::size_t len, CharT ch, std::size_t count)
     else
     {
         if (how_much)
-            std::move(this->data() + pos + len1, this->data() + this->size(), this->data() + pos + count);
+            std::move(this->data() + pos + len, this->data() + this->size(), this->data() + pos + count);
         if (count)
             std::fill_n(this->data() + pos, count, ch);
     }
