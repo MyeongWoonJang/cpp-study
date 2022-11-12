@@ -36,10 +36,10 @@ public:
     [[nodiscard]] constexpr const CharT& at(std::size_t pos) const;
     [[nodiscard]] constexpr CharT& operator[](std::size_t index);
     [[nodiscard]] constexpr const CharT& operator[](std::size_t index) const;
-    [[nodiscard]] constexpr Char& front();
-    [[nodiscard]] constexpr const Char& front() const;
-    [[nodiscard]] constexpr Char& back();
-    [[nodiscard]] constexpr const Char& back() const;
+    [[nodiscard]] constexpr CharT& front();
+    [[nodiscard]] constexpr const CharT& front() const;
+    [[nodiscard]] constexpr CharT& back();
+    [[nodiscard]] constexpr const CharT& back() const;
     [[nodiscard]] constexpr CharT* data() noexcept;
     [[nodiscard]] constexpr const CharT* data() const noexcept;
     [[nodiscard]] constexpr const CharT* c_str() const noexcept;
@@ -70,9 +70,12 @@ public:
     
 private:
     my_string(std::size_t cap, const my_string& other);     // for reconstructing operations
-    void _set_sz(std::size_t n);
+    void _set_sz(std::size_t n) noexcept;
     void _erase(std::size_t index, std::size_t count);
-    void _mutate(std::size_t pos, std::size_t len1, std::size_t len2);
+    void _mutate(std::size_t pos, std::size_t len1, const CharT* str, std::size_t len2);
+    void _mutate(std::size_t pos, std::size_t len1, CharT ch, std::size_t count);
+    template <class YCharT>
+    decltype(auto) _check_i_is_in_size(std::size_t i, const YCharT* emsg);
 
     static constexpr std::size_t _strlen(const CharT* str);
 
