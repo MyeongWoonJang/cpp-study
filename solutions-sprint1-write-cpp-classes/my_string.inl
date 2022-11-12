@@ -210,7 +210,7 @@ void my_string<CharT>::reserve(std::size_t new_cap)
 template <class CharT>
 void my_string<CharT>::shrink_to_fit()
 {
-    my_string{ size(), *this }.swap(*this);
+    my_string{ this->size(), *this }.swap(*this);
 }
 
 template <class CharT>
@@ -284,7 +284,7 @@ my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, std::size_t count_ch, CharT ch)
 {
-    this->replace(pos, count, my_string{count_ch, ch}, count_ch);
+    this->_mutate(pos, count, ch, count_ch);
 }
 
 template <class CharT>
@@ -323,7 +323,7 @@ void my_string<CharT>::_set_sz(std::size_t n) noexcept
 template <class CharT>
 void my_string<CharT>::_erase(std::size_t index, std::size_t count)
 {
-    std::copy(&data()[index+count], &data()[size()], &data()[index]);
+    std::copy(&data()[index + count], &data()[size()], &data()[index]);
 }
 
 /**
@@ -356,20 +356,44 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len1, const CharT* s
             std::move(this->data() + pos + len1, this->data() + this->size(), this->data() + pos + len2);
         if (str && len2)
             std::copy(str, str + len2, this->data() + pos);
-        
-        _set_sz(new_sz);
     }
+    
+    this->_set_sz(new_sz);
 }
 
 /**
- * data in range [this->data() + pos, this->data() + pos + len1]
+ * data in range [this->data() + pos, this->data() + pos + len]
  * is replaced with ch of count.
  * exception unchecked.
 */
 template <class CharT>
-void _mutate(std::size_t pos, std::size_t len1, CharT ch, std::size_t count)
+void _mutate(std::size_t pos, std::size_t len, CharT ch, std::size_t count)
 {
+    const std::size_t how_much = this->size() - pos - len;
+    const std::size_t new_sz = this->size() + count - len;
     
+    if (new_sz > this->capacity())
+    {
+        my_string tmp{ closest_bin(new_sz), *this };
+        
+        if (pos)
+            std::copy(this->data(), this->data() + pos, tmp.data());
+        if (count)
+            std::fill_n(tmp.data() + pos, count, ch);
+        if (how_much)
+            std::copy(this->data() + pos + len, this->data() + this->size(), tmp.data() + pos + count);
+            
+        this->swap(tmp);
+    }
+    else
+    {
+        if (how_much)
+            std::move(this->data() + pos + len1, this->data() + this->size(), this->data() + pos + count);
+        if (count)
+            std::fill_n(this->data() + pos, count, ch);
+    }
+    
+    this->_set_sz(new_sz);
 }
 
 template <class CharT> template <class YCharT>
