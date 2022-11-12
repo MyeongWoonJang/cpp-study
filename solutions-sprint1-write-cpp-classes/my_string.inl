@@ -229,7 +229,7 @@ template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, std::size_t count, CharT ch)
 {
     this->_check_i_is_in_size(index, "index > size()");
-    this->replace(index, std::size_t{ 0 }, count, ch);
+    this->_mutate(index, std::size_t{ 0 }, ch, count);
 }
     
 template <class CharT>
@@ -242,13 +242,13 @@ template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str, std::size_t count)
 {
     this->_check_i_is_in_size(index, "index > size()");
-    this->replace(index, std::size_t{ 0 }, str, count);
+    this->_mutate(index, std::size_t{ 0 }, str, count);
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str)
 {
-    this->insert(index, str, std::size_t{ 0 }, str.size());
+    this->insert(index, str, std::size_t{ 0 });
 }
 
 template <class CharT>
@@ -256,13 +256,13 @@ my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& s
 {
     this->_check_i_is_in_size(index, "index > size()");
     str._check_i_is_in_size(index_str, "index_str > str.size()");
-    this->replace(index, std::size_t{ 0 }, str, index_str, count);
+    this->_mutate(index, std::size_t{ 0 }, str.data() + index_str, std::min(count, str.size() - index_str));
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str)
 {
-    this->replace(pos, count, str, std::size_t{ 0 }, str.size());
+    this->replace(pos, count, str, std::size_t{ 0 });
 }
 
 template <class CharT>
@@ -271,7 +271,7 @@ my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, 
     // if count_str == npos or if would extend past str.size(), [pos_str, str.size()) is used to replace.
     this->_check_i_is_in_size(pos, "pos > size()");
     str._check_i_is_in_size(pos_str, "pos_str > str.size()");
-    this->_mutate(pos, count, str.data() + pos_str, std::min(count_str, str.size()));
+    this->_mutate(pos, count, str.data() + pos_str, std::min(count_str, str.size() - pos_str));
 }
 
 template <class CharT>
@@ -303,6 +303,37 @@ template <class CharT>
 void my_string<CharT>::pop_back()
 {
     this->_mutate(this->size() - 1, std::size_t{ 1 }, nullptr, std::size_t{ 0 });
+}
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::append(std::size_t count, CharT ch)
+{
+    this->_mutate(this->size(), std::size_t{ 0 }, ch, count);
+}   
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::append(const my_string& str)
+{
+    this->append(str, std::size_t{ 0 });
+}   
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::append(const my_string& str, std::size_t pos, std::size_t count)
+{
+    str._check_i_is_in_size(pos, "pos > str.size()");
+    this->_mutate(this->size(), std::size_t{ 0 }, str.data() + pos, std::min(count, str.size() - pos));
+}   
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::append(const CharT* str)
+{
+    this->append(str, _strlen(str));
+}   
+
+template <class CharT>
+my_string<CharT>& my_string<CharT>::append(const CharT* str, std::size_t count)
+{
+    this->_mutate(this->size(), std::size_t{ 0 }, str, count);
 }
 
 template <class CharT>
