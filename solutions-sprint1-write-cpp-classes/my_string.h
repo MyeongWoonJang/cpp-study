@@ -143,6 +143,11 @@ constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs);
 template <class CharT>
 constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs);
 
+template <class T, class ... Args>
+T* _construct(std::size_t num_of_obj, Args&& ... args);
+    
+constexpr std::size_t closest_bin(std::size_t n) noexcept;
+
 #include "my_string.inl"
 
 #endif
