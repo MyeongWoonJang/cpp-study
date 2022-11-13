@@ -498,26 +498,19 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len, CharT ch, std::
     
     if (new_sz > this->capacity())
     {
-        my_string tmp{ closest_bin(new_sz), *this };
+        my_string tmp{ count, ch };
         
         if (pos)
             std::copy(this->data(), this->data() + pos, tmp.data());
-        if (count)
-            std::fill_n(tmp.data() + pos, count, ch);
         if (how_much)
             std::copy(this->data() + pos + len, this->data() + this->size(),
                 tmp.data() + pos + count);
             
         this->swap(tmp);
     }
-    else
-    {
-        if (how_much)
-            std::move(this->data() + pos + len, this->data() + this->size(),
-                this->data() + pos + count);
-        if (count)
-            std::fill_n(this->data() + pos, count, ch);
-    }
+    else if (how_much)
+        std::move(this->data() + pos + len, this->data() + this->size(),
+            this->data() + pos + count);
     
     this->_set_sz(new_sz);
 }
