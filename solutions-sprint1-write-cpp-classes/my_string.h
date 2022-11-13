@@ -144,7 +144,5 @@ template <class CharT>
 constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs);
 
 #include "my_string.inl"
-#include "undef_macros.inl"
-#undef _check_i_is_in_size
 
 #endif

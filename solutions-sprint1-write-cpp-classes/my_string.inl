@@ -226,14 +226,14 @@ void my_string<CharT>::reserve(std::size_t new_cap)
 }
 
 template <class CharT>
-void resize(std::size_t n)
+void my_string<CharT>::resize(std::size_t n)
 {
     if (this->capacity() < n) this->reserve(n);
     else _set_sz(n);
 }
 
 template <class CharT>
-void resize(std::size_t n, CharT ch)
+void my_string<CharT>::resize(std::size_t n, CharT ch)
 {
     if (this->capacity() < n)
     {
@@ -443,7 +443,7 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, con
 }
 
 template <class CharT>
-constexpr my_string my_string<CharT>::substr(std::size_t pos, std::size_t count) const
+constexpr my_string<CharT> my_string<CharT>::substr(std::size_t pos, std::size_t count) const
 {
     _check_i_is_in_size(pos, *this, "pos > size()");
     return my_string{*this, pos, count};
@@ -452,13 +452,13 @@ constexpr my_string my_string<CharT>::substr(std::size_t pos, std::size_t count)
 template <class CharT>
 [[nodiscard]] constexpr std::size_t my_string<CharT>::find(const my_string& str, std::size_t pos) const noexcept
 {
-    this->find(str.data(), pos, str.size());
+    return this->find(str.data(), pos, str.size());
 }
 
 template <class CharT>
 [[nodiscard]] constexpr std::size_t my_string<CharT>::find(const CharT* str, std::size_t pos) const
 {
-    this->find(str, pos, _strlen(str));
+    return this->find(str, pos, _strlen(str));
 }
 
 template <class CharT>
