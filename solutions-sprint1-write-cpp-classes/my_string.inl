@@ -9,52 +9,59 @@ namespace
 }
 
 template <class CharT>
-constexpr my_string<CharT>::my_string() noexcept : sz{ std::size_t{ 0 } }, cap{ std::size_t{ 0 } }, dat{ nullptr }
+constexpr my_string<CharT>::my_string() noexcept :
+    sz{ std::size_t{ 0 } }, cap{ std::size_t{ 0 } }, dat{ nullptr }
 {
     
 }
 
 template <class CharT>
-my_string<CharT>::my_string(std::size_t count, CharT ch) : sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
+my_string<CharT>::my_string(std::size_t count, CharT ch) :
+    sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
     std::fill_n(this->data(), this->size(), ch);
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const my_string& other, std::size_t pos) : my_string(other, pos, npos)
+my_string<CharT>::my_string(const my_string& other, std::size_t pos) :
+    my_string(other, pos, npos)
 {
 
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const my_string& other, std::size_t pos, std::size_t count)
-    : sz{ std::min(other.size() - _check_i_is_in_size(pos, other, "pos > other.size()"), count) },
+my_string<CharT>::my_string(const my_string& other, std::size_t pos, std::size_t count) :
+    sz{ std::min(count, other.size() - _check_i_is_in_size(
+        pos, other, "pos > other.size()")) },
     cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
     std::copy(other.data() + pos, other.data() + pos + this->size(), this->data());
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const CharT* str, std::size_t count)
-    : sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
+my_string<CharT>::my_string(const CharT* str, std::size_t count) :
+    sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
 {
     std::copy(str, str + this->size(), this->data());
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const CharT* str) : my_string(str, _strlen(str))
+my_string<CharT>::my_string(const CharT* str) :
+    my_string(str, _strlen(str))
 {
 
 }
 
 template <class CharT>
-my_string<CharT>::my_string(const my_string& other) : my_string(other, std::size_t{ 0 }, npos)
+my_string<CharT>::my_string(const my_string& other) :
+    my_string(other, std::size_t{ 0 }, npos)
 {
 
 }
 
 template <class CharT>
-my_string<CharT>::my_string(my_string&& other) : my_string()
+my_string<CharT>::my_string(my_string&& other) :
+    my_string()
 {
     this->swap(other);
 }
@@ -329,7 +336,8 @@ template <class CharT>
 my_string<CharT>& my_string<CharT>::append(const my_string& str, std::size_t pos, std::size_t count)
 {
     _check_i_is_in_size(pos, str, "pos > str.size()");
-    this->_mutate(this->size(), std::size_t{ 0 }, str.data() + pos, std::min(count, str.size() - pos));
+    this->_mutate(this->size(), std::size_t{ 0 }, str.data() + pos,
+        std::min(count, str.size() - pos));
 }   
 
 template <class CharT>
@@ -350,7 +358,9 @@ my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
     _check_i_is_in_size(index, *this, "index > size()");
     
     if (count == npos) this->clear();
-    else if (count) this->_mutate(index, std::min(count, this->size() - index), nullptr, std::size_t{ 0 });
+    else if (count)
+        this->_mutate(index, std::min(count, this->size() - index),
+        nullptr, std::size_t{ 0 });
     
     return *this;
 }
@@ -370,6 +380,9 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count, cons
 template <class CharT>
 constexpr int my_string<CharT>::compare(std::size_t pos1, std::size_t count1, const my_string& str, std::size_t pos2, std::size_t count2) const
 {
+    _check_i_is_in_size(pos1, *this, "pos1 > size()");
+    _check_i_is_in_size(pos2, str, "pos2 > str.size()");
+    
     auto len1 = std::min(count1, this->size() - pos1);
     auto len2 = std::min(count2, str.size() - pos2);
     
@@ -398,6 +411,8 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count, cons
 template <class CharT>
 constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, const CharT* str, std::size_t count2) const
 {
+    _check_i_is_in_size(pos, *this, "pos > size()");
+    
     auto len = std::min(count1, this->size() - pos);
     
     // Firstly, compare length
@@ -419,8 +434,9 @@ void my_string<CharT>::swap(my_string& rhs) noexcept
 }
 
 template <class CharT>
-my_string<CharT>::my_string(std::size_t required_cap, const my_string& other)
-    : sz{ std::min(other.sz, required_cap) }, cap{ required_cap }, dat{ _construct<CharT>(cap, 0) }
+my_string<CharT>::my_string(std::size_t required_cap, const my_string& other) :
+    sz{ std::min(other.sz, required_cap) }, cap{ required_cap },
+    dat{ _construct<CharT>(cap, 0) }
 {
     std::copy(other.data(), other.data() + this->size(), this->data());
 }
@@ -452,14 +468,16 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len1, const CharT* s
         if (str && len2)
             std::copy(str, str + len2, tmp.data() + pos);
         if (how_much)
-            std::copy(this->data() + pos + len1, this->data() + this->size(), tmp.data() + pos + len2);
+            std::copy(this->data() + pos + len1, this->data() + this->size(),
+                tmp.data() + pos + len2);
             
         this->swap(tmp);
     }
     else
     {
         if (how_much)
-            std::move(this->data() + pos + len1, this->data() + this->size(), this->data() + pos + len2);
+            std::move(this->data() + pos + len1, this->data() + this->size(),
+                this->data() + pos + len2);
         if (str && len2)
             std::copy(str, str + len2, this->data() + pos);
     }
@@ -487,14 +505,16 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len, CharT ch, std::
         if (count)
             std::fill_n(tmp.data() + pos, count, ch);
         if (how_much)
-            std::copy(this->data() + pos + len, this->data() + this->size(), tmp.data() + pos + count);
+            std::copy(this->data() + pos + len, this->data() + this->size(),
+                tmp.data() + pos + count);
             
         this->swap(tmp);
     }
     else
     {
         if (how_much)
-            std::move(this->data() + pos + len, this->data() + this->size(), this->data() + pos + count);
+            std::move(this->data() + pos + len, this->data() + this->size(),
+                this->data() + pos + count);
         if (count)
             std::fill_n(this->data() + pos, count, ch);
     }
