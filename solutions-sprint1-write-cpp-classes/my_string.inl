@@ -14,7 +14,7 @@ constexpr my_string<CharT>::my_string() noexcept :
 
 template <class CharT>
 my_string<CharT>::my_string(std::size_t count, CharT ch) :
-    sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
+    sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, CharT{}) }
 {
     std::fill_n(this->data(), this->size(), ch);
 }
@@ -30,14 +30,14 @@ template <class CharT>
 my_string<CharT>::my_string(const my_string& other, std::size_t pos, std::size_t count) :
     sz{ std::min(count, other.size() - _check_i_is_in_size(
         pos, other, "pos > other.size()")) },
-    cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
+    cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, CharT{}) }
 {
     std::copy(other.data() + pos, other.data() + pos + this->size(), this->data());
 }
 
 template <class CharT>
 my_string<CharT>::my_string(const CharT* str, std::size_t count) :
-    sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, '\0') }
+    sz{ count }, cap{ closest_bin(sz) }, dat{ _construct<CharT>(cap, CharT{}) }
 {
     std::copy(str, str + this->size(), this->data());
 }
@@ -503,7 +503,7 @@ template <class CharT>
 void my_string<CharT>::_set_sz(std::size_t n) noexcept
 {
     this->sz = n;
-    this->dat[sz] = '\0';
+    this->dat[sz] = CharT{};
 }
 
 /**
@@ -577,7 +577,7 @@ template <class CharT>
 constexpr std::size_t _strlen(const CharT* str)
 {
     std::size_t ret{ 0 };
-    for (; *str != '\0' ; ++ret, ++str)
+    for (; *str != CharT{} ; ++ret, ++str)
         ;
     return ret;
 }
