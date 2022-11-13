@@ -585,6 +585,78 @@ constexpr std::size_t my_string<CharT>::_strlen(const CharT* str)
     return ret;
 }
 
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const CharT* rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const CharT* lhs, const my_string<CharT>& rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, CharT rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(CharT lhs, const my_string<CharT>& rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, my_string<CharT>&& rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const my_string<CharT>& rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, my_string<CharT>&& rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const CharT* rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const CharT* lhs, my_string<CharT>&& rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs)
+{
+    
+}
+
+template <class CharT>
+constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs)
+{
+    
+}
+
 namespace
 {
     template <class T, class ... Args>

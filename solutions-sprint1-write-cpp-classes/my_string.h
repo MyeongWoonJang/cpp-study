@@ -103,6 +103,43 @@ private:
     CharT* dat;
 };
 
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const CharT* rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const CharT* lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, CharT rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(CharT lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, my_string<CharT>&& rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, my_string<CharT>&& rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const CharT* rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(const CharT* lhs, my_string<CharT>&& rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs);
+
+template <class CharT>
+constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs);
+
+
 #include "my_string.inl"
 #include "undef_macros.inl"
 #undef _check_i_is_in_size
