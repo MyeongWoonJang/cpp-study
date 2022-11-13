@@ -155,6 +155,42 @@ template <class CharT>
 constexpr bool operator!=(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
+constexpr bool operator<(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+
+template <class CharT>
+constexpr bool operator<(const CharT* lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr bool operator<(const my_string<CharT>& lhs, const CharT* rhs);
+
+template <class CharT>
+constexpr bool operator>(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+
+template <class CharT>
+constexpr bool operator>(const CharT* lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr bool operator>(const my_string<CharT>& lhs, const CharT* rhs);
+
+template <class CharT>
+constexpr bool operator<=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+
+template <class CharT>
+constexpr bool operator<=(const CharT* lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr bool operator<=(const my_string<CharT>& lhs, const CharT* rhs);
+
+template <class CharT>
+constexpr bool operator>=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+
+template <class CharT>
+constexpr bool operator>=(const CharT* lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr bool operator>=(const my_string<CharT>& lhs, const CharT* rhs);
+
+template <class CharT>
 constexpr std::size_t _strlen(const CharT* str);
 
 template <class CharT>

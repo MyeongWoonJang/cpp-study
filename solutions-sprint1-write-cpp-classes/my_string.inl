@@ -669,6 +669,78 @@ constexpr bool operator!=(const my_string<CharT>& lhs, const CharT* rhs)
 }
 
 template <class CharT>
+constexpr bool operator<(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept
+{
+    return lhs.compare(rhs) < 0;
+}
+
+template <class CharT>
+constexpr bool operator<(const CharT* lhs, const my_string<CharT>& rhs)
+{
+    return rhs.compare(lhs) > 0;
+}
+
+template <class CharT>
+constexpr bool operator<(const my_string<CharT>& lhs, const CharT* rhs)
+{
+    return lhs.compare(rhs) < 0;
+}
+
+template <class CharT>
+constexpr bool operator>(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept
+{
+    return rhs < lhs;
+}
+
+template <class CharT>
+constexpr bool operator>(const CharT* lhs, const my_string<CharT>& rhs)
+{
+    return rhs < lhs;
+}
+
+template <class CharT>
+constexpr bool operator>(const my_string<CharT>& lhs, const CharT* rhs)
+{
+    return rhs < lhs;
+}
+
+template <class CharT>
+constexpr bool operator<=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept
+{
+    return !(rhs < lhs);
+}
+
+template <class CharT>
+constexpr bool operator<=(const CharT* lhs, const my_string<CharT>& rhs)
+{
+    return !(rhs < lhs);
+}
+
+template <class CharT>
+constexpr bool operator<=(const my_string<CharT>& lhs, const CharT* rhs)
+{
+    return !(rhs < lhs);
+}
+
+template <class CharT>
+constexpr bool operator>=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept
+{
+    return !(lhs < rhs);
+}
+
+template <class CharT>
+constexpr bool operator>=(const CharT* lhs, const my_string<CharT>& rhs)
+{
+    return !(lhs < rhs);
+}
+
+template <class CharT>
+constexpr bool operator>=(const my_string<CharT>& lhs, const CharT* rhs)
+{
+    return !(lhs < rhs);
+}
+
+template <class CharT>
 constexpr std::size_t _strlen(const CharT* str)
 {
     std::size_t ret{ 0 };
