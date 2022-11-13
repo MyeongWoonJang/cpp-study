@@ -448,7 +448,7 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, con
 template <class CharT>
 [[nodiscard]] constexpr std::size_t my_string<CharT>::find(const my_string& str, std::size_t pos) const noexcept
 {
-    this->find(str.data(), pos, this->size());
+    this->find(str.data(), pos, str.size());
 }
 
 template <class CharT>
@@ -460,15 +460,23 @@ template <class CharT>
 template <class CharT>
 [[nodiscard]] constexpr std::size_t my_string<CharT>::find(const CharT* str, std::size_t pos, std::size_t count) const
 {
-    return std::search(this->data() + pos, this->data() + this->size(),
-        str, str + count) - this->data();
+    std::size_t ret = std::search(this->data() + std::min(this->size(), pos),
+        this->data() + this->size(), str, str + count) - this->data();
+    
+    if (ret == this->size()) ret = npos;
+    
+    return ret;
 }
 
 template <class CharT>
 [[nodiscard]] constexpr std::size_t my_string<CharT>::find(CharT ch, std::size_t pos) const noexcept
 {
-    return std::find(this->data() + pos, this->data() + this->size(), ch)
-        - this->data();
+    std::size_t ret = std::find(this->data() + std::min(this->size(), pos),
+        this->data() + this->size(), ch) - this->data();
+        
+    if (ret == this->size()) ret = npos;
+    
+    return ret;
 }
 
 template <class CharT>
