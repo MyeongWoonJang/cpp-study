@@ -80,6 +80,7 @@ public:
     [[nodiscard]] constexpr int compare(const CharT* str) const;
     [[nodiscard]] constexpr int compare(std::size_t pos, std::size_t count, const CharT* str) const;
     [[nodiscard]] constexpr int compare(std::size_t pos, std::size_t count1, const CharT* str, std::size_t count2) const;
+    [[nodiscard]] constexpr my_string substr(std::size_t pos = 0, std::size_t count = npos) const;
     
     [[nodiscard]] constexpr std::size_t find(const my_string& str, std::size_t pos = 0) const noexcept;
     [[nodiscard]] constexpr std::size_t find(const CharT* str, std::size_t pos = 0) const;

@@ -446,6 +446,13 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, con
 }
 
 template <class CharT>
+constexpr my_string my_string<CharT>::substr(std::size_t pos, std::size_t count) const
+{
+    _check_i_is_in_size(pos, *this, "pos > size()");
+    return my_string{*this, pos, count};
+}
+
+template <class CharT>
 [[nodiscard]] constexpr std::size_t my_string<CharT>::find(const my_string& str, std::size_t pos) const noexcept
 {
     this->find(str.data(), pos, str.size());
