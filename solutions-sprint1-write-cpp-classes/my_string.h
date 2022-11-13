@@ -104,108 +104,108 @@ private:
 };
 
 template <class CharT>
-constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const CharT* rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(const CharT* lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(const CharT* lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, CharT rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, CharT rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(CharT lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(CharT lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, my_string<CharT>&& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, my_string<CharT>&& rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, my_string<CharT>&& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, my_string<CharT>&& rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const CharT* rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(const CharT* lhs, my_string<CharT>&& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(const CharT* lhs, my_string<CharT>&& rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs);
 
 template <class CharT>
-constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs);
+[[nodiscard]] constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs);
 
 template <class CharT>
-constexpr bool operator==(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+[[nodiscard]] constexpr bool operator==(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
 
 template <class CharT>
-constexpr bool operator==(const CharT* lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr bool operator==(const CharT* lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr bool operator==(const my_string<CharT>& lhs, const CharT* rhs);
+[[nodiscard]] constexpr bool operator==(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr bool operator!=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+[[nodiscard]] constexpr bool operator!=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
 
 template <class CharT>
-constexpr bool operator!=(const CharT* lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr bool operator!=(const CharT* lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr bool operator!=(const my_string<CharT>& lhs, const CharT* rhs);
+[[nodiscard]] constexpr bool operator!=(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr bool operator<(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+[[nodiscard]] constexpr bool operator<(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
 
 template <class CharT>
-constexpr bool operator<(const CharT* lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr bool operator<(const CharT* lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr bool operator<(const my_string<CharT>& lhs, const CharT* rhs);
+[[nodiscard]] constexpr bool operator<(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr bool operator>(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+[[nodiscard]] constexpr bool operator>(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
 
 template <class CharT>
-constexpr bool operator>(const CharT* lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr bool operator>(const CharT* lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr bool operator>(const my_string<CharT>& lhs, const CharT* rhs);
+[[nodiscard]] constexpr bool operator>(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr bool operator<=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+[[nodiscard]] constexpr bool operator<=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
 
 template <class CharT>
-constexpr bool operator<=(const CharT* lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr bool operator<=(const CharT* lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr bool operator<=(const my_string<CharT>& lhs, const CharT* rhs);
+[[nodiscard]] constexpr bool operator<=(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr bool operator>=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+[[nodiscard]] constexpr bool operator>=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
 
 template <class CharT>
-constexpr bool operator>=(const CharT* lhs, const my_string<CharT>& rhs);
+[[nodiscard]] constexpr bool operator>=(const CharT* lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
-constexpr bool operator>=(const my_string<CharT>& lhs, const CharT* rhs);
+[[nodiscard]] constexpr bool operator>=(const my_string<CharT>& lhs, const CharT* rhs);
 
 template <class CharT>
-constexpr std::size_t _strlen(const CharT* str);
+[[nodiscard]] constexpr std::size_t _strlen(const CharT* str);
 
 template <class CharT>
-constexpr int _strncmp(const CharT* lhs, const CharT* rhs, std::size_t len);
+[[nodiscard]] constexpr int _strncmp(const CharT* lhs, const CharT* rhs, std::size_t len);
 
 template <class CharT>
-my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2);
+[[nodiscard]] my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2);
 
 template <class T, class ... Args>
-T* _construct(std::size_t num_of_obj, Args&& ... args);
+[[nodiscard]] T* _construct(std::size_t num_of_obj, Args&& ... args);
     
-constexpr std::size_t closest_bin(std::size_t n) noexcept;
+[[nodiscard]] constexpr std::size_t closest_bin(std::size_t n) noexcept;
 
 #include "my_string.inl"
 

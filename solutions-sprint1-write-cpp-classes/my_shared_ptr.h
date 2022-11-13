@@ -47,7 +47,7 @@ public:
     [[nodiscard]] explicit operator bool() const noexcept;
 
 private:
-    static std::size_t* make_refs();
+    [[nodiscard]] static std::size_t* make_refs();
     void inc_if_refs_valid() noexcept;
 
     T* ptr;
@@ -55,58 +55,58 @@ private:
 };
 
 template <class T1, class T2>
-const bool operator==(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
+[[nodiscard]] const bool operator==(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
 
 template <class T1, class T2>
-const bool operator!=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
+[[nodiscard]] const bool operator!=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
 
 template <class T1, class T2>
-const bool operator>(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
+[[nodiscard]] const bool operator>(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
 
 template <class T1, class T2>
-const bool operator<(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
+[[nodiscard]] const bool operator<(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
 
 template <class T1, class T2>
-const bool operator>=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
+[[nodiscard]] const bool operator>=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
 
 template <class T1, class T2>
-const bool operator<=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
+[[nodiscard]] const bool operator<=(const my_shared_ptr<T1>& lhs, const my_shared_ptr<T2>& rhs) noexcept;
 
 template <class T>
-const bool operator==(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
+[[nodiscard]] const bool operator==(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
 template <class T>
-const bool operator==(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
+[[nodiscard]] const bool operator==(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
 
 template <class T>
-const bool operator!=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
+[[nodiscard]] const bool operator!=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
 template <class T>
-const bool operator!=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
+[[nodiscard]] const bool operator!=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
 
 template <class T>
-const bool operator>(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
+[[nodiscard]] const bool operator>(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
 template <class T>
-const bool operator>(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
+[[nodiscard]] const bool operator>(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
 
 template <class T>
-const bool operator<(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
+[[nodiscard]] const bool operator<(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
 template <class T>
-const bool operator<(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
+[[nodiscard]] const bool operator<(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
 
 template <class T>
-const bool operator>=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
+[[nodiscard]] const bool operator>=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
 template <class T>
-const bool operator>=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
+[[nodiscard]] const bool operator>=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
 
 template <class T>
-const bool operator<=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
+[[nodiscard]] const bool operator<=(const my_shared_ptr<T>& lhs, std::nullptr_t rhs) noexcept;
 
 template <class T>
-const bool operator<=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
+[[nodiscard]] const bool operator<=(std::nullptr_t lhs, const my_shared_ptr<T>& rhs) noexcept;
 
 template <class T>
 std::ostream& operator<<(std::ostream& os, const my_shared_ptr<T>& rhs);
