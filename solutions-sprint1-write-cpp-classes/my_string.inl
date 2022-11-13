@@ -395,17 +395,7 @@ constexpr int my_string<CharT>::compare(std::size_t pos1, std::size_t count1, co
     _check_i_is_in_size(pos1, *this, "pos1 > size()");
     _check_i_is_in_size(pos2, str, "pos2 > str.size()");
     
-    auto len1 = std::min(count1, this->size() - pos1);
-    auto len2 = std::min(count2, str.size() - pos2);
-    
-    // Firstly, compare length
-    int ret = static_cast<int>(len1 - len2);
-    
-    if (!ret && len1)
-        // Secondly, compare last character if lengths are same.
-        ret = (*this)[pos1 + len1 - 1] - str[pos2 + len2 - 1];
-        
-    return ret;
+    return this->compare(pos1, count1, str.data() + pos2, count2);
 }
 
 template <class CharT>
@@ -425,14 +415,14 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, con
 {
     _check_i_is_in_size(pos, *this, "pos > size()");
     
-    auto len = std::min(count1, this->size() - pos);
+    auto my_len = std::min(count1, this->size() - pos);
     
-    // Firstly, compare length
-    int ret = static_cast<int>(len - count2);
+    // Firstly, compare characters in common range
+    int ret = _strncmp(this->data() + pos, str, std::min(my_len, count2));
     
-    if (!ret && len)
-        // Secondly, compare last character if lengths are same.
-        ret = (*this)[pos + len - 1] - str[count2 - 1];
+    if (!ret && my_len)
+        // Secondly, compare lengths
+        ret = my_len - count2;
         
     return ret;
 }
@@ -569,26 +559,6 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len, CharT ch, std::
 }
 
 template <class CharT>
-constexpr std::size_t _strlen(const CharT* str)
-{
-    std::size_t ret{ 0 };
-    for (; *str != CharT{} ; ++ret, ++str)
-        ;
-    return ret;
-}
-
-template <class CharT>
-my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2)
-{
-    my_string<CharT> ret;
-    ret.reserve(len1 + len2);
-    ret.append(lhs, len1);
-    ret.append(rhs, len2);
-    
-    return ret;
-}
-
-template <class CharT>
 constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs)
 {
     return __str_concat(lhs, lhs.size(), rhs, rhs.size());
@@ -658,6 +628,75 @@ template <class CharT>
 constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs)
 {
     return std::move(rhs.insert(std::size_t{ 0 }, std::size_t{ 1 }, lhs));
+}
+
+template <class CharT>
+constexpr bool operator==(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept
+{
+    return lhs.size() == rhs.size()
+        && _strncmp(lhs.data(), rhs.data(), lhs.size());
+}
+
+template <class CharT>
+constexpr bool operator==(const CharT* lhs, const my_string<CharT>& rhs)
+{
+    return _strlen(lhs) == rhs.size()
+        && _strncmp(lhs, rhs.data(), rhs.size());
+}
+
+template <class CharT>
+constexpr bool operator==(const my_string<CharT>& lhs, const CharT* rhs)
+{
+    return lhs.size() == _strlen(rhs)
+        && _strncmp(lhs.data(), rhs, lhs.size());
+}
+
+template <class CharT>
+constexpr bool operator!=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept
+{
+    return !(lhs == rhs);
+}
+
+template <class CharT>
+constexpr bool operator!=(const CharT* lhs, const my_string<CharT>& rhs)
+{
+    return !(lhs == rhs);
+}
+
+template <class CharT>
+constexpr bool operator!=(const my_string<CharT>& lhs, const CharT* rhs)
+{
+    return !(lhs == rhs);
+}
+
+template <class CharT>
+constexpr std::size_t _strlen(const CharT* str)
+{
+    std::size_t ret{ 0 };
+    for (; *str != CharT{} ; ++ret, ++str)
+        ;
+    return ret;
+}
+
+template <class CharT>
+constexpr int _strncmp(const CharT* lhs, const CharT* rhs, std::size_t n)
+{
+    for(; n && *lhs && *lhs == *rhs; --n, ++lhs, ++rhs)
+        ;
+        
+    return *reinterpret_cast<const unsigned*>(lhs)
+        - *reinterpret_cast<const unsigned*>(rhs);
+}
+
+template <class CharT>
+my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2)
+{
+    my_string<CharT> ret;
+    ret.reserve(len1 + len2);
+    ret.append(lhs, len1);
+    ret.append(rhs, len2);
+    
+    return ret;
 }
 
 template <class T, class ... Args>

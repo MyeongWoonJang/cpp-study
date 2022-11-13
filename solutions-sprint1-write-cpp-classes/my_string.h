@@ -102,12 +102,6 @@ private:
 };
 
 template <class CharT>
-constexpr std::size_t _strlen(const CharT* str);
-
-template <class CharT>
-my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2);
-
-template <class CharT>
 constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs);
 
 template <class CharT>
@@ -142,6 +136,33 @@ constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs);
 
 template <class CharT>
 constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs);
+
+template <class CharT>
+constexpr bool operator==(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+
+template <class CharT>
+constexpr bool operator==(const CharT* lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr bool operator==(const my_string<CharT>& lhs, const CharT* rhs);
+
+template <class CharT>
+constexpr bool operator!=(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept;
+
+template <class CharT>
+constexpr bool operator!=(const CharT* lhs, const my_string<CharT>& rhs);
+
+template <class CharT>
+constexpr bool operator!=(const my_string<CharT>& lhs, const CharT* rhs);
+
+template <class CharT>
+constexpr std::size_t _strlen(const CharT* str);
+
+template <class CharT>
+constexpr int _strncmp(const CharT* lhs, const CharT* rhs, std::size_t len);
+
+template <class CharT>
+my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2);
 
 template <class T, class ... Args>
 T* _construct(std::size_t num_of_obj, Args&& ... args);
