@@ -229,6 +229,26 @@ void my_string<CharT>::reserve(std::size_t new_cap)
 }
 
 template <class CharT>
+void resize(std::size_t n)
+{
+    if (this->capacity() < n) this->reserve(n);
+    else _set_sz(n);
+}
+
+template <class CharT>
+void resize(std::size_t n, CharT ch)
+{
+    if (this->capacity() < n)
+    {
+        auto old_size = this->size();
+        this->reserve(n);
+        
+        std::fill_n(this->data() + old_size, this->size() - old_size, ch);
+    }
+    else _set_sz(n);
+}
+
+template <class CharT>
 void my_string<CharT>::shrink_to_fit()
 {
     my_string{ this->size(), *this }.swap(*this);

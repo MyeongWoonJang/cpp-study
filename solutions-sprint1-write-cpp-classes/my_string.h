@@ -51,6 +51,8 @@ public:
     [[nodiscard]] constexpr std::size_t length() const noexcept;
     [[nodiscard]] constexpr std::size_t capacity() const noexcept;
     void reserve(std::size_t new_cap);
+    void resize(std::size_t n);
+    void resize(std::size_t n, CharT ch);
     void shrink_to_fit();
     
     void clear() noexcept;
