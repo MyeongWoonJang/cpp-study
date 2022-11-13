@@ -374,19 +374,19 @@ my_string<CharT>& my_string<CharT>::append(const CharT* str, std::size_t count)
 }
 
 template <class CharT>
-my_string& my_string<CharT>::operator+=(const my_string& str)
+my_string<CharT>& my_string<CharT>::operator+=(const my_string& str)
 {
     return this->append(str);
 }
 
 template <class CharT>
-my_string& my_string<CharT>::operator+=(CharT ch)
+my_string<CharT>& my_string<CharT>::operator+=(CharT ch)
 {
     return this->append(std::size_t{ 1 }, ch);
 }
 
 template <class CharT>
-my_string& my_string<CharT>::operator+=(const CharT* str)
+my_string<CharT>& my_string<CharT>::operator+=(const CharT* str)
 {
     return this->append(str);
 }
@@ -761,6 +761,22 @@ template <class CharT>
 constexpr bool operator>=(const my_string<CharT>& lhs, const CharT* rhs)
 {
     return !(lhs < rhs);
+}
+
+template<class CharT, class Traits>
+std::basic_ostream<CharT, Traits>&
+    operator<<(std::basic_ostream<CharT, Traits>& os,
+        const my_string<CharT>& str )
+{
+    return os.write(reinterpret_cast<const char*>(str.data()), str.size());
+}
+
+template<class CharT, class Traits>
+std::basic_istream<CharT, Traits>&
+    operator>>( std::basic_istream<CharT, Traits>& is,
+        my_string<CharT>& str )
+{
+    return is.read(reinterpret_cast<const char*>(str.data()), str.size());
 }
 
 template <class CharT>

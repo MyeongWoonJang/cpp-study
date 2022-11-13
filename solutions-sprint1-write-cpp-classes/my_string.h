@@ -193,6 +193,11 @@ template <class CharT>
 template <class CharT>
 [[nodiscard]] constexpr bool operator>=(const my_string<CharT>& lhs, const CharT* rhs);
 
+template<class CharT, class Traits>
+std::basic_ostream<CharT, Traits>&
+    operator<<(std::basic_ostream<CharT, Traits>& os,
+        const my_string<CharT>& str );
+
 template <class CharT>
 [[nodiscard]] constexpr std::size_t _strlen(const CharT* str);
 
