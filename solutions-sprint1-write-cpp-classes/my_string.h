@@ -96,12 +96,16 @@ private:
     void _mutate(std::size_t pos, std::size_t len1, const CharT* str, std::size_t len2);
     void _mutate(std::size_t pos, std::size_t len1, CharT ch, std::size_t count);
 
-    static constexpr std::size_t _strlen(const CharT* str);
-
     std::size_t sz;
     std::size_t cap;
     CharT* dat;
 };
+
+template <class CharT>
+constexpr std::size_t _strlen(const CharT* str);
+
+template <class CharT>
+my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2);
 
 template <class CharT>
 constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs);
@@ -138,7 +142,6 @@ constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs);
 
 template <class CharT>
 constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs);
-
 
 #include "my_string.inl"
 #include "undef_macros.inl"

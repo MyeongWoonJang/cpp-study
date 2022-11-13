@@ -1,12 +1,9 @@
 #include "my_string.h"
 
-namespace
-{
-    template <class T, class ... Args>
-    T* _construct(std::size_t num_of_obj, Args&& ... args);
+template <class T, class ... Args>
+T* _construct(std::size_t num_of_obj, Args&& ... args);
     
-    constexpr std::size_t closest_bin(std::size_t n) noexcept;
-}
+constexpr std::size_t closest_bin(std::size_t n) noexcept;
 
 template <class CharT>
 constexpr my_string<CharT>::my_string() noexcept :
@@ -577,7 +574,7 @@ void my_string<CharT>::_mutate(std::size_t pos, std::size_t len, CharT ch, std::
 }
 
 template <class CharT>
-constexpr std::size_t my_string<CharT>::_strlen(const CharT* str)
+constexpr std::size_t _strlen(const CharT* str)
 {
     std::size_t ret{ 0 };
     for (; *str != '\0' ; ++ret, ++str)
@@ -586,93 +583,101 @@ constexpr std::size_t my_string<CharT>::_strlen(const CharT* str)
 }
 
 template <class CharT>
+my_string<CharT> __str_concat(const CharT* lhs, std::size_t len1, const CharT* rhs, std::size_t len2)
+{
+    my_string<CharT> ret;
+    ret.reserve(len1 + len2);
+    ret.append(lhs, len1);
+    ret.append(rhs, len2);
+    
+    return ret;
+}
+
+template <class CharT>
 constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const my_string<CharT>& rhs)
 {
-    
+    return __str_concat(lhs, lhs.size(), rhs, rhs.size());
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, const CharT* rhs)
 {
-    
+    return __str_concat(lhs, lhs.size(), rhs, _strlen(rhs));
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(const CharT* lhs, const my_string<CharT>& rhs)
 {
-    
+    return __str_concat(lhs, _strlen(lhs), rhs, rhs.size());
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, CharT rhs)
 {
-    
+    return __str_concat(lhs, lhs.size(), &rhs, std::size_t{ 1 });
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(CharT lhs, const my_string<CharT>& rhs)
 {
-    
+    return __str_concat(&lhs, std::size_t{ 1 }, rhs, rhs.size());
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, my_string<CharT>&& rhs)
 {
-    
+    return std::move(lhs.append(rhs));
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const my_string<CharT>& rhs)
 {
-    
+    return std::move(lhs.append(rhs));
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(const my_string<CharT>& lhs, my_string<CharT>&& rhs)
 {
-    
+    return std::move(rhs.insert(std::size_t{ 0 }, lhs));
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, const CharT* rhs)
 {
-    
+    return std::move(lhs.append(rhs));
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(const CharT* lhs, my_string<CharT>&& rhs)
 {
-    
+    return std::move(rhs.insert(std::size_t{ 0 }, lhs));
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(my_string<CharT>&& lhs, CharT rhs)
 {
-    
+    return std::move(lhs.append(std::size_t{ 1 }, rhs));
 }
 
 template <class CharT>
 constexpr my_string<CharT> operator+(CharT lhs, my_string<CharT>&& rhs)
 {
-    
+    return std::move(rhs.insert(std::size_t{ 0 }, std::size_t{ 1 }, lhs));
 }
 
-namespace
+template <class T, class ... Args>
+T* _construct(std::size_t num_of_obj, Args&& ... args)
 {
-    template <class T, class ... Args>
-    T* _construct(std::size_t num_of_obj, Args&& ... args)
-    {
-        return new T[num_of_obj]{ std::forward<Args>(args)... };
-    }
+    return new T[num_of_obj]{ std::forward<Args>(args)... };
+}
     
-    constexpr std::size_t closest_bin(std::size_t n) noexcept
-    {
-        std::size_t ret = 2;
-        --n;
-     
-        while (n >>= 1)
-            ret <<= 1;
-        
-        return ret;
-    }
+constexpr std::size_t closest_bin(std::size_t n) noexcept
+{
+    std::size_t ret = 2;
+    --n;
+ 
+    while (n >>= 1)
+        ret <<= 1;
+    
+    return ret;
 }
