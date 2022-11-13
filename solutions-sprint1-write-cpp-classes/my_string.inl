@@ -339,12 +339,14 @@ template <class CharT>
 my_string<CharT>& my_string<CharT>::append(std::size_t count, CharT ch)
 {
     this->_mutate(this->size(), std::size_t{ 0 }, ch, count);
+    
+    return *this;
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::append(const my_string& str)
 {
-    this->append(str, std::size_t{ 0 });
+    return this->append(str, std::size_t{ 0 });
 }   
 
 template <class CharT>
@@ -353,24 +355,45 @@ my_string<CharT>& my_string<CharT>::append(const my_string& str, std::size_t pos
     this->_mutate(this->size(), std::size_t{ 0 },
         str.data() + _check_i_is_in_size(pos, str, "pos > str.size()"),
         std::min(count, str.size() - pos));
+        
+    return *this;
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::append(const CharT* str)
 {
-    this->append(str, _strlen(str));
+    return this->append(str, _strlen(str));
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::append(const CharT* str, std::size_t count)
 {
     this->_mutate(this->size(), std::size_t{ 0 }, str, count);
+    
+    return *this;
+}
+
+template <class CharT>
+my_string& my_string<CharT>::operator+=(const my_string& str)
+{
+    return this->append(str);
+}
+
+template <class CharT>
+my_string& my_string<CharT>::operator+=(CharT ch)
+{
+    return this->append(std::size_t{ 1 }, ch);
+}
+
+template <class CharT>
+my_string& my_string<CharT>::operator+=(const CharT* str)
+{
+    return this->append(str);
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 {
-    
     if (count == npos) this->clear();
     else if (count)
         this->_mutate(_check_i_is_in_size(index, *this, "index > size()"),

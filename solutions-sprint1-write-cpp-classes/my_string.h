@@ -73,6 +73,9 @@ public:
     my_string& append(const my_string& str, std::size_t pos, std::size_t count = npos);
     my_string& append(const CharT* str);
     my_string& append(const CharT* str, std::size_t count);
+    my_string& operator+=(const my_string& str);
+    my_string& operator+=(CharT ch);
+    my_string& operator+=(const CharT* str);
     my_string& erase(std::size_t index = 0, std::size_t count = npos);  // https://stackoverflow.com/questions/14121064/what-does-c-string-erase-return-this-mean
     [[nodiscard]] constexpr int compare(const my_string& str) const noexcept;
     [[nodiscard]] constexpr int compare(std::size_t pos, std::size_t count, const my_string& str) const;
