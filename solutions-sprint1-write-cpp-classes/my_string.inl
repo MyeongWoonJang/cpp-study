@@ -633,21 +633,21 @@ template <class CharT>
 constexpr bool operator==(const my_string<CharT>& lhs, const my_string<CharT>& rhs) noexcept
 {
     return lhs.size() == rhs.size()
-        && _strncmp(lhs.data(), rhs.data(), lhs.size());
+        && !_strncmp(lhs.data(), rhs.data(), lhs.size());
 }
 
 template <class CharT>
 constexpr bool operator==(const CharT* lhs, const my_string<CharT>& rhs)
 {
     return _strlen(lhs) == rhs.size()
-        && _strncmp(lhs, rhs.data(), rhs.size());
+        && !_strncmp(lhs, rhs.data(), rhs.size());
 }
 
 template <class CharT>
 constexpr bool operator==(const my_string<CharT>& lhs, const CharT* rhs)
 {
     return lhs.size() == _strlen(rhs)
-        && _strncmp(lhs.data(), rhs, lhs.size());
+        && !_strncmp(lhs.data(), rhs, lhs.size());
 }
 
 template <class CharT>
