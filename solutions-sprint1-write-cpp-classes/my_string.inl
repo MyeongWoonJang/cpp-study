@@ -130,7 +130,8 @@ constexpr CharT& my_string<CharT>::at(std::size_t pos)
 template <class CharT>
 constexpr const CharT& my_string<CharT>::at(std::size_t pos) const
 {
-    return (*this)[debug_check_out_of_range(pos, std::size_t{ 0 }, this->size() - 1, "pos >= size()")];
+    return (*this)[debug_check_out_of_range(pos, std::size_t{ 0 },
+        this->size() - 1, "pos >= size()")];
 }
 
 template <class CharT>
@@ -255,69 +256,71 @@ void my_string<CharT>::clear() noexcept
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, std::size_t count, CharT ch)
 {
-    _check_i_is_in_size(index, *this, "index > size()");
-    this->_mutate(index, std::size_t{ 0 }, ch, count);
+    return this->replace(_check_i_is_in_size(index, *this, "index > size()"),
+        std::size_t{ 0 }, ch, count);
 }
     
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str)
 {
-    this->insert(index, str, _strlen(str));
+    return this->insert(index, str, _strlen(str));
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const CharT* str, std::size_t count)
 {
-    _check_i_is_in_size(index, *this, "index > size()");
-    this->_mutate(index, std::size_t{ 0 }, str, count);
+    return this->replace(_check_i_is_in_size(index, *this, "index > size()"),
+        std::size_t{ 0 }, str, count);
 }   
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str)
 {
-    this->insert(index, str, std::size_t{ 0 });
+    return this->insert(index, str, std::size_t{ 0 });
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::insert(std::size_t index, const my_string& str, std::size_t index_str, std::size_t count)
 {
-    _check_i_is_in_size(index, *this, "index > size()");
-    _check_i_is_in_size(index_str, str, "index_str > str.size()");
-    this->_mutate(index, std::size_t{ 0 }, str.data() + index_str, std::min(count, str.size() - index_str));
+    return this->insert(_check_i_is_in_size(index_str, str, "index_str > str.size()"),
+        str.data() + index_str, std::min(count, str.size() - index_str));
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str)
 {
-    this->replace(pos, count, str, std::size_t{ 0 });
+    return this->replace(pos, count, str, std::size_t{ 0 });
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const my_string& str, std::size_t pos_str, std::size_t count_str)
 {
     // if count_str == npos or if would extend past str.size(), [pos_str, str.size()) is used to replace.
-    _check_i_is_in_size(pos, *this, "pos > size()");
-    _check_i_is_in_size(pos_str, str, "pos_str > str.size()");
-    this->_mutate(pos, count, str.data() + pos_str, std::min(count_str, str.size() - pos_str));
+    return this->replace(pos, count, str.data() + pos_str, std::min(count_str,
+        str.size() - _check_i_is_in_size(pos_str, str, "pos_str > str.size()")));
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const CharT* str, std::size_t count_str)
 {
-    _check_i_is_in_size(pos, str, "pos > size()");
-    this->_mutate(pos, count, str, count_str);
+    this->_mutate(_check_i_is_in_size(pos, *this, "pos > size()"),
+        count, str, count_str);
+    
+    return *this;
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, const CharT* str)
 {
-    this->replace(pos, count, str, _strlen(str));
+    return this->replace(pos, count, str, _strlen(str));
 }
 
 template <class CharT>
 my_string<CharT>& my_string<CharT>::replace(std::size_t pos, std::size_t count, std::size_t count_ch, CharT ch)
 {
-    this->_mutate(pos, count, ch, count_ch);
+    this->_mutate(_check_i_is_in_size(pos, *this, "pos > size()"), count, ch, count_ch);
+    
+    return *this;
 }
 
 template <class CharT>
@@ -347,8 +350,8 @@ my_string<CharT>& my_string<CharT>::append(const my_string& str)
 template <class CharT>
 my_string<CharT>& my_string<CharT>::append(const my_string& str, std::size_t pos, std::size_t count)
 {
-    _check_i_is_in_size(pos, str, "pos > str.size()");
-    this->_mutate(this->size(), std::size_t{ 0 }, str.data() + pos,
+    this->_mutate(this->size(), std::size_t{ 0 },
+        str.data() + _check_i_is_in_size(pos, str, "pos > str.size()"),
         std::min(count, str.size() - pos));
 }   
 
@@ -367,12 +370,12 @@ my_string<CharT>& my_string<CharT>::append(const CharT* str, std::size_t count)
 template <class CharT>
 my_string<CharT>& my_string<CharT>::erase(std::size_t index, std::size_t count)
 {
-    _check_i_is_in_size(index, *this, "index > size()");
     
     if (count == npos) this->clear();
     else if (count)
-        this->_mutate(index, std::min(count, this->size() - index),
-        nullptr, std::size_t{ 0 });
+        this->_mutate(_check_i_is_in_size(index, *this, "index > size()"),
+            std::min(count, this->size() - index),
+            nullptr, std::size_t{ 0 });
     
     return *this;
 }
@@ -392,10 +395,8 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count, cons
 template <class CharT>
 constexpr int my_string<CharT>::compare(std::size_t pos1, std::size_t count1, const my_string& str, std::size_t pos2, std::size_t count2) const
 {
-    _check_i_is_in_size(pos1, *this, "pos1 > size()");
-    _check_i_is_in_size(pos2, str, "pos2 > str.size()");
-    
-    return this->compare(pos1, count1, str.data() + pos2, count2);
+    return this->compare(_check_i_is_in_size(pos1, *this, "pos1 > size()"), count1,
+        str.data() + _check_i_is_in_size(pos2, str, "pos2 > str.size()"), count2);
 }
 
 template <class CharT>
@@ -413,9 +414,8 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count, cons
 template <class CharT>
 constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, const CharT* str, std::size_t count2) const
 {
-    _check_i_is_in_size(pos, *this, "pos > size()");
-    
-    auto my_len = std::min(count1, this->size() - pos);
+    auto my_len = std::min(count1,
+        this->size() - _check_i_is_in_size(pos, *this, "pos > size()"));
     
     // Firstly, compare characters in common range
     int ret = _strncmp(this->data() + pos, str, std::min(my_len, count2));
@@ -430,8 +430,7 @@ constexpr int my_string<CharT>::compare(std::size_t pos, std::size_t count1, con
 template <class CharT>
 constexpr my_string<CharT> my_string<CharT>::substr(std::size_t pos, std::size_t count) const
 {
-    _check_i_is_in_size(pos, *this, "pos > size()");
-    return my_string{*this, pos, count};
+    return my_string{*this, _check_i_is_in_size(pos, *this, "pos > size()"), count};
 }
 
 template <class CharT>

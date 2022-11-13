@@ -92,7 +92,6 @@ public:
 private:
     my_string(std::size_t cap, const my_string& other);     // for reconstructing operations
     void _set_sz(std::size_t n) noexcept;
-    void _erase(std::size_t index, std::size_t count);
     void _mutate(std::size_t pos, std::size_t len1, const CharT* str, std::size_t len2);
     void _mutate(std::size_t pos, std::size_t len1, CharT ch, std::size_t count);
 
