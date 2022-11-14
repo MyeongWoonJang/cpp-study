@@ -7,6 +7,11 @@
 class mat
 {
 public:
+	double determinant( );
+	double** inverse( );
+	double** transpose( );
+	double** affineInverse( );
+	double** inverseTranspose( );
 
 private:
 

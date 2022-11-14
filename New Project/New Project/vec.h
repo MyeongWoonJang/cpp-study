@@ -7,7 +7,9 @@
 class vec
 {
 public:
-
+	double length( );
+	double length( );
+	void normalize( );
 
 private:
 
