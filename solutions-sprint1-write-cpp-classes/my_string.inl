@@ -1132,14 +1132,14 @@ std::size_t
 closest_bin(std::size_t n) noexcept
 {
     std::size_t ret{ n };
-    
+
     if (n >= 2u)
     {
         --n;
-        ret = 2;
+        ret = 2u;
         
-        while(n >>= 1)
-            ret <<= 1;
+        while(n >>= 1u)
+            ret <<= 1u;
     }
     
     return ret;
