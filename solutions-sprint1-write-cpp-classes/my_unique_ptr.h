@@ -52,7 +52,7 @@ public:
     reset(std::nullptr_t ptr = nullptr) noexcept;
     
     [[nodiscard]]
-    T*
+    T* const
     release() noexcept;
     
     void

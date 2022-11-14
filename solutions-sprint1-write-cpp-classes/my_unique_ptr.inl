@@ -99,11 +99,11 @@ reset(std::nullptr_t) noexcept
 }
 
 template <class T>
-T*
+T* const
 my_unique_ptr<T>::
 release() noexcept
 {
-    T* ret = this->get();
+    T* const ret = this->get();
     this->ptr = nullptr;
     return ret;
 }
