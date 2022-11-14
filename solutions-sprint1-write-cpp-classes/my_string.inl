@@ -1131,7 +1131,8 @@ constexpr
 std::size_t
 closest_bin(std::size_t n) noexcept
 {
-    std::size_t ret{ 0 };
+    std::size_t ret{ n };
+    
     if (n >= 2u)
     {
         --n;
@@ -1140,7 +1141,6 @@ closest_bin(std::size_t n) noexcept
         while(n >>= 1)
             ret <<= 1;
     }
-    else ret = n;
     
     return ret;
 }
