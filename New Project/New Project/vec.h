@@ -12,7 +12,7 @@ public:
 	void normalize( );
 
 private:
-
+	double* m_vec;
 };
 
 #endif

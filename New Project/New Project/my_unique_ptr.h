@@ -11,7 +11,7 @@ public:
 	void reset( int* );
 
 private:
-	
+	int* objPtr;
 };
 
 #endif

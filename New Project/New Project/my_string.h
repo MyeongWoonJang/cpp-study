@@ -30,7 +30,8 @@ public:
 	int find( const char* );
 
 private:
-
+	size_t num;
+	char* str;
 };
 
 #endif

@@ -14,7 +14,7 @@ public:
 	double** inverseTranspose( );
 
 private:
-
+	double** m_mat;
 };
 
 #endif
