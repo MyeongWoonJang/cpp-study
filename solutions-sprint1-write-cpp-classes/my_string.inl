@@ -153,8 +153,7 @@ my_string<CharT>::
 at(std::size_t pos)
 {
     return const_cast<CharT&>(
-        static_cast<const decltype(*this)>(
-            *this).at(pos));
+        static_cast<const my_string&>(*this).at(pos));
 }
 
 template <class CharT>
@@ -177,8 +176,7 @@ operator[](std::size_t index)
 {
     // The behavior is undefined if index > size() : cppreference
     return const_cast<CharT&>(
-        static_cast<const decltype(
-            *this)>(*this)[index]);
+        static_cast<const my_string&>(*this)[index]);
 }
 
 template <class CharT>
@@ -197,8 +195,7 @@ my_string<CharT>::
 front()
 {
     return const_cast<CharT&>(
-        static_cast<const decltype(*this)>(
-            *this).front());
+        static_cast<const my_string&>(*this).front());
 }
 
 template <class CharT>
@@ -217,8 +214,7 @@ my_string<CharT>::
 back()
 {
     return const_cast<CharT&>(
-        static_cast<const decltype(*this)>(
-            *this).back());
+        static_cast<const my_string&>(*this).back());
 }
 
 template <class CharT>
@@ -238,11 +234,8 @@ CharT*
 my_string<CharT>::
 data() noexcept
 {
-    // Is it really working that const_cast<CharT*>
-    // from const CharT*, not CharT* const?
     return const_cast<CharT*>(
-        static_cast<const decltype(*this)>(
-            *this).data() );
+        static_cast<const my_string&>(*this).data() );
 }
 
 template <class CharT>
@@ -653,7 +646,7 @@ swap(my_string& rhs) noexcept
 {
     std::swap(this->sz, rhs.sz);
     std::swap(this->cap, rhs.cap);
-    std::swap(this->dat, rhs.cap);
+    std::swap(this->dat, rhs.dat);
 }
 
 template <class CharT>
@@ -723,7 +716,7 @@ my_string<CharT>::
 _set_sz(std::size_t n) noexcept
 {
     this->sz = n;
-    this->dat[sz] = CharT{};
+    if (capacity() > n) (*this)[n] = CharT{};
 }
 
 /**
@@ -1059,8 +1052,7 @@ std::basic_ostream<CharT, Traits>&
 operator<<(std::basic_ostream<CharT, Traits>& os,
            const my_string<CharT>& str)
 {
-    return os.write(reinterpret_cast<const char*>(str.data()),
-                    str.size());
+    return os << str.data();
 }
 
 template<class CharT, class Traits>
@@ -1068,8 +1060,70 @@ std::basic_istream<CharT, Traits>&
 operator>>(std::basic_istream<CharT, Traits>& is,
            my_string<CharT>& str)
 {
-    return is.read(reinterpret_cast<const char*>(str.data()),
-                   str.size());
+    static constexpr std::size_t str_max_size = 1'000'000'000;
+    
+    using istream_type = std::basic_istream<CharT, Traits>;
+    using string_type = my_string<CharT>;
+    using ios_base = typename istream_type::ios_base;
+    using int_type = typename istream_type::int_type;
+    using ctype = std::ctype<CharT>;
+    using ctype_base = typename ctype::ctype_base;
+
+    std::size_t extracted = 0;
+    
+    typename ios_base::iostate err = ios_base::goodbit;
+    typename istream_type::sentry cerb(is, false);
+    
+    if (cerb)
+	{
+	    try
+	    {
+	        // Avoid reallocation for common case.
+	        str.clear();
+	        CharT buf[128];
+	        std::size_t len = 0;	      
+	        const std::streamsize width = is.width();
+	        const std::size_t n = width > 0 ? width : str_max_size;
+	        
+	        const ctype& ct = std::use_facet<ctype>(is.getloc());
+	        const int_type eof = Traits::eof();
+	        int_type c = is.rdbuf()->sgetc();
+	        
+	        while (extracted < n
+		           && !Traits::eq_int_type(c, eof)
+		           && !ct.is(ctype_base::space,
+				   Traits::to_char_type(c)))
+			{
+			    if (len == sizeof(buf) / sizeof(CharT))
+			    {
+			        str.append(buf, sizeof(buf) / sizeof(CharT));
+			        len = 0;
+			    }
+				       
+				buf[len++] = Traits::to_char_type(c);
+				++extracted;
+				c = is.rdbuf()->snextc();
+			}
+			
+			str.append(buf, len);
+			
+			if (extracted < n && Traits::eq_int_type(c, eof))
+			    err |= ios_base::eofbit;
+			    
+			is.width(0);
+	    }
+	    catch(...)
+	    {
+	        is.setstate(ios_base::badbit);
+	    }
+	}
+    
+    if (!extracted)
+        err |= ios_base::failbit;
+    if (err)
+        is.setstate(err);
+    
+    return is;
 }
 
 template <class CharT>
@@ -1132,7 +1186,7 @@ std::size_t
 closest_bin(std::size_t n) noexcept
 {
     std::size_t ret{ n };
-
+    
     if (n >= 2u)
     {
         --n;
