@@ -302,6 +302,9 @@ private:
     
     // helper functions *********************************
     
+    std::size_t
+    _safe_cap() noexcept;
+    
     void
     _set_sz(std::size_t n) noexcept;
     

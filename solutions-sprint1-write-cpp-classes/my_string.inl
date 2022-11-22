@@ -5,7 +5,7 @@ constexpr
 my_string<CharT>::
 my_string() noexcept
     : sz{ std::size_t{ 0 } }, cap{ std::size_t{ 0 } },
-      dat{ nullptr }
+      dat{ _construct<CharT>(_safe_cap(), CharT{}) }
 {
     
 }
@@ -14,7 +14,7 @@ template <class CharT>
 my_string<CharT>::
 my_string(std::size_t count, CharT ch)
     : sz{ count }, cap{ closest_bin(sz) },
-      dat{ _construct<CharT>(cap, CharT{}) }
+      dat{ _construct<CharT>(_safe_cap(), CharT{}) }
 {
     std::fill_n(this->data(), this->size(), ch);
 }
@@ -27,7 +27,7 @@ my_string(const my_string& other, std::size_t pos,
                    _check_i_is_in_size(pos, other,
                                        "pos > other.size()")) },
       cap{ closest_bin(sz) },
-      dat{ _construct<CharT>(cap, CharT{}) }
+      dat{ _construct<CharT>(_safe_cap(), CharT{}) }
 {
     std::copy(other.data() + pos,
               other.data() + pos + this->size(),
@@ -38,7 +38,7 @@ template <class CharT>
 my_string<CharT>::
 my_string(const CharT* str, std::size_t count)
     : sz{ count }, cap{ closest_bin(sz) },
-      dat{ _construct<CharT>(cap, CharT{}) }
+      dat{ _construct<CharT>(_safe_cap(), CharT{}) }
 {
     std::copy(str, str + this->size(), this->data());
 }
@@ -704,10 +704,18 @@ template <class CharT>
 my_string<CharT>::
 my_string(std::size_t required_cap, const my_string& other)
     : sz{ std::min(other.sz, required_cap) },
-      cap{ required_cap }, dat{ _construct<CharT>(cap, 0) }
+      cap{ required_cap }, dat{ _construct<CharT>(_safe_cap(), CharT{}) }
 {
     std::copy(other.data(), other.data() + this->size(),
               this->data());
+}
+
+template <class CharT>
+std::size_t
+my_string<CharT>::
+_safe_cap() noexcept
+{
+    return capacity() + 1;
 }
 
 template <class CharT>
@@ -716,7 +724,7 @@ my_string<CharT>::
 _set_sz(std::size_t n) noexcept
 {
     this->sz = n;
-    if (capacity() > n) (*this)[n] = CharT{};
+    (*this)[n] = CharT{};
 }
 
 /**
@@ -1052,7 +1060,7 @@ std::basic_ostream<CharT, Traits>&
 operator<<(std::basic_ostream<CharT, Traits>& os,
            const my_string<CharT>& str)
 {
-    return os << str.data();
+    return os.write(reinterpret_cast<const char*>(str.data()), str.size());
 }
 
 template<class CharT, class Traits>
