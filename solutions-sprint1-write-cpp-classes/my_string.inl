@@ -67,6 +67,12 @@ my_string<CharT>::my_string(my_string&& other)
 }
 
 template <class CharT>
+my_string<CharT>::~my_string()
+{
+    _destroy(data());
+}
+
+template <class CharT>
 my_string<CharT>&
 my_string<CharT>::
 operator=(const my_string& other)
@@ -444,8 +450,7 @@ my_string<CharT>&
 my_string<CharT>::
 append(std::size_t count, CharT ch)
 {
-    return this->replace(this->size(), std::size_t{ 0 },
-                         count, ch);
+    return this->insert(this->size(), count, ch);
 }   
 
 template <class CharT>
@@ -465,7 +470,7 @@ append(const my_string& str, std::size_t pos,
     return this->append(str.data() +
                         _check_i_is_in_size(pos, str,
                                             "pos > str.size()"),
-                        count);
+                        std::min(count, str.size() - pos));
 }   
 
 template <class CharT>
@@ -791,6 +796,8 @@ _mutate(std::size_t pos, std::size_t len, CharT ch,
         if (pos)
             std::copy(this->data(), this->data() + pos,
                       tmp.data());
+        if (count)
+            std::fill_n(tmp.data() + pos, count, ch);
         if (how_much)
             std::copy(this->data() + pos + len,
                       this->data() + this->size(),
@@ -798,10 +805,15 @@ _mutate(std::size_t pos, std::size_t len, CharT ch,
             
         this->swap(tmp);
     }
-    else if (how_much)
-        std::move(this->data() + pos + len,
-                  this->data() + this->size(),
-                  this->data() + pos + count);
+    else
+    {
+        if (count)
+            std::fill_n(this->data() + pos, count, ch);
+        if (how_much)
+            std::move(this->data() + pos + len,
+                      this->data() + this->size(),
+                      this->data() + pos + count);
+    }
     
     this->_set_sz(new_sz);
 }
@@ -812,7 +824,7 @@ my_string<CharT>
 operator+(const my_string<CharT>& lhs,
           const my_string<CharT>& rhs)
 {
-    return __str_concat(lhs, lhs.size(), rhs, rhs.size());
+    return __str_concat(lhs.data(), lhs.size(), rhs.data(), rhs.size());
 }
 
 template <class CharT>
@@ -820,7 +832,7 @@ constexpr
 my_string<CharT>
 operator+(const my_string<CharT>& lhs, const CharT* rhs)
 {
-    return __str_concat(lhs, lhs.size(), rhs, _strlen(rhs));
+    return __str_concat(lhs.data(), lhs.size(), rhs, _strlen(rhs));
 }
 
 template <class CharT>
@@ -828,7 +840,7 @@ constexpr
 my_string<CharT>
 operator+(const CharT* lhs, const my_string<CharT>& rhs)
 {
-    return __str_concat(lhs, _strlen(lhs), rhs, rhs.size());
+    return __str_concat(lhs, _strlen(lhs), rhs.data(), rhs.size());
 }
 
 template <class CharT>
@@ -836,7 +848,7 @@ constexpr
 my_string<CharT>
 operator+(const my_string<CharT>& lhs, CharT rhs)
 {
-    return __str_concat(lhs, lhs.size(), &rhs, std::size_t{ 1 });
+    return __str_concat(lhs.data(), lhs.size(), &rhs, std::size_t{ 1 });
 }
 
 template <class CharT>
@@ -844,7 +856,7 @@ constexpr
 my_string<CharT>
 operator+(CharT lhs, const my_string<CharT>& rhs)
 {
-    return __str_concat(&lhs, std::size_t{ 1 }, rhs, rhs.size());
+    return __str_concat(&lhs, std::size_t{ 1 }, rhs.data(), rhs.size());
 }
 
 template <class CharT>
@@ -1187,6 +1199,13 @@ T*
 _construct(std::size_t num_of_obj, Args&& ... args)
 {
     return new T[num_of_obj]{ std::forward<Args>(args)... };
+}
+
+template <class T>
+void
+_destroy(T* ptr)
+{
+    delete[] ptr;
 }
 
 constexpr

@@ -36,6 +36,12 @@ public:
     
     // ************************************* constructors
     
+    // destructor ***************************************
+    
+    ~my_string();
+    
+    // *************************************** destructor
+    
     // copy assignment operators ************************
     
     my_string&
@@ -514,6 +520,10 @@ template <class T, class ... Args>
 [[nodiscard]]
 T*
 _construct(std::size_t num_of_obj, Args&& ... args);
+
+template <class T>
+void
+_destroy(T* ptr);
     
 [[nodiscard]] constexpr
 std::size_t
