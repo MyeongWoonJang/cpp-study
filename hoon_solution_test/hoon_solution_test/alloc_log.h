@@ -2,6 +2,7 @@
 #define _alloc_log
 
 #include <iostream>
+#include <cstdlib>
 
 void* operator new(std::size_t sz)
 {
