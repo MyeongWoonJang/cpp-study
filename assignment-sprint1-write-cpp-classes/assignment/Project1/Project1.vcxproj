@@ -134,7 +134,10 @@
     <ClInclude Include="vec.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dynamic allocation.cpp" />
+    <ClCompile Include="dynamic allocation.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="manage_memory.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -144,6 +147,7 @@
     <ClCompile Include="my_string.cpp" />
     <ClCompile Include="my_unique_ptr.cpp" />
     <ClCompile Include="vec.cpp" />
+    <ClCompile Include="소스.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
