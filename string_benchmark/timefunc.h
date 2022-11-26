@@ -43,7 +43,7 @@ timefunc(_&& ...)
 
 template <class Time_t = std::chrono::milliseconds,
           class CharT, class Traits, class Func, class ... Args>
-void
+decltype(auto)
 run_and_print_elapsed_time(std::basic_ostream<CharT, Traits>& os,
                            Func func, Args&& ... args)
 {
