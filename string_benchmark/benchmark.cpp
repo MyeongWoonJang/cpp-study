@@ -36,5 +36,5 @@ int main()
     std::ofstream ofs_memlog{ "memlog.txt" };
     TrackAllocator::set_ostream(ofs_memlog);
     
-    [[maybe_unused]] run_and_print_elapsed_time(loadDB("DB.db"));
+    run_and_print_elapsed_time(loadDB("DB.db"));
 }
