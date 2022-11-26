@@ -1,5 +1,4 @@
-#include <vector>
-#include <string>
+#include "constants.h"
 
 #include <random>
 #include <fstream>
@@ -9,9 +8,6 @@ std::random_device rd;
 std::default_random_engine dre(rd());
 std::uniform_int_distribution<> uid_alpha('a', 'z');
 std::uniform_int_distribution<> uid_len(50, 200);
-
-inline constexpr std::size_t ColCnt = 1'000;
-inline constexpr std::size_t RowCnt = 1'000;
 
 int main()
 {
@@ -30,7 +26,7 @@ int main()
                 out.put(static_cast<char>(uid_alpha(dre)));
             }
             
-            out.put(' ');
+            out.put(Delim);
         }
         
         out.put('\n');
