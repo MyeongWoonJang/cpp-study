@@ -6,8 +6,8 @@
 
 std::random_device rd;
 std::default_random_engine dre(rd());
-std::uniform_int_distribution<> uid_alpha('a', 'z');
-std::uniform_int_distribution<> uid_len(50, 200);
+std::uniform_int_distribution<> uid_alpha(MinAlpha, MaxAlpha);
+std::uniform_int_distribution<> uid_len(MinLen, MaxLen);
 
 int main()
 {
