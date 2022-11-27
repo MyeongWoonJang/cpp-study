@@ -43,7 +43,7 @@ void _alloc_memlog(std::basic_ostream<CharT, Traits>& os,
 {
     os.width(4);
     os << '(' << _get_and_inc_alloc_cnt() << ") - ";
-    _memlog(os, ptr, {"Allocation"});
+    _memlog(os, ptr, "Allocation");
 }
 
 template <class CharT, class Traits>
@@ -60,7 +60,7 @@ void _dealloc_memlog(std::basic_ostream<CharT, Traits>& os,
 {
     os.width(4);
     os << '(' << _get_and_inc_dealloc_cnt() << ") - ";
-    _memlog(os, ptr, {"Deallocation"});
+    _memlog(os, ptr, "Deallocation");
 }
 
 template <class CharT, class Traits>
