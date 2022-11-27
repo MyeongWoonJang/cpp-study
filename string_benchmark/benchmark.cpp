@@ -1,46 +1,51 @@
-#include "constants.h"
-#include "timefunc.h"
 #include "track_allocator.h"
+#include "timefunc.h"
+
+#include "constants.h"
 
 #include <vector>
 #include <string>
-
 #include <fstream>
 #include <iostream>
 
 using string = std::basic_string<char, std::char_traits<char>,
     TrackAllocator<char>>;
     
-using vector = std::vector<char, TrackAllocator<char>>;
+template <typename T>
+using vector = std::vector<T, TrackAllocator<T>>;
 
 using CellType = string;           // 1. std::string
 // using CellType = vector<char>;  // 2. std::vector<char>
 
-using std::vector<std::array<CellType, ColCnt>> = CellDB;
+using CellDB = vector<std::array<CellType, ColCnt>>;
 
 CellDB loadDB(const std::string& file_path)
 {
-    CellDB ret(RowCnt);
     std::ifstream in(file_path);
+    
+    if (!in)
+    {
+        std::cout << "cannot open file \"" << file_path << "\"\n";
+        std::abort();
+    }
+    
+    CellDB ret(RowCnt);
     
     for (auto i = RowCnt & 0; i < RowCnt; ++i)
     {
         for (auto j = ColCnt & 0; j < ColCnt; ++j)
         {
             ret[i][j].reserve(MinLen);
-            
-            if (char ch = in.get(); ch == Delim) break;
-            else ret[i][j].push_back(ch);
+            std::getline(in, ret[i][j], Delim);
         }
     }
     
-    return ret;     // NRVO
+    return ret;
 }
 
 int main()
 {
-    std::ofstream ofs_memlog{ "memlog.txt" };
-    TrackAllocator::set_ostream(ofs_memlog);
+    TrackAllocator<char>::make_output_stream<std::ofstream>("memlog.txt");
     
-    run_and_print_elapsed_time(loadDB("DB.db"));
+    run_and_print_elapsed_time_noreturn(loadDB, "DB.db");
 }
