@@ -1,5 +1,5 @@
 //#define _DEBUG
-#include "my_string_test_cases.h"
+#include "my_string_tests.h"
 // #include "alloc_log.h" // 메모리 누수 체크 필요시 주석 해제
 
 int main()
