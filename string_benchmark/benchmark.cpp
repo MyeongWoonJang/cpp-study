@@ -16,7 +16,7 @@ using vector = std::vector<char, TrackAllocator<char>>;
 using CellType = string;           // 1. std::string
 // using CellType = vector<char>;  // 2. std::vector<char>
 
-using std::vector<std::array<std::CellType, ColCnt>> = CellDB;
+using std::vector<std::array<CellType, ColCnt>> = CellDB;
 
 CellDB loadDB(const std::string& file_path)
 {
