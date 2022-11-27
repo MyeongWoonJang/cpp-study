@@ -7,8 +7,13 @@
 #include <fstream>
 #include <iostream>
 
-using CellType = std::string;           // 1. std::string
-// using CellType = std::vector<char>;  // 2. std::vector<char>
+using string = std::basic_string<char, std::char_traits<char>,
+    TrackAllocator<char>>;
+    
+using vector = std::vector<char, TrackAllocator<char>>;
+
+using CellType = string;           // 1. std::string
+// using CellType = vector<char>;  // 2. std::vector<char>
 
 using std::vector<std::array<std::CellType, ColCnt>> = CellDB;
 

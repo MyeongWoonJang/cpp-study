@@ -47,7 +47,7 @@ decltype(auto)
 run_and_print_elapsed_time(std::basic_ostream<CharT, Traits>& os,
                            Func func, Args&& ... args)
 {
-    auto&& [ret, elapsed] =
+    auto [ret, elapsed] =
         timefunc<Time_t>(func, std::forward<Args>(args)...);
         
     os << elapsed << " elapsed\n";
