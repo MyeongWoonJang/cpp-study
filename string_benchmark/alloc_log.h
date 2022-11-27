@@ -20,8 +20,7 @@ std::size_t _get_and_inc_dealloc_cnt()
 template <class CharT, class Traits>
 void _memlog(std::basic_ostream<CharT, Traits>& os,
              void* const ptr,
-             const std::basic_string<CharT, Traits>&
-                modifying_memory_expr)
+             const char* modifying_memory_expr)
 {
     os << modifying_memory_expr << " in [" << ptr << "]\n";
     os.width(4);
@@ -44,7 +43,7 @@ void _alloc_memlog(std::basic_ostream<CharT, Traits>& os,
 {
     os.width(4);
     os << '(' << _get_and_inc_alloc_cnt() << ") - ";
-    _memlog(os, ptr, {"Allocation"});
+    _memlog(os, ptr, "Allocation");
 }
 
 template <class CharT, class Traits>

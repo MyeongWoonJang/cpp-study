@@ -1,9 +1,21 @@
 #ifndef _timefunc
 #define _timefunc
 
+#if __cplusplus >= 201703L
+
+#include <variant>
+
+#endif  // C++17
+
+#if __cplusplus >= 201103L
+
 #include <chrono>
 #include <utility>
+
+#endif  // C++11
+
 #include <iostream>
+
 
 #if __cplusplus >= 201103L
 
@@ -22,13 +34,31 @@ timefunc(Func func, Args&& ... args)
     using std::chrono::system_clock;
 
     auto tp = system_clock::now();
-    decltype(auto) ret = func(std::forward<Args>(args)...);
 
-    return { std::forward<decltype(ret)>(ret),
+    return { func(std::forward<Args>(args)...),
              system_clock::now() - tp };
 }
 
-#else
+// returns std::duration<float, typename Time_t::period>
+// return value: elapsed time
+template<class Time_t = std::chrono::milliseconds,
+         class FPTime_t = std::chrono::duration<
+            float, typename Time_t::period>,
+         class Func, class ... Args>
+FPTime_t
+timefunc_noreturn(Func func, Args&& ... args)
+{
+    using std::chrono::system_clock;
+
+    auto tp = system_clock::now();
+
+    func(std::forward<Args>(args)...);
+
+    return system_clock::now() - tp;
+}
+
+#else   // C++11
+
 template <class ... _>
 void
 timefunc(_&& ...)
@@ -37,7 +67,7 @@ timefunc(_&& ...)
         "timefunc is a C++11 extension");
 }
 
-#endif // timefunc according to __cplusplus
+#endif // C++11
 
 #if __cplusplus >= 202002L
 
@@ -55,7 +85,7 @@ run_and_print_elapsed_time(std::basic_ostream<CharT, Traits>& os,
     return std::forward<decltype(ret)>(ret);
 }
 
-#elif __cplusplus >= 201103L
+#elif __cplusplus >= 201103L    // C++20
 
 template <class _>
 constexpr const char* __time_suffix();
@@ -101,7 +131,8 @@ template <class Time_t = std::chrono::milliseconds,
 auto
 run_and_print_elapsed_time(std::basic_ostream<CharT, Traits>& os,
                            Func func, Args&& ... args)
-    -> decltype(func(std::forward<Args>(args)...))
+    -> decltype(timefunc<Time_t>(func, std::forward<Args>(args)...)
+            .first)
 {
     auto ret_and_time = timefunc<Time_t>(
         func, std::forward<Args>(args)...);
@@ -113,7 +144,21 @@ run_and_print_elapsed_time(std::basic_ostream<CharT, Traits>& os,
             ret_and_time.first);
 }
 
+template <class Time_t = std::chrono::milliseconds,
+          class CharT, class Traits, class Func, class ... Args>
+void
+run_and_print_elapsed_time_noreturn(
+    std::basic_ostream<CharT, Traits>& os,
+    Func func, Args&& ... args)
+{
+    
+    os << timefunc_noreturn<Time_t>(
+        func, std::forward<Args>(args)...).count()
+        << __time_suffix<Time_t>() << " elapsed\n";
+}
+
 #else
+
 template <class ... _>
 void
 run_and_print_elapsed_time(_&& ...)
@@ -122,6 +167,6 @@ run_and_print_elapsed_time(_&& ...)
         "run_and_print_elapsed_time is a C++11 extension");
 }
 
-#endif  // run_and_print_elapsed_time according to __cplusplus
+#endif  // C++11
 
 #endif // _timefunc
