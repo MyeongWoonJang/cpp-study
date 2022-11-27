@@ -20,8 +20,7 @@ std::size_t _get_and_inc_dealloc_cnt()
 template <class CharT, class Traits>
 void _memlog(std::basic_ostream<CharT, Traits>& os,
              void* const ptr,
-             const std::basic_string<CharT, Traits>&
-                modifying_memory_expr)
+             const char* modifying_memory_expr)
 {
     os << modifying_memory_expr << " in [" << ptr << "]\n";
     os.width(4);
@@ -122,4 +121,4 @@ void operator delete[](void* ptr) noexcept
     ::operator delete(ptr);
 }
 
-#endif
+#endif  // _alloc_log
