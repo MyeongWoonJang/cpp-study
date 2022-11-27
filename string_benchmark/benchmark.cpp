@@ -1,5 +1,6 @@
 #include "constants.h"
 #include "timefunc.h"
+#include "track_allocator.h"
 
 #include <vector>
 #include <string>
