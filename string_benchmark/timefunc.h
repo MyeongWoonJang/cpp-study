@@ -85,6 +85,17 @@ run_and_print_elapsed_time(std::basic_ostream<CharT, Traits>& os,
     return std::forward<decltype(ret)>(ret);
 }
 
+template <class Time_t = std::chrono::milliseconds,
+          class CharT, class Traits, class Func, class ... Args>
+void
+run_and_print_elapsed_time_noreturn(
+    std::basic_ostream<CharT, Traits>& os,
+    Func func, Args&& ... args)
+{
+    os << timefunc_noreturn<Time_t>(func,
+        std::forward<Args>(args)...);
+}
+
 #elif __cplusplus >= 201103L    // C++20
 
 template <class _>
@@ -131,8 +142,7 @@ template <class Time_t = std::chrono::milliseconds,
 auto
 run_and_print_elapsed_time(std::basic_ostream<CharT, Traits>& os,
                            Func func, Args&& ... args)
-    -> decltype(timefunc<Time_t>(func, std::forward<Args>(args)...)
-            .first)
+    -> decltype(func(std::forward<Args>(args)...))
 {
     auto ret_and_time = timefunc<Time_t>(
         func, std::forward<Args>(args)...);
@@ -157,7 +167,7 @@ run_and_print_elapsed_time_noreturn(
         << __time_suffix<Time_t>() << " elapsed\n";
 }
 
-#else
+#else   // C++20, C++11
 
 template <class ... _>
 void
@@ -165,6 +175,37 @@ run_and_print_elapsed_time(_&& ...)
 {
     static_assert(false,
         "run_and_print_elapsed_time is a C++11 extension");
+}
+
+template <class ... _>
+void
+run_and_print_elapsed_time_noreturn(_&& ...)
+{
+    static_assert(false,
+        "run_and_print_elapsed_time is a C++11 extension");
+}
+
+#endif  // C++20, C++11
+
+#if __cplusplus >= 201103L
+
+template <class Time_t = std::chrono::milliseconds,
+          class Func, class ... Args>
+auto
+run_and_print_elapsed_time(Func func, Args&& ... args)
+    -> decltype(func(std::forward<Args>(args)...))
+{
+    return run_and_print_elapsed_time(std::cout, func,
+        std::forward<Args>(args)...);
+}
+
+template <class Time_t = std::chrono::milliseconds,
+          class Func, class ... Args>
+void
+run_and_print_elapsed_time_noreturn(Func func, Args&& ... args)
+{
+    run_and_print_elapsed_time_noreturn(std::cout, func,
+        std::forward<Args>(args)...);
 }
 
 #endif  // C++11
