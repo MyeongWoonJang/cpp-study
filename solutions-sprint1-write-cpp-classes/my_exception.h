@@ -15,6 +15,7 @@
 #include "my_format.h"
 #include <algorithm>
 #include <type_traits>
+#include <stdexcept>
 
     #define _fw(val) std::forward<std::remove_reference_t<decltype(val)>>(val)
 
