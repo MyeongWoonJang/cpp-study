@@ -193,7 +193,67 @@ std::cout << a << '\n';     // output: 5
 
 ## TODO
 
+- 이번 과제에선 완성된 프로그램을 작성하기 때문에,   
+  실행까지도 시켜볼 수 있을 겁니다.   
+  <br>
+  "go_for_reference.cpp"를 생성하고, `<iostream>`을 `include`하세요.
+
 - [X] swap 구현
+
+  - `C` 프로그래머일 경우 사용하게 될, `pointer` 버전 `swap`을 만들어봅시다.      
+  (`swap`에 쓰일 `data type`은 `int`로 한정합시다.)
+  
+  ```cpp
+  void swap(int* lhs, int* rhs)
+  {
+      // lhs: left hand side, rhs: right hand side
+      // lhs에 rhs의 값을 대입하고 나면,
+      // lhs와 rhs의 값이 같아집니다.
+      // 기존의 lhs 값은 대입으로 인해 사라지고 말죠.
+      // 이에 따라 기존의 lhs 값을 기억할 임시 변수 tmp(temporary)가 필요합니다.
+
+      // 1. tmp에 lhs의 값을 대입합니다.
+      // 2. lhs에 rhs의 값을 대입합니다.
+      // 3. rhs에 tmp의 값을 대입합니다.
+
+      // tmp가 rhs를 저장하는 방식으로 구현해도 상관없습니다.
+      // 우항이었던 변수가 다음 줄에서 좌항이 된다는 점을 기억하세요.
+  }
+  ```
+
+  - 그리고 `main`을 다음과 같이 구성합시다.
+
+  ```cpp
+  int main()
+  {
+      int a = 3;
+      int b = 5;
+
+      swap(&a, &b);
+
+      std::cout << "a = " << a << ", b = " << b << '\n'; // output: a = 5, b = 3
+  }
+  ```
+
+  - 프로그램을 실행시켜서 `a = 5, b = 3`이 출력되는지 확인해보세요.   
+    정확히 만드셨다면 출력이 위와 같아야 합니다.
+
+  - 이제 `C++` 세상으로 넘어왔습니다.   
+    `main`을 다음과 같이 구성하고,   
+    실행 시 이전과 같은 결과를 내도록 `swap`을 수정해보세요.   
+    `lhs`와 `rhs`가 `pointer`가 아닌 `reference`가 된다는 것이 힌트입니다.
+
+  ```cpp
+  int main()
+  {
+      int a = 3;
+      int b = 5;
+  
+      swap(a, b);
+
+      std::cout << "a = " << a << ", b = " << b << '\n'; // output: a = 5, b = 3
+  }
+  ```
 
 - [X] 레퍼런스 반환
 
