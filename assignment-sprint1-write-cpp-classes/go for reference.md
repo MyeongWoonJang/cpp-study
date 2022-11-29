@@ -155,18 +155,46 @@ std::cout << a << '\n';     // output: 5
     어쩔 수 없었다는 점을 양해해주시기 바랍니다.   
     <br>
     이것은 `linked list(연결 리스트)` `data structure(자료구조)`의 `node(노드)` 구현입니다.   
-    `node`는 서로 떨어진 메모리 블록으로, 어쩌구저쩌구
+    (`lineked list`는 연속된 `memory address`를 가지지 않은 메모리 블록들이   
+    자신의 앞 메모리 블록과 뒤 메모리 블록의 `memory address`를 담는 `pointer`를 가짐으로써   
+    마치 메모리 블록들이 서로 연결된 듯한 효과를 내는 `data structure`입니다.   
+    여기에 쓰이는 개별 메모리 블록들을 `linked list`의 `node`라고 합니다.)   
+    <br>
     `set_next`와 `set_prev`를 보시면, `next`와 `prev`를 다른 `memory address`로 변경하고 있습니다.   
     만약에 `next`와 `prev`가 `reference(l-value reference)`였다면,   
-
+    `node`간 연결은 `initialization` 시점에 굳어지고 이후에 변경할 수 없을 겁니다.   
+    다른 `node`로의 연결은 다른 `memory address`로의 연결인데,   
+    `reference`는 참조하고 있는 `memory address`를 `initialization` 이후에 변경할 수 없으니까요.   
+    <br>
+    `node`간 연결을 바꿀 일이 없다고 해도, 대입 동작을 구현하려는 순간 막혀버릴 겁니다.   
+    `next`와 `prev`를 우리가 원하는대로 대입할 수 있는 방법이 없어요.   
+    자동으로 `dereference`되어 `memory address`를 수정할 방법은 꿈에도 없으니까요.
 
 - `function call`의 외형만 보고서는 더이상,   
   `function argument`로 전달된 `variable`의 `value`가 바뀔지 안 바뀔지 알 수 없습니다.
+
+  - 위쪽의 `inc_one`은 `reference` 버전에선 증가되었고,   
+    `pass-by-value` 버전에선 변하지 않았죠.   
+    `argument`의 참조성이 `caller`뿐만 아니라 이제는 `callee`에게도 달려있기 때문입니다.   
+    (`function call`의 참조성이 `function parameter`가 `reference`인지 아닌지에도 의존하게 되었다는 겁니다.)
+
+    ```cpp
+    dosomething(a);
+    ```
+
+    위 코드는 `C`에서는 절대 `a`의 값을 수정할 수 없음이 보장되지만,   
+    `C++`에서는 아니라구요.   
+    `dosomething`이 `a`를 `reference` 타입의 `parameter`에 `bind`하는 순간   
+    `a`는 수정될 가능성이 생깁니다.
 
   - 이때문에 `C++` 세상에서는 `const(constant, 상수, 읽기전용)`라는 `keyword`가   
     굉장히 중요해지게 됩니다.   
     (다음 과제에서 다루게 될 겁니다.)
 
 ## TODO
+
+- [X] swap 구현
+
+- [X] 레퍼런스 반환
 
 ## Reference
