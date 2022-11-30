@@ -257,4 +257,159 @@ std::cout << a << '\n';     // output: 5
 
 - [X] 레퍼런스 반환
 
+  - 메모리 요구치가 큰 타입을 `function argument`나 `return value`로 전달하려는 경우,   
+  `pass-by-value`보단 `pass-by-reference`를 선호하라는 말이 있습니다.   
+  <br>
+  `function parameter`를 `reference`로 `declare(선언)`하는 것은 위에서 보셨으나,   
+  `return type`을 `reference`로 `declare`하는 것은 아직 못 보셨죠.   
+  <br>
+  `pointer`를 `return`하는 것에 대해 어느정도 능숙한 사람들도,   
+  `reference`를 반환하는 건 언제여야 하는지 잘 모르는 사람들이 많습니다.  
+  <br> 
+  `reference`가 자동으로 `dereference`되는 `pointer`라는 점을 간과하고,   
+  괜히 `reference`를 사용하면 메모리 이용 효율이 올라갈 것 같아   
+  `pointer`가 전혀 쓰일 수 없는 맥락에서까지 `reference`를 사용하곤 하죠.
+
+  - 일단, `reference`를 `return`하면 안 되는 예시를 봅시다.   
+    예시를 보여드리는 것이니, 직접 `code`를 작성하시진 않으셔도 됩니다.
+
+  ```cpp
+  int& add(int a, int b)
+  {
+      return a + b;
+  }
+
+  int main()
+  {
+      int a = 10, b = 20;
+
+      std::cout << add(a, b) << '\n';
+  }
+  ```
+
+  - 다행히도, 위와 같은 `code`는 `compile`조차 불가합니다.   
+  <br>
+  `a + b`는 우리가 명시적으로 `declare`한 `variable`이 아니죠.   
+  그러나 어쨌든 연산 결과는 저장됩니다.   
+  `temporary variable(임시 변수)`에 말이죠.   
+  `a + b`의 결과를 `access`함은, 바로 그 `temporary variable`을 `access`함을 의미합니다.   
+  <br>
+  `temporary variable`은 우리가 이름을 주지 않았기 때문에,   
+  그것이 생성된 라인을 넘어가면 `access`할 수 없습니다.   
+
+  ```cpp
+  std::cout << add(a, b);   // add(a, b)가 만들어낸 임시 변수가 std::cout에 출력되고 있습니다.
+  int result = add(a, b);   // add(a, b)가 만들어낸 임시 변수를 result에 저장하네요.
+                            // 임시 변수는 단명하지만, result는 유효 범위 내내 생존합니다.
+  ```
+
+  - 그리고 이러한 `temporary variable`의 주소를 취하는 것은 금지되어 있습니다.   
+    위의 `code`가 `compile`이 불가했던 이유이지요.   
+    <br>
+    그런데 살짝만 `code`를 비틀면, 문제를 간직한 채로 `compile`이 가능하게 만들어버릴 수 있습니다.   
+    <br>
+    바로 위의 `add(a, b)`를 `result`에 저장했던 사례를 응용하는 것입니다.
+
+  ```cpp
+  int& add(int a, int b)
+  {
+    int result = a + b;
+    return result;
+  }
+
+  int main()
+  {
+    int a = 10, b = 20;
+
+    std::cout << add(a, b) << '\n';
+  }
+  ```
+
+  - 몇몇 `compiler`들은 옵션 설정에 따라 위의 `code`를 `compile` 거부할 수도 있지만,   
+  그렇지 않은 경우도 있습니다.   
+  <br>
+  `compile` 가능한 경우, 실행 결과는 정의되어있지 않습니다. (`undefined`)   
+  다른 `compiler`를 사용할 일이 전혀 없다 해도   
+  여러분의 `IDE`를 업데이트했더니 돌아가던 게 안 돌아갈 수도 있고,   
+  협업자의 실행 결과와 여러분의 실행 결과가 다를 수 있습니다.   
+  <br>
+  `result`는 `temporary variable`이 아닙니다. (우리가 명시적으로 `declare`했죠.)    
+  `add`가 종료되면 사라지는, `add`의 `scope` 안에 있는 `local variable`을   
+  `reference`로 `return`한다니, 참으로 위험한 행동입니다.   
+  <br>
+  `add(a, b)`로 인해 만들어진 `temporary variable`은 `result`의 `reference`인데,   
+  `result`는 `add`가 종료되자마자 사라지죠.   
+  <br>
+  그렇게 사라진 `result`를 `(empty)`라고 하면,   
+  `temporary variable`은 `(empty)`를 담고 있는 것입니다.   
+  <br>
+  `std::cout << (empty) << '\n'`이라는 `code`가 실행되고 있는 거라구요.   
+  
+  - 이렇게 위험한 행동을 하지 않기 위해서는,   
+  `pointer`나 `reference` 타입으로 `declare`된 `parameter`를 `return`할 때에만 `reference`를 이용해야 합니다.   
+
+    - `parameter`로 `declare`된 `variable`을 `return`해야 하고
+    - 그 `parameter`가 `pointer`나 `reference`여야 합니다.
+
+  - 두 번씩이나 강조한 것은,   
+    `class`를 이용하는 순간 `reference`는 밥먹듯이 보게 될 친구이고,   
+    `member function`의 암묵적 `parameter`인 `this pointer`를 `dereference`해 반환하는 일이   
+    불가피한 순간이 반드시 오기 때문입니다.   
+    <br>
+    혹여 이 항목에서 `code`를 수정해가며 실험해보셨다면,   
+    위의 `swap` 구현 항목에서 모든 과정을 끝낸 마지막 상태로 다시 `code`를 되돌립시다.
+
+  - 다음 `structure`를 여러분의 `code`에 추가해주세요.
+  
+  ```cpp
+  struct TestScore
+  {
+      int math;
+      int english;
+      int physics;
+      int chemicals;
+  };
+  ```
+
+  - `main`에 다음의 `code`를 추가하세요.
+
+  ```cpp
+  TestScore a{20, 50, 30, 40};
+  TestScore b{40, 60, 90, 70};
+  TestScore c{10, 30, 60, 60};
+
+  if (&a != &min(a, b) ||
+      &c != &min(b, c) ||
+      &a != &min(a, c))
+  {
+      std::cout << "min의 구현이 잘못되었습니다.\n";
+  }
+
+  if (&b != &max(a, b) ||
+      &b != &max(b, c) ||
+      &c != &max(a, c))
+  {
+      std::cout << "max의 구현이 잘못되었습니다.\n";
+  }
+
+  if (&a != &median_of_three(a, b, c))
+  {
+      std::cout << "median_of_three의 구현이 잘못되었습니다.\n";
+  }
+
+  std::cout << "\"...의 구현이 잘못되었습니다.\" 출력이 안 나왔다면 성공!\n";
+  ```
+
+  - 다음의 함수들을 작성해 `main`이 올바르게 실행되도록 해봅시다.   
+    아직 만들지 않은 `function`을 이용하는 `main`의 `code`는 주석처리 하는 것으로,   
+    `function`을 만들 때마다 따로따로 테스트해볼 수 있습니다.
+
+    - `TestScore` 두 개 중 모든 `member variable`의 합이 작은 것을 `return`하는 `min`
+    - `TestScore` 두 개 중 모든 `member variable`의 합이 큰 것을 `return`하는 `max`
+    - `TestScore` 세 개 중 `member variable`의 합에 대해   
+    중간값을 가진 `TestScore`를 `return`하는 `median_of_three`
+
+
 ## Reference
+
+- Scott Meyers, 『Effective C++』, 곽용재 옮김, (3판, 프로텍미디어, 2015)
