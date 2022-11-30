@@ -19,27 +19,6 @@ using CellType = string;           // 1. std::string
 
 using CellDB = vector<std::array<CellType, ColCnt>>;
 
-CellDB loadDB(const std::string& file_path)#include "track_allocator.h"
-#include "timefunc.h"
-
-#include "constants.h"
-
-#include <vector>
-#include <string>
-#include <fstream>
-#include <iostream>
-
-using string = std::basic_string<char, std::char_traits<char>,
-    TrackAllocator<char>>;
-    
-template <typename T>
-using vector = std::vector<T, TrackAllocator<T>>;
-
-using CellType = string;           // 1. std::string
-// using CellType = vector<char>;  // 2. std::vector<char>
-
-using CellDB = vector<std::array<CellType, ColCnt>>;
-
 template<class _CharT, class _Traits, class Cont>
 std::basic_istream<_CharT, _Traits>&
 getline(std::basic_istream<_CharT, _Traits>& __in,
