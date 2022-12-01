@@ -392,7 +392,7 @@ std::cout << a << '\n';     // output: 5
       std::cout << "max의 구현이 잘못되었습니다.\n";
   }
 
-  if (&a != &median_of_three(a, b, c))
+  if (&c != &median_of_three(a, b, c))
   {
       std::cout << "median_of_three의 구현이 잘못되었습니다.\n";
   }
