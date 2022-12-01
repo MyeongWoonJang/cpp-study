@@ -409,7 +409,92 @@ std::cout << a << '\n';     // output: 5
     - `TestScore` 세 개 중 `member variable`의 합에 대해   
     중간값을 가진 `TestScore`를 `return`하는 `median_of_three`
 
+  - 저라면, `TestScore`의 `code`를 변경할 수 없고,   
+    짧은 시간에 많이 수행되는(=성능이 중요한) `function`이 아니라는 가정 하에   
+    다음과 같은 `code`를 작성했을 것입니다.   
+    <br>
+    컨닝은 힘들 겁니다.   
+    `function overloading`, `const`, `const_cast`, `inline`, `auto`, `decltype`, `noexcept`   
+    이런 개념들을 알아야 이해할 수 있을 거거든요.
+
+    ```cpp
+    inline
+    const auto
+    sum(const TestScore& ts) noexcept
+    {
+        return ts.math + ts.english + ts.physics + ts.chemicals;
+    }
+      
+    inline
+    decltype(auto)
+    __min_impl(const TestScore& lhs, const TestScore& rhs) noexcept
+    {
+        return sum(lhs) < sum(rhs) ? lhs : rhs;
+    }
+      
+    inline
+    decltype(auto)
+    min(TestScore& lhs, TestScore& rhs) noexcept
+    {
+        return const_cast<decltype(lhs)>(__min_impl(lhs, rhs));
+    }
+
+    inline
+    decltype(auto)
+    min(const TestScore& lhs, const TestScore& rhs) noexcept
+    {
+        return __min_impl(lhs, rhs);
+    }
+
+    inline
+    decltype(auto)
+    __max_impl(const TestScore& lhs, const TestScore& rhs) noexcept
+    {
+        return &min(lhs, rhs) == &lhs ? rhs : lhs;
+    }
+
+    inline
+    decltype(auto)
+    max(TestScore& lhs, TestScore& rhs) noexcept
+    {
+        return const_cast<decltype(lhs)>(__max_impl(lhs, rhs));
+    }
+
+    inline
+    decltype(auto)
+    max(const TestScore& lhs, const TestScore& rhs) noexcept
+    {
+        return __max_impl(lhs, rhs);
+    }
+
+    inline
+    decltype(auto)
+    __median_of_three_impl(const TestScore& a, const TestScore& b,
+                           const TestScore& c) noexcept
+    {
+        return max(min(a, b), min(b, c));
+    }
+
+    inline
+    decltype(auto)
+    median_of_three(TestScore& a, TestScore& b,
+                    TestScore& c) noexcept
+    {
+        return const_cast<decltype(a)>(
+          __median_of_three_impl(a, b, c));
+    }
+
+    inline
+    decltype(auto)
+    median_of_three(const TestScore& a, const TestScore& b,
+                    const TestScore& c) noexcept
+    {
+        return __median_of_three_impl(a, b, c);
+    }
+    ```
+
 
 ## Reference
 
 - Scott Meyers, 『Effective C++』, 곽용재 옮김, (3판, 프로텍미디어, 2015)
+- Scott Meyers, 『Effective Modern C++』, 류광 옮김, (인사이트, 2015)
