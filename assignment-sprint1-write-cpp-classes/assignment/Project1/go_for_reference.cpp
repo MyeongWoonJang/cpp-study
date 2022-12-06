@@ -9,11 +9,11 @@ void swap(int* lhs, int* rhs)
     // 이에 따라 기존의 lhs 값을 기억할 임시 변수 tmp(temporary)가 필요합니다.
 
     // 1. tmp에 lhs의 값을 대입합니다.
-    int* tmp = lhs;
+    int tmp = *lhs;
     // 2. lhs에 rhs의 값을 대입합니다.
-    lhs = rhs;
+    *lhs = *rhs;
     // 3. rhs에 tmp의 값을 대입합니다.
-    rhs = tmp;
+    *rhs = tmp;
 }
 
 int main()
