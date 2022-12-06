@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\assignment sorce">
+      <UniqueIdentifier>{c0e0b38f-642b-44f7-b89f-6036accc242d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="my_unique_ptr.h">
@@ -47,14 +50,14 @@
     <ClCompile Include="vec.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="manage_memory.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="dynamic allocation.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\assignment sorce</Filter>
     </ClCompile>
-    <ClCompile Include="소스.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="manage_memory.cpp">
+      <Filter>소스 파일\assignment sorce</Filter>
+    </ClCompile>
+    <ClCompile Include="go_for_reference.cpp">
+      <Filter>소스 파일\assignment sorce</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
