@@ -1,6 +1,6 @@
 #include <iostream>
 
-void swap(int* lhs, int* rhs)
+void swap(int& lhs, int& rhs)
 {
     // lhs: left hand side, rhs: right hand side
     // lhs에 rhs의 값을 대입하고 나면,
@@ -9,11 +9,11 @@ void swap(int* lhs, int* rhs)
     // 이에 따라 기존의 lhs 값을 기억할 임시 변수 tmp(temporary)가 필요합니다.
 
     // 1. tmp에 lhs의 값을 대입합니다.
-    int tmp = *lhs;
+    int tmp = lhs;
     // 2. lhs에 rhs의 값을 대입합니다.
-    *lhs = *rhs;
+    lhs = rhs;
     // 3. rhs에 tmp의 값을 대입합니다.
-    *rhs = tmp;
+    rhs = tmp;
 }
 
 int main()
@@ -21,7 +21,7 @@ int main()
     int a = 3;
     int b = 5;
 
-    swap(&a, &b);
+    swap(a, b);
 
     std::cout << "a = " << a << ", b = " << b << '\n'; // output: a = 5, b = 3
 }
