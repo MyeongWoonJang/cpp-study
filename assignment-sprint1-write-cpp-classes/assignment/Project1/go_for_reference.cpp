@@ -24,12 +24,14 @@ void swap(int& lhs, int& rhs)
     rhs = tmp;
 }
 
+int sum(TestScore& ts)
+{
+    return ts.math + ts.english + ts.physics + ts.chemicals;
+}
+
 TestScore& min(TestScore& lhs, TestScore& rhs)
 {
-    int lhs_sum = lhs.math + lhs.english + lhs.physics + lhs.chemicals;
-    int rhs_sum = rhs.math + rhs.english + rhs.physics + rhs.chemicals;
-
-    if (lhs_sum < rhs_sum)
+    if (sum(lhs) < sum(rhs))
         return lhs;
     else
         return rhs;
@@ -37,10 +39,7 @@ TestScore& min(TestScore& lhs, TestScore& rhs)
 
 TestScore& max(TestScore& lhs, TestScore& rhs)
 {
-    int lhs_sum = lhs.math + lhs.english + lhs.physics + lhs.chemicals;
-    int rhs_sum = rhs.math + rhs.english + rhs.physics + rhs.chemicals;
-
-    if (lhs_sum > rhs_sum)
+    if (sum(lhs) > sum(rhs))
         return lhs;
     else
         return rhs;
@@ -48,43 +47,14 @@ TestScore& max(TestScore& lhs, TestScore& rhs)
 
 TestScore& median_of_three(TestScore& one, TestScore& two, TestScore& three)
 {
-    int one_sum = one.math + one.english + one.physics + one.chemicals;
-    int two_sum = two.math + two.english + two.physics + two.chemicals;
-    int three_sum = three.math + three.english + three.physics + three.chemicals;
-
-    if (one_sum > two_sum)
-    {
-        if (one_sum > three_sum)
-        {
-            if (two_sum > three_sum)
-                return two;
-            else
-                return three;
-        }
-        else
-            return one;
-    }
-    else // one_sum < two_sum (같은 경우는 어찌 해야되지..?)
-    {
-        if (one_sum > three_sum)
-        {
-            return one;
-        }
-        else
-        {
-            if (two_sum > three_sum)
-                return three;
-            else
-                return two;
-        }
-    }
+    return min(max(one, two), max(two, three));
 }
 
 int main()
 {
-    TestScore a{ 20, 50, 30, 40 };
-    TestScore b{ 40, 60, 90, 70 };
-    TestScore c{ 10, 30, 60, 60 };
+    TestScore a{ 20, 50, 30, 40 };  // 140
+    TestScore b{ 40, 60, 90, 70 };  // 260
+    TestScore c{ 10, 30, 60, 60 };  // 160
 
     if (&a != &min(a, b) ||
         &c != &min(b, c) ||
