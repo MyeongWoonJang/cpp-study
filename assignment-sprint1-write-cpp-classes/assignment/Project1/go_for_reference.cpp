@@ -47,14 +47,43 @@ TestScore& max(TestScore& lhs, TestScore& rhs)
 
 TestScore& median_of_three(TestScore& one, TestScore& two, TestScore& three)
 {
-    return min(max(one, two), max(two, three));
+    int one_sum = sum(one);
+    int two_sum = sum(two);
+    int three_sum = sum(three);
+
+    if (one_sum > two_sum)
+    {
+        if (one_sum > three_sum)
+        {
+            if (two_sum > three_sum)
+                return two;
+            else
+                return three;
+        }
+        else
+            return one;
+    }
+    else // one_sum < two_sum (같은 경우는 어찌 해야되지..?)
+    {
+        if (one_sum > three_sum)
+        {
+            return one;
+        }
+        else
+        {
+            if (two_sum > three_sum)
+                return three;
+            else
+                return two;
+        }
+    }
 }
 
 int main()
 {
-    TestScore a{ 20, 50, 30, 40 };  // 140
-    TestScore b{ 40, 60, 90, 70 };  // 260
-    TestScore c{ 10, 30, 60, 60 };  // 160
+    TestScore a{ 20, 50, 30, 40 };
+    TestScore b{ 40, 60, 90, 70 };
+    TestScore c{ 10, 30, 60, 60 };
 
     if (&a != &min(a, b) ||
         &c != &min(b, c) ||
