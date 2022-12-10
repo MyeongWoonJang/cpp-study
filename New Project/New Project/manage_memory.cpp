@@ -7,8 +7,8 @@ int main( )
 {
 	std::cout << __FUNCTION__ << " entry\n";
 
-	int val1{ subfunc1( 1 ) };
-	char val2{ subfunc2( 1.1f, 'n' ) };
+	int var1{ subfunc1( 1 ) };
+	char var2{ subfunc2( 1.1f, 'n' ) };
 
 	std::cout << __FUNCTION__ << " exit\n";
 }
