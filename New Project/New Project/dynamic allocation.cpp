@@ -24,10 +24,13 @@ void printmem( const Ty& var )    // function template definition
 
 int main( )
 {
-    int* heap_int = new int{ 123 };
+    int* heap_arr = new int[5] { 1, 2, 3, 4, 5 };
 
-    printmem( heap_int );
-    printmem( *heap_int );
+    printmem( heap_arr );
+    printmem( *heap_arr );
 
-    delete heap_int;
+    for ( int i = 0; i < 5; ++i )
+        printmem( heap_arr[ i ] );
+
+    delete[ ] heap_arr;
 }
