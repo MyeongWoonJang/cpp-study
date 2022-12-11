@@ -22,15 +22,16 @@ void printmem( const Ty& var )    // function template definition
     printmem_stream( var, std::cout );
 }
 
+void memory_leak( );
+
 int main( )
 {
-    int* heap_arr = new int[5] { 1, 2, 3, 4, 5 };
+    memory_leak( );
 
-    printmem( heap_arr );
-    printmem( *heap_arr );
+    std::cin.get( );
+}
 
-    for ( int i = 0; i < 5; ++i )
-        printmem( heap_arr[ i ] );
-
-    delete[ ] heap_arr;
+void memory_leak( )
+{
+    char* mem = new char[1'000'000'000] { 0 };
 }
