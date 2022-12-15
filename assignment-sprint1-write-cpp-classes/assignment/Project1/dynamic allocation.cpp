@@ -46,13 +46,13 @@ void* operator new(std::size_t sz)
 	if (sz == 0)
 		++sz; // avoid std::malloc(0) which may return nullptr on success
 
-	while (true)
+	if (void* ptr = std::malloc(sz))  // C++17, if statement with initializer
 	{
-		if (void* ptr = std::malloc(sz)) return ptr;
-
-		if (std::new_handler nh = std::get_new_handler()) nh();
-		else throw std::bad_alloc{}; // required by [new.delete.single]/3
+		std::cout << __FUNCTION__ << " exit\n";
+		return ptr;
 	}
+
+	throw std::bad_alloc{}; // required by [new.delete.single]/3
 }
 
 void operator delete(void* ptr) noexcept
