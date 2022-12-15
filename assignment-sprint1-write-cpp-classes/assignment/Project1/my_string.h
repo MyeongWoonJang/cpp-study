@@ -24,7 +24,7 @@ public:
 	void pop_back();
 	void append(const char c);
 	int compare(const char* other) const;
-	void replace(size_t n, size_t m, size_t k, size_t l, const char* s);
+	void replace(size_t offset, size_t m, size_t k, size_t l, const char* s);
 	const my_string& substr(const size_t n, const size_t m);
 	int find(const char* str) const;
 
