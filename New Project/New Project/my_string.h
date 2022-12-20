@@ -6,7 +6,7 @@
 class my_string
 {
 public:
-	char& at( size_t );
+	char& at( size_t location );
 	char& front( );
 	char& back( );
 	const char* c_str( );
@@ -14,20 +14,20 @@ public:
 	bool empty( );
 	size_t size( );
 	size_t length( );
-	void reserve( size_t );
+	void reserve( size_t num );
 	int capacity( );
 	void shrink_to_fit( );
-	void resize( size_t );
+	void resize( size_t num );
 	void clear( );
-	void insert( size_t, const char* );
-	void erase( size_t, size_t );
-	void push_back( char );
+	void insert( size_t location, const char* str );
+	void erase( size_t location, size_t num );
+	void push_back( char word );
 	void pop_back( );
-	void append( char );
-	int compare( const char* );
-	void replace( const char*, const char* );
-	const char* substr( size_t, size_t );
-	int find( const char* );
+	void append( char word );
+	int compare( const char* str );
+	void replace( size_t location, size_t num, size_t str_location, size_t str_num, const char* str );
+	const char* substr( size_t location, size_t num );
+	int find( const char* str );
 
 private:
 	size_t num;
