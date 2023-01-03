@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-## Describe
+## Describe what is invalid
 
 잘못된 내용에 대한 명료하고 정확한 설명을 작성해주세요.
 
