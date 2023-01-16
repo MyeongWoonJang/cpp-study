@@ -6,7 +6,7 @@
   - `Jira`의 `Issue`는 해야 할 일들이 알기 쉽게 요약되어있죠.
   - `Git`의 `Commit`은 실제적이고, 구체적인 우리의 작업들입니다.
   - `Github`에서 `Commit History`를 보아도 일련의 `Commit`들이 어떤 목적인지 보이지 않습니다.
-  - 해야 할 일이 요약된 `Issue`별로 그 실제 처리 작업인 `Commit`이 분류되어 보인다면,업무 진척이 한 눈에 들어오겠죠.
+  - 해야 할 일이 요약된 `Issue`별로 그 실제 처리 작업인 `Commit`이 분류되어 보인다면, 업무 진척이 한 눈에 들어오겠죠.
 
 ## Table of contents
 
@@ -66,7 +66,7 @@
 
   - 예시 사진처럼, `Issue Key`를 포함해서 여러분이 적고 싶은 `Commit Message`를 작성하시면 됩니다.
   - 여러 개의 `Issue Key`를 포함하면, 여러 개의 `Jira` `Issue`와 연동됩니다.
-  - `Commit Message`의 `extended description`에 `Issue Key`를 적어도 문제 없이 반영됩니다.
+  - `Commit Message`의 `extended description`에 `Issue Key`를 적어도 문제없이 반영됩니다.
 
   <div align="center"><image src="https://user-images.githubusercontent.com/73771162/197697166-e2a87f93-cc1b-4894-9982-9fa34008615e.PNG"></image></div>
   <div align="center"><image width="800" height="314" src="https://user-images.githubusercontent.com/73771162/197697169-747be0e8-323a-4118-b18b-7372c4f7af98.PNG"></image></div>
