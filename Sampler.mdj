@@ -1450,7 +1450,7 @@
 											"top": 216,
 											"width": 261.1298828125,
 											"height": 13,
-											"text": "+RGBtoGray(Matrix rgb, out Matrix gray)",
+											"text": "+RGBtoGray(Tensor rgb, out Matrix gray)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -1665,7 +1665,7 @@
 											"font": "Arial;13;0",
 											"left": 1440,
 											"top": -464,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -1844,7 +1844,7 @@
 									"font": "Arial;13;0",
 									"left": 863,
 									"top": 410,
-									"width": 46.61083984375,
+									"width": 46.8203125,
 									"height": 13,
 									"alpha": 0.9818682993196002,
 									"distance": 46.57252408878007,
@@ -2136,7 +2136,7 @@
 											"font": "Arial;13;1",
 											"left": 893,
 											"top": 790,
-											"width": 82.7353515625,
+											"width": 88.16259765625,
 											"height": 13,
 											"text": "Saturation"
 										},
@@ -2150,7 +2150,7 @@
 											"font": "Arial;13;0",
 											"left": -48,
 											"top": 272,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2171,7 +2171,7 @@
 									"font": "Arial;13;0",
 									"left": 888,
 									"top": 783,
-									"width": 92.7353515625,
+									"width": 98.16259765625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGGoFvdu4FXALc="
@@ -2224,7 +2224,7 @@
 											"font": "Arial;13;0",
 											"left": 893,
 											"top": 813,
-											"width": 82.7353515625,
+											"width": 88.16259765625,
 											"height": 13,
 											"text": "+get(float dist)",
 											"horizontalAlignment": 0
@@ -2233,7 +2233,7 @@
 									"font": "Arial;13;0",
 									"left": 888,
 									"top": 808,
-									"width": 92.7353515625,
+									"width": 98.16259765625,
 									"height": 23
 								},
 								{
@@ -2273,7 +2273,7 @@
 							"containerChangeable": true,
 							"left": 888,
 							"top": 760,
-							"width": 92.7353515625,
+							"width": 98.16259765625,
 							"height": 72,
 							"stereotypeDisplay": "icon",
 							"nameCompartment": {
@@ -2334,7 +2334,7 @@
 											"font": "Arial;13;1",
 											"left": 877,
 											"top": 631,
-											"width": 105.853515625,
+											"width": 107.97998046875,
 											"height": 13,
 											"text": "LinearSaturation"
 										},
@@ -2348,7 +2348,7 @@
 											"font": "Arial;13;0",
 											"left": 448,
 											"top": -272,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2369,7 +2369,7 @@
 									"font": "Arial;13;0",
 									"left": 872,
 									"top": 624,
-									"width": 115.853515625,
+									"width": 117.97998046875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGGoF1x+ILGAZg="
@@ -2406,7 +2406,7 @@
 											"font": "Arial;13;0",
 											"left": 877,
 											"top": 654,
-											"width": 105.853515625,
+											"width": 107.97998046875,
 											"height": 13,
 											"text": "-coefficient: float",
 											"horizontalAlignment": 0
@@ -2415,7 +2415,7 @@
 									"font": "Arial;13;0",
 									"left": 872,
 									"top": 649,
-									"width": 115.853515625,
+									"width": 117.97998046875,
 									"height": 23
 								},
 								{
@@ -2440,7 +2440,7 @@
 											"font": "Arial;13;0",
 											"left": 877,
 											"top": 677,
-											"width": 105.853515625,
+											"width": 107.97998046875,
 											"height": 13,
 											"text": "+setCoef(float val)",
 											"horizontalAlignment": 0
@@ -2457,7 +2457,7 @@
 											"font": "Arial;13;0",
 											"left": 877,
 											"top": 692,
-											"width": 105.853515625,
+											"width": 107.97998046875,
 											"height": 13,
 											"text": "+getCoef(): float",
 											"horizontalAlignment": 0
@@ -2466,7 +2466,7 @@
 									"font": "Arial;13;0",
 									"left": 872,
 									"top": 672,
-									"width": 115.853515625,
+									"width": 117.97998046875,
 									"height": 38
 								},
 								{
@@ -2506,7 +2506,7 @@
 							"containerChangeable": true,
 							"left": 872,
 							"top": 624,
-							"width": 115.853515625,
+							"width": 117.97998046875,
 							"height": 86,
 							"nameCompartment": {
 								"$ref": "AAAAAAGGoF1x+ILF3DA="
@@ -2545,7 +2545,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 945,
+									"left": 947,
 									"top": 728,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2566,7 +2566,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 960,
+									"left": 962,
 									"top": 727,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -2587,7 +2587,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 916,
+									"left": 918,
 									"top": 729,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -2606,7 +2606,7 @@
 								"$ref": "AAAAAAGGoF1x+ILEa7o="
 							},
 							"lineStyle": 1,
-							"points": "930:710;932.0833333333334:760",
+							"points": "932:710;934.1666666666666:760",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGGoF89Z4jeg6c="
@@ -2673,7 +2673,7 @@
 											"font": "Arial;13;0",
 											"left": 128,
 											"top": -96,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2902,7 +2902,7 @@
 											"font": "Arial;13;0",
 											"left": -160,
 											"top": 176,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -3064,7 +3064,7 @@
 									"font": "Arial;13;0",
 									"left": 998,
 									"top": 221,
-									"width": 30.7099609375,
+									"width": 30.83056640625,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -3159,7 +3159,7 @@
 									"font": "Arial;13;0",
 									"left": 967,
 									"top": 286,
-									"width": 30.7099609375,
+									"width": 30.83056640625,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -3519,7 +3519,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGGnKvPhWMy4XE="
 									},
-									"name": "Matrix rgb"
+									"name": "Tensor rgb"
 								},
 								{
 									"_type": "UMLParameter",
