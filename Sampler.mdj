@@ -662,7 +662,7 @@
 											"top": 340,
 											"width": 355.8115234375,
 											"height": 13,
-											"text": "-postManipulate(ref Matrix stretched in int row, int col)",
+											"text": "-postManipulate(ref Matrix stretched, int row, int col)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2073,7 +2073,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGGpYPm/ox//MQ="
 									},
-									"name": "ref Matrix stretched in int row"
+									"name": "ref Matrix stretched"
 								},
 								{
 									"_type": "UMLParameter",
@@ -2081,7 +2081,16 @@
 									"_parent": {
 										"$ref": "AAAAAAGGpYPm/ox//MQ="
 									},
-									"name": "int col"
+									"name": "int row"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGGpZDgJZ5Ud4s=",
+									"_parent": {
+										"$ref": "AAAAAAGGpYPm/ox//MQ="
+									},
+									"name": "int col",
+									"type": ""
 								}
 							]
 						}
