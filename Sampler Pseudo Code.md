@@ -1,11 +1,7 @@
 ```
 @param src 샘플링할 원본 행렬
 @param context 샘플링 방법을 서술한 매개변수 객체
-    [beginRow: $src로부터 처음으로 읽을 행
-     beginCol: $src로부터 처음으로 읽을 열
-     stride: $src의 한 픽셀에 대한 $return의 한 픽셀의 길이 비
-     endRow: $src로부터 마지막으로 읽을 행 + 1
-     endCol: $src로부터 마지막으로 읽을 열 + 1
+    [srcRegion: 
      bRepeat: 
      bInterpolation:
      resRow:
