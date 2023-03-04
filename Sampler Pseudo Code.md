@@ -23,6 +23,21 @@ Sampler::sample() -> Matrix:
     for each pixel(i, j) in res:
          refRow := beginRow + (i-1) * rowStride
          refCol := beginCol + (j-1) * colStride
+         
+         if refRow > endRow:
+            if bRepeat is true:
+                refRow := { (refRow - beginRow) mod (endRow - beginRow) } + beginRow
+            else:
+                pixel(i, j) := clearValue
+                continue to next loop
+                
+         if refCol > endCol:
+            if bRepeat is true:
+                refCol := { (refCol - beginCol) mod (endCol - endCol) } + beginCol
+            else:
+                pixel(i, j) := clearValue
+                continue to next loop
+         
          if bInterpolation is true:
             pixel(i, j) := linear interpolation of range
                 [refRow - rowStride/2, refRow + rowStride/2]
@@ -33,6 +48,7 @@ Sampler::sample() -> Matrix:
                 [refRow - rowStride/2, refRow + rowStride/2]
                 [refCol - colStride/2, refCol + colStride/2]
                 in src
+    return res
                 
 Sampler::graySample() -> Matrix:
 
