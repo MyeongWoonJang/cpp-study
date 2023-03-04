@@ -9,7 +9,9 @@
      clearValue: ${bRepeat} == true일 경우 $srcRegion의 외부 참조 시 출력할 값]
 @return $src를 회색조로 샘플링한 행렬
 @pre $src != null
-Sampler::graySample(ref Matrix src, SampleContext context) -> Matrix:
+Sampler::graySample(ref Matrix src, GraySampleContext context) -> Matrix:
+
+Sampler::sample(ref Matrix src, ColorSampleContext context) -> Matrix:
 
 Sampler::stretch() -> Matrix:
 
