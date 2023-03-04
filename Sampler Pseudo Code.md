@@ -10,12 +10,11 @@
 @return $Sampler::src를 $Sampler::context에 따라 샘플링한 행렬
 @pre $Sampler::src != null
 Sampler::sample() -> Matrix:
+    
 
 Sampler::graySample() -> Matrix:
 
 Sampler::setSrc(ref Matrix):
 
 Sampler::setContext(SampleContext context):
-
-Sampler::stretch() -> Matrix:
 ```
