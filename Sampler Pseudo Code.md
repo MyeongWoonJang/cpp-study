@@ -1,12 +1,13 @@
 ```
 @param src 샘플링할 원본 행렬
 @param context 샘플링 방법을 서술한 매개변수 객체
-    [srcRegion: 
-     bRepeat: 
-     bInterpolation:
-     resRow:
-     resCol:]
-@return: 회색조로 샘플링된 행렬
+    [srcRegion: 참조할 원본 영역, (시작행, 시작열, 끝행, 끝열)
+     bRepeat: $srcRegion의 외부 참조 시 반복 확장 해석 여부
+     bInterpolation: 겹선형보간 여부
+     resRow: $return의 행 수
+     resCol: $return의 열 수]
+@return $src를 회색조로 샘플링한 행렬
+@pre $src != null
 Sampler::graySample(ref Matrix src, SampleContext context) -> Matrix:
 
 Sampler::stretch() -> Matrix:
