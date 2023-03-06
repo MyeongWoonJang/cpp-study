@@ -51,8 +51,9 @@ Sampler::sample() -> Matrix:
     return res
                 
 @use $Sampler::sample()
+@param gsm RGB 픽셀을 회색조 픽셀로 변환하는데 사용할 알고리즘
 @return $Sampler::sample()을 회색조로 변환한 행렬
-Sampler::graySample() -> Matrix:
+Sampler::graySample(GrayScaleMethod gsm) -> Matrix:
     res := sample()
     for each pixel(i, j) in res:
         make pixel(i, j) gray
