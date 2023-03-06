@@ -58,7 +58,9 @@ Sampler::graySample() -> Matrix:
         make pixel(i, j) gray
     return res
 
-Sampler::setSrc(ref Matrix):
+Sampler::setSrc(ref Matrix src):
+    Sampler::src := src
 
 Sampler::setContext(SampleContext context):
+    Sampler::context := context
 ```
