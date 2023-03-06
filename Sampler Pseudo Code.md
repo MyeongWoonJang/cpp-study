@@ -50,7 +50,13 @@ Sampler::sample() -> Matrix:
                 in src
     return res
                 
+@use $Sampler::sample()
+@return $Sampler::sample()을 회색조로 변환한 행렬
 Sampler::graySample() -> Matrix:
+    res := sample()
+    for each pixel(i, j) in res:
+        make pixel(i, j) gray
+    return res
 
 Sampler::setSrc(ref Matrix):
 
