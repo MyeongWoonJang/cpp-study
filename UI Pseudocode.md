@@ -20,3 +20,14 @@ AddUI <- (UI)
 ```
 
 ## 
+
+```
+UI ui;
+ui.AddUI("Button", "OverLap", pos1, scale1);
+ui.AddUI("Button", "ColorChange", pos2, scale2);
+
+...
+
+
+
+```
