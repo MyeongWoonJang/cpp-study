@@ -328,7 +328,7 @@
 											"top": 119,
 											"width": 63.2353515625,
 											"height": 13,
-											"text": "RGB"
+											"text": "Pixel"
 										},
 										{
 											"_type": "LabelView",
@@ -843,7 +843,7 @@
 											"top": 423,
 											"width": 147.64013671875,
 											"height": 13,
-											"text": "+clearValue: RGB",
+											"text": "+clearValue: Pixel",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2908,7 +2908,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "RGB",
+					"name": "Pixel",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -3048,9 +3048,7 @@
 								"$ref": "AAAAAAGGqu6s38hrk0s="
 							},
 							"name": "clearValue",
-							"type": {
-								"$ref": "AAAAAAGGqu4Gq8goZ/A="
-							}
+							"type": "Pixel"
 						}
 					]
 				},
@@ -3399,7 +3397,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKdRSZxSzqs="
 									},
-									"name": "Pixel p"
+									"name": "Pixel p",
+									"type": ""
 								}
 							]
 						},
