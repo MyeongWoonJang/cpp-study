@@ -1,17 +1,22 @@
-# UI Pseudocode
+# Pseudocode
 
-## Draw UI
+## RenderComponent
 
-UI클래스는 위치와 크기정보를 가지고 있다.
+```
+draw <- (UI):
+    해당 UI의 위치와 크기만큼 이미지를 그린다.
+```
 
-UI클래스를 상속한 Button, Text, ClickArea 클래스가 있다.  
+## LayoutComponent
 
-Button은 InputComponent와 RenderComponent 클래스를 가지고 있다.
+```
+SetPosition <-
+?
+```
 
-모든 UI들이 그려질 때 RenderComponent의 draw를 호출한다.
-
-
-
-
+```
+AddUI <- (UI)
+    컨테이너에 UI를 추가
+```
 
 ## 
