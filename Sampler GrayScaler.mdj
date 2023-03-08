@@ -2646,7 +2646,7 @@
 									"hostEdge": {
 										"$ref": "AAAAAAGGwKLYYXBqOrs="
 									},
-									"text": "+contains"
+									"text": "+Contain"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3130,7 +3130,7 @@
 								"_parent": {
 									"$ref": "AAAAAAGGwKLYYXBmFfs="
 								},
-								"name": "contains",
+								"name": "Contain",
 								"reference": {
 									"$ref": "AAAAAAGGwJ+dr1qgKE0="
 								},
