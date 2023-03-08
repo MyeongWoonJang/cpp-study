@@ -186,7 +186,7 @@
 											"top": 164,
 											"width": 309.7275390625,
 											"height": 13,
-											"text": "+setSrc(ref Matrix src)",
+											"text": "+setSrc(src: ref Matrix)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -203,7 +203,7 @@
 											"top": 179,
 											"width": 309.7275390625,
 											"height": 13,
-											"text": "+setContext(SampleContext context)",
+											"text": "+setContext(context: SampleContext)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2239,7 +2239,7 @@
 											"top": 149,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "+grayScale(GrayScaleMethod gsm): Matrix",
+											"text": "+grayScale(gsm: GrayScaleMethod): Matrix",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2256,7 +2256,7 @@
 											"top": 164,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "+setSrc(ref Matrix src)",
+											"text": "+setSrc(src: ref Matrix)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2273,7 +2273,7 @@
 											"top": 179,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-averaging(Pixel p): Pixel",
+											"text": "-averaging(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2290,7 +2290,7 @@
 											"top": 194,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-luma(Pixel p): Pixel",
+											"text": "-luma(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2307,7 +2307,7 @@
 											"top": 209,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-lumaBT709(Pixel p): Pixel",
+											"text": "-lumaBT709(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2324,7 +2324,7 @@
 											"top": 224,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-lumaBT601(Pixel p): Pixel",
+											"text": "-lumaBT601(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2341,7 +2341,7 @@
 											"top": 239,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-desaturation(Pixel p): Pixel",
+											"text": "-desaturation(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2358,7 +2358,7 @@
 											"top": 254,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-maxDecomposition(Pixel p): Pixel",
+											"text": "-maxDecomposition(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2375,7 +2375,7 @@
 											"top": 269,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-minDecomposition(Pixel p): Pixel",
+											"text": "-minDecomposition(inp: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2392,7 +2392,7 @@
 											"top": 284,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-rOnly(Pixel p): Pixel",
+											"text": "-rOnly(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2409,7 +2409,7 @@
 											"top": 299,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-gOnly(Pixel p): Pixel",
+											"text": "-gOnly(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2426,7 +2426,7 @@
 											"top": 314,
 											"width": 331.22705078125,
 											"height": 13,
-											"text": "-bOnly(Pixel p): Pixel",
+											"text": "-bOnly(p: Pixel): Pixel",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2857,8 +2857,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGGqvG47sxCWs8="
 									},
-									"name": "ref Matrix src",
-									"type": ""
+									"name": "src",
+									"type": "ref Matrix"
 								}
 							]
 						},
@@ -2876,8 +2876,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGqvHSysx+zWQ="
 									},
-									"name": "SampleContext context",
-									"type": ""
+									"name": "context",
+									"type": {
+										"$ref": "AAAAAAGGqu6s38hrk0s="
+									}
 								}
 							]
 						},
@@ -3253,8 +3255,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKP2Rn1cTj0="
 									},
-									"name": "GrayScaleMethod gsm",
-									"type": ""
+									"name": "gsm",
+									"type": {
+										"$ref": "AAAAAAGGtOjSrFwDNIc="
+									}
 								},
 								{
 									"_type": "UMLParameter",
@@ -3281,8 +3285,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKZ4wZgQMPE="
 									},
-									"name": "ref Matrix src",
-									"type": ""
+									"name": "src",
+									"type": "ref Matrix"
 								}
 							]
 						},
@@ -3301,7 +3305,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKS+1okCEpE="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3310,8 +3316,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKS+1okCEpE="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3330,7 +3338,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKT1dol/YbM="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3339,8 +3349,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKT1dol/YbM="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3359,7 +3371,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKbuiZo9/jk="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3368,8 +3382,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKbuiZo9/jk="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3388,7 +3404,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKdRSZxSzqs="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3397,8 +3415,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKdRSZxSzqs="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3417,7 +3437,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKdvApzPL08="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3426,8 +3448,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKdvApzPL08="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3446,7 +3470,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKeJKp1MYmw="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3455,8 +3481,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKeJKp1MYmw="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3475,7 +3503,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKhHEqIZBJ4="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3484,8 +3514,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKhHEqIZBJ4="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "inp",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3504,7 +3536,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKhscqKh10Q="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3513,8 +3547,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKhscqKh10Q="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3533,7 +3569,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKiScaOnexw="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3542,8 +3580,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKiScaOnexw="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						},
@@ -3562,7 +3602,9 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKi0uaQvqYM="
 									},
-									"type": "Pixel",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									},
 									"direction": "return"
 								},
 								{
@@ -3571,8 +3613,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGGwKi0uaQvqYM="
 									},
-									"name": "Pixel p",
-									"type": ""
+									"name": "p",
+									"type": {
+										"$ref": "AAAAAAGGqu4Gq8goZ/A="
+									}
 								}
 							]
 						}
