@@ -61,11 +61,11 @@ Sampler::setContext(SampleContext context):
 ***
 @brief RGB행렬을 회색조로 변환한다.
     사용할 회색조 변환 알고리즘은 $gsm에 의해 결정된다.
-@use $GraysCaler::src 회색조로 변환할 원본 행렬
-@param gsm 사용할 회색조 변환 알고리즘을 나타내는 식별자
+@use $GrayScaler::src 회색조로 변환할 원본 행렬
+@use $GrayScaler::gsm 사용할 회색조 변환 알고리즘을 나타내는 식별자
 @return 회색조로 변환된 RGB행렬
 ***
-GrayScaler::grayScale(GrayScaleMethod gsm) -> Matrix:
+GrayScaler::grayScale() -> Matrix:
     Create res as copy of src
     for each pixel in res:
         set pixel's value via the algorithm specified by gsm.
