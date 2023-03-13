@@ -9,11 +9,11 @@
 cmake_minimum_required(VERSION 3.18)
 
 # default settings
-if(NOT DEFINED CMAKE_BUILD_TYPE AND NOT DEFINED CMAKE_CONFIGURE_TYPE)
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURE_TYPE)
     message(STATUS "setting CMAKE_BUILD_TYPE to 'Debug'(default build type)
         as none was specified.")
-    set(CMAKE_BUILD_TYPE Release Cache STRING "Choose the type of field" FORCE)
-    set_property(CMAKE_BUILD_TYPE
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of field" FORCE)
+    set_property(CACHE CMAKE_BUILD_TYPE
         PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif()
 
