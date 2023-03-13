@@ -27,3 +27,7 @@ endif()
 # end of default settings
 
 project(ASCIIArt VERSION 1.0.0 LANGUAGES CXX)
+message(STATUS "Ascii-Art project (version ${PROJECT_VERSION})")
+message(STATUS "Authors: @Woon2(wkdauddns9@gmail.com),")
+message(STATUS "@Lcat12345(ljj3640@gmail.com)")
+message(STATUS "@orange2458(dntkdgns1039@gmail.com)")
