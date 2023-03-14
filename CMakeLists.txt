@@ -96,7 +96,7 @@ message("Dependency check done")
 
 message("Configuring Ascii-Art project...")
 
-add_executable(ascii)
+add_executable(ascii core/main.cpp)
 
 # ***
 # Firstly set compile & link options, properties
