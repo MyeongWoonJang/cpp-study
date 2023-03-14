@@ -102,7 +102,7 @@ add_executable(ascii)
 # Firstly set compile & link options, properties
 # ***
 
-set_target_properties(ascii PROPOERTIES
+set_target_properties(ascii PROPERTIES
     CXX_STANDARD 20
 )
 
